@@ -112,6 +112,7 @@ I started with the TMDb API, so, I needed to make the registration process, and 
 
 That didn't hurt, and soon I started to make queries from Postman. So, at this time I get the data for the categories in the app:
 
+![Get upcoming](https://lh3.googleusercontent.com/OEF0GDLlPGGV_WtWWzGnO7HO08gT1JVilq4OzjRp4gkoY3dxj0eGjmF6axXUY-cSQR9VahPMXYDb=s800)
  - Popular
 api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=XXXX
  - Top rated
@@ -119,4 +120,21 @@ api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=XXXX
  - Upcoming
  api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=XXXX
 
-The [Discover API examples](https://www.themoviedb.org/documentation/api/discover) section in the documentation offer some useful snippets
+The [Discover API examples](https://www.themoviedb.org/documentation/api/discover) section in the documentation offer some useful snippets.
+
+At this moment I realized that the JSON response seems not to have all the data that I need. For example, I can't find the Youtube URL to the video, and all the properties *video* are false.
+
+I got all the general data that I need:
+
+ - Votes
+ - Title
+ - Original title
+ - Genres (at last the ID's). I don't know how to extract the name genres, by the way.
+ - Poster
+ - Average qualification
+ - Description
+ - Release date
+ - There is a property called *popularity*. Right now, I don't what's that exactly.
+ - Original language from the movie
+
+Until now is enough for my purpose, excepto by the video link. I need to learn to extract that information. Actually, It would be cool to extract the actors list, but I think that's is not a very good idea because I've don't even started to write any line.

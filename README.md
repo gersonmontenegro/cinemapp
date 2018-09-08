@@ -142,6 +142,15 @@ Until now is enough for my purpose, excepto by the video link. I need to learn h
 After a while checking the forum, I found a [good answer](https://www.themoviedb.org/talk/5451ec02c3a3680245005e3c) from (I think) the guy who give support to the API, but, it's not perfect, because I need to make a second query to get the video list:
 
     api.themoviedb.org/3/movie/299536/videos?api_key=XXXX
+   ![enter image description here](https://lh3.googleusercontent.com/bfFeZiN3kVXxgenO7hI5hSUhLNFlMPCe10gPnDk7dcwU6PW9b7JfB6LDXOx4JcoGxApXQRCdt2cK=s500)
+
 Where 299536 is the movie ID. In this case, Avengers, infinity wars.
 
 In the same answer, this guy said that we can add another parameter to our regular queries to get the videos in the same response, but it doesn't works, at least for me, so, I left that option for now.
+
+Just for curiosity, I wrote *images* instead *videos* in the last URL, and then I got the list of images from that movie. Very useful option.
+
+![
+](https://lh3.googleusercontent.com/Y9xl-g7uJ-wTMxOs6sc9NxJy7tcR5ju8SoUPQ1MuvEROt8h_E5M6CVCyWQhvBXFiBJW7MecoQBrj=s500)
+
+

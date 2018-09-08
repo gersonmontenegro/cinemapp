@@ -1,6 +1,6 @@
 
 # CinemApp
-React native exercise about consume the TMDB API
+React native exercise about consume the TMDB API.
 
 This time I'm gonna make a faster (I hope) exercise with the [TMDB API](https://www.themoviedb.org/?language=en), which allow us to consume all the movie library in their database.
 
@@ -82,10 +82,28 @@ Fonts, images, etc.
 
 *Screens*
 
-This is the place to keep the main interfaces, such as Splash, Main scree, Movie screens, etc.
+This is the place to keep the main interfaces, such as Splash, Main screen, Movie screens, etc.
 
 *Providers*
 
 This folder is going to have controllers in order to manage the internal database, http connections, and business logic.
 
+**First code commit**
 
+After add the first commit into the repository, I would like to remember what kind of libraries/resources I'm going to use in order to complete the app:
+
+ - [React Native](https://facebook.github.io/react-native/)
+ - [Animated API](https://facebook.github.io/react-native/docs/animated)
+ - [SQLite3 Native plugin](https://github.com/andpor/react-native-sqlite-storage) (for persistence layer)
+ - [TMDb API](https://developers.themoviedb.org/3/getting-started/introduction)
+ - [Youtube component](https://github.com/inProgress-team/react-native-youtube) in order to show a trailer.
+ - [NativeBase](https://nativebase.io). Maybe I need some component to avoid build it from scratch.
+ - [Some fonts](www.1001freefonts.com/). Actually, right now I don't know what kind of font to use, but I hope not to take to much time making a decision.
+
+From the above list, there are two thinks that I've never used in React Native: the TMDb API, and the Youtube Component, so, I need to study a little bit about them.
+
+Also I figured out that I've never worked with SQLite3 in React Native, but, after a little while reading the documentation, I realized that is exactly the same library I used to work with jQuery Mobile in many projects a few years ago, so, I need to take care about it because I don't want surprises with this technology.
+
+Let's started to code.
+
+First of all, I'm gonna make the basic structure and navigation system. Then, I'm gonna to add some details one at time.

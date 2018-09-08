@@ -137,4 +137,4 @@ I got all the general data that I need:
  - There is a property called *popularity*. Right now, I don't what's that exactly.
  - Original language from the movie
 
-Until now is enough for my purpose, excepto by the video link. I need to learn to extract that information. Actually, It would be cool to extract the actors list, but I think that's is not a very good idea because I've don't even started to write any line.
+Until now is enough for my purpose, excepto by the video link. I need to learn how to extract that information. Actually, It would be cool to extract the actors list, but I think that's is not a very good idea because I've don't even started to write any line.

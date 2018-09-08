@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CinemaApp' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for CinemaApp
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  target 'CinemaApp-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CinemaAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+

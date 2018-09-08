@@ -107,3 +107,16 @@ Also I figured out that I've never worked with SQLite3 in React Native, but, aft
 Let's started to code.
 
 First of all, I'm gonna make the basic structure and navigation system. Then, I'm gonna to add some details one at time.
+
+I started with the TMDb API, so, I needed to make the registration process, and then, to request the API access in order to use the services.
+
+That didn't hurt, and soon I started to make queries from Postman. So, at this time I get the data for the categories in the app:
+
+ - Popular
+api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=XXXX
+ - Top rated
+ api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=XXXX
+ - Upcoming
+ api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=XXXX
+
+The [Discover API examples](https://www.themoviedb.org/documentation/api/discover) section in the documentation offer some useful snippets

@@ -150,7 +150,17 @@ In the same answer, this guy said that we can add another parameter to our regul
 
 Just for curiosity, I wrote *images* instead *videos* in the last URL, and then I got the list of images from that movie. Very useful option.
 
+    api.themoviedb.org/3/movie/299536/images?api_key=XXXX
+
 ![
 ](https://lh3.googleusercontent.com/Y9xl-g7uJ-wTMxOs6sc9NxJy7tcR5ju8SoUPQ1MuvEROt8h_E5M6CVCyWQhvBXFiBJW7MecoQBrj=s500)
 
+One last query: Actors :)
 
+To get the actors, I needed to write credits instead images in the last URL
+
+    api.themoviedb.org/3/movie/299536/credits?api_key=XXXX
+
+This services give photo, name, role played, votes, votes average, and other properties, but I got enough information until now.
+
+Now that I have all the data, I can, finally, code the Splash screen interface.

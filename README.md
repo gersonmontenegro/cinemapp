@@ -24,9 +24,11 @@ From the last image I can recognize the next elements:
 That's all, now, I would like to write some features for every screen, ir order to get more detail before start to write code.
 
 **Splash screen**
+
 Just an icon in the middle of the screen. Obviously, right now I'm thinking about what kind of animation I will do, but, I in this moment a prefer thinking in a basic non-animated version to think in a hundred of possibilities.
 
 **Main screen**
+
 This screen has access to the three categories for this example: Popular, Top rated, and Upcoming.
 
 From here, the user can access to search a movie, and back to the main screen. I drew a link to profile, but, to be honest, I don't think I'll have time enough to do that, so, I'll remove it.
@@ -34,6 +36,7 @@ From here, the user can access to search a movie, and back to the main screen. I
 The user will see an horizontal scroll with the movies in this category as well. Every movie section has the official poster about the movie that it represent.
 
 **Basic movie screen**
+
 Basically, here I'll show the basics about the movie:
 
  - Poster
@@ -47,6 +50,7 @@ Basically, here I'll show the basics about the movie:
  - Extends data button
 
 **Extended movie screen**
+
 Similar to the last screen, but, here we can find:
 
  - Title
@@ -57,5 +61,31 @@ Similar to the last screen, but, here we can find:
  - Complete description
  - Back button
  - Share button
+
+I think that I'll make some changes, but I'll try to keep this structure. Also, from the beginning, I need to code thinking about the Animated API, in order to achieve them easier in the future.
+
+Next step is to structure the application (in order to have clear how do I need to create my folders), but, I'm haven't time to make a nice digital graphic, so, I'll write it right here:
+
+ - Main app (App.js)
+	 - Components
+	- Assets
+	- Screens
+	- Providers
+
+*Components*
+
+This folder is going to have some little components for almost every part in the app. I'll try to encapsulate as many as I can.
+
+*Assets*
+
+Fonts, images, etc.
+
+*Screens*
+
+This is the place to keep the main interfaces, such as Splash, Main scree, Movie screens, etc.
+
+*Providers*
+
+This folder is going to have controllers in order to manage the internal database, http connections, and business logic.
 
 

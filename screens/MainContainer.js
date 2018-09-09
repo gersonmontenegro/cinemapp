@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Text } from 'react-native';
+import HeaderComponent from './../components/general/HeaderComponent';
 
 class MainContainer extends PureComponent {
     constructor(props) {
@@ -10,7 +11,10 @@ class MainContainer extends PureComponent {
     render() {
         return (
             <View>
-
+                <HeaderComponent />
+                <Text>
+                    Main CONTAINER!!
+                </Text>
             </View>
         );
     }

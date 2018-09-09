@@ -173,3 +173,22 @@ Below I put a gif that shows how is going.
 
 <img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/splash_1_rc.gif" width="300px">
 
+Basically, I applied the same idea in the [previous project](https://github.com/gersonmontenegro/cv) , where I used react-native-splash-screen plugin the handle a fluid splash screen experience, as I tried to explain it in the below graphic:
+
+![enter image description here](https://lh3.googleusercontent.com/y3kmVbXuI2a7R-Ts4OaIzhOFREOX5HpruYTzMTFkjq4DnD0zmJCOr7FmtrE9BYZLFhe8pFGINYRy=s800)
+
+*So, what just happened?*
+Normally, this is the process:
+1. Xcode launch the regular Splash screen.
+2. After that, the Javascript [bridge](https://hackernoon.com/understanding-react-native-bridge-concept-e9526066ddb8) is started to load.
+3. React native load the first screen.
+
+But thanks to the react-native-splash-screen plugin, I can "hide" the loading process of the bridge, and keep showing the natural Splash Screen from Xcode meanwhile the first screen from the RN project is loaded. So, the final process is:
+
+ 1. Xcode launch the regular Splash screen.
+ 2. JS Bridge (JSB) is started to load, and at the same time, keep showing the Xcode Splash screen.
+ 3. JSB finished the load, and hide Xcode Splash screen, and immediately, the first RN interfaces is loaded.
+
+This behavior allows me give the user a great experience.
+
+Then, I made an animation in order to create an app flow until the main interface.

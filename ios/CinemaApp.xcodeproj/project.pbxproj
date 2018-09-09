@@ -42,6 +42,7 @@
 		A988C768955893520814E510 /* libPods-CinemaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B5126A47B7A38F6209FCF6B1 /* libPods-CinemaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2E221A46F25D5347D42745 /* libPods-CinemaAppTests.a */; };
+		C3DF68452144985E000E2EEA /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF684421449835000E2EEA /* libSplashScreen.a */; };
 		CE8C825585C7450BB479F36D /* ObliviousFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741FCF9C45134ABBBE7FCE74 /* ObliviousFont.ttf */; };
 /* End PBXBuildFile section */
 
@@ -319,6 +320,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		C3DF684321449835000E2EEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D7682761D8E76B80014119E;
+			remoteInfo = SplashScreen;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -353,6 +361,8 @@
 		9F0660457E06F670D0595C34 /* Pods-CinemaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp/Pods-CinemaApp.release.xcconfig"; sourceTree = "<group>"; };
 		A65C79845FB24307866D8B24 /* Semi-Coder-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Semi-Coder-Regular.otf"; path = "../assets/fonts/Semi-Coder-Regular.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
+		C3DF684621449B0A000E2EEA /* RNSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNSplashScreen.h; path = "../node_modules/react-native-splash-screen/ios/RNSplashScreen.h"; sourceTree = "<group>"; };
 		D078E73DB1AEAB481AC1E95C /* Pods-CinemaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaAppTests/Pods-CinemaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC2E221A46F25D5347D42745 /* libPods-CinemaAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CinemaAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E7232D410759B0806E59EE /* Pods-CinemaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp/Pods-CinemaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -375,6 +385,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3DF68452144985E000E2EEA /* libSplashScreen.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -538,6 +549,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF684621449B0A000E2EEA /* RNSplashScreen.h */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */,
 				02D4D41F2D5E4684CF4DE26A /* libPods-CinemaApp-tvOSTests.a */,
@@ -567,6 +579,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -646,6 +659,14 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3DF684021449835000E2EEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF684421449835000E2EEA /* libSplashScreen.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -814,6 +835,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = C3DF684021449835000E2EEA /* Products */;
+					ProjectRef = C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1086,6 +1111,13 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C3DF684421449835000E2EEA /* libSplashScreen.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSplashScreen.a;
+			remoteRef = C3DF684321449835000E2EEA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1319,6 +1351,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = MUA8VSC695;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/React\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-sqlite-storage\"",
+					"\"${PODS_ROOT}/Headers/Public/yoga\"",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+				);
 				INFOPLIST_FILE = CinemaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1338,6 +1378,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MUA8VSC695;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/React\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-sqlite-storage\"",
+					"\"${PODS_ROOT}/Headers/Public/yoga\"",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+				);
 				INFOPLIST_FILE = CinemaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

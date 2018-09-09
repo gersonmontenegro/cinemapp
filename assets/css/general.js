@@ -3,6 +3,8 @@ import { StyleSheet, Dimensions } from "react-native";
 export const screenWidth = Dimensions.get("window").width;
 export const screenHeight = Dimensions.get("window").height;
 
+export const defaultTimeAnimation = 1000;
+
 const _imageSize = 256;
 const _barHeight = 75;
 // this._imageSize = new Animated.Value(this.state.iconSize);

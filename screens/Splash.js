@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Animated } from 'react-native';
-import { SplashStyle, screenHeight } from './../assets/css/general';
+import { defaultTimeAnimation, SplashStyle, screenHeight } from './../assets/css/general';
 
 class Splash extends PureComponent {
     constructor(props) {
@@ -73,7 +73,7 @@ class Splash extends PureComponent {
         return Animated.timing(
             variable, {
                 toValue: v,
-                duration: 1000,
+                duration: defaultTimeAnimation,
                 delay: delay
             }
         );

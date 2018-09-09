@@ -164,3 +164,12 @@ To get the actors, I needed to write credits instead images in the last URL
 This services give photo, name, role played, votes, votes average, and other properties, but I got enough information until now.
 
 Now that I have all the data, I can, finally, code the Splash screen interface.
+
+I would like to do the same animation effect that I have in my [CV](https://github.com/gersonmontenegro/cv) project at the intro, where I emulated a "fluid" integration between the Xcode splash screen, and my own react-native Splash screen.
+
+After a little while, I got back to the action, and I finished a first release candidate for the Splash Animation.
+
+Below I put a gif that shows how is going.
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/splash_1_rc.gif" width="300px">
+

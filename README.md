@@ -192,3 +192,5 @@ But thanks to the react-native-splash-screen plugin, I can "hide" the loading pr
 This behavior allows me give the user a great experience.
 
 Then, I made an animation in order to create an app flow until the main interface.
+
+Now, is time to create the main interface, and I have a idea that I want to implement.

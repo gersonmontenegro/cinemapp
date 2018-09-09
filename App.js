@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import Splash from './screens/Splash';
 import SplashScreen from 'react-native-splash-screen';
-import MainContainer from './screens/Splash';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import MainContainer from './screens/MainContainer';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -18,6 +11,9 @@ export default class App extends Component<Props> {
     this.state = { splash: true };
   }
 
+  changeSplashState = (value) => {
+    this.setState({ splash: false });
+  }
 
   render() {
     return (
@@ -29,8 +25,9 @@ export default class App extends Component<Props> {
 
   openCloseSplash() {
     if (this.state.splash) {
-      return (<Splash />);
+      return (<Splash changeSplashState={this.changeSplashState} />);
     } else {
+      console.log("MAIN!");
       return (<MainContainer />);
     }
   }

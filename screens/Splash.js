@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Text, Animated } from 'react-native';
-import { screenWidth, screenHeight } from './../assets/css/general';
+import { Animated } from 'react-native';
+import { defaultTimeAnimation, SplashStyle, screenHeight } from './../assets/css/general';
 
 class Splash extends PureComponent {
     constructor(props) {
@@ -22,6 +22,8 @@ class Splash extends PureComponent {
         this._barHeight = new Animated.Value(0);
         this._imageSize = new Animated.Value(this.state.iconSize);
         this._iconMarginTop = new Animated.Value((screenHeight / 2) - (this.state.iconSize / 2));
+
+        this.callBack = this.props.changeSplashState;
     }
 
     componentWillMount() {
@@ -56,14 +58,22 @@ class Splash extends PureComponent {
         anim.push(this.changeVariable(this._opacityTitle, 1, 0));
         anim.push(this.changeVariable(this._initLeftMarginTitle, this.state.finalIconSize, 0));
         anim.push(this.changeVariable(this._initRightMarginTitle, this.state.finalIconSize, 0));
-        Animated.parallel(anim).start();
+        Animated.parallel(anim).start(
+            () => {
+                this.closeSplash();
+            }
+        );
+    }
+
+    closeSplash() {
+        this.callBack(false);
     }
 
     changeVariable(variable, v, delay) {
         return Animated.timing(
             variable, {
                 toValue: v,
-                duration: 1000,
+                duration: defaultTimeAnimation,
                 delay: delay
             }
         );
@@ -72,89 +82,37 @@ class Splash extends PureComponent {
     render() {
         return (
             <Animated.View >
-                <Animated.View style={{
-                    opacity: this._opacityBWIcon,
-                    position: "absolute",
-                    justifyContent: "center",
-                    width: screenWidth,
-                    height: screenHeight
-                }}>
+                <Animated.View style={[SplashStyle.BwImageContainer, { opacity: this._opacityBWIcon }]}>
                     <Animated.Image
-                        style={{
-                            width: this._imageSize,
-                            height: this._imageSize,
-                            alignSelf: "center",
-                            marginLeft: (screenWidth / 2) - (this._imageSize / 2),
-                            marginTop: (screenHeight / 2) - (this._imageSize / 2),
-                        }}
+                        style={SplashStyle.BwImage}
                         source={require('./../assets/img/icon/icon_bw.png')} />
                 </Animated.View>
 
-                <Animated.View style={{
-                    opacity: this._opacityColorIcon,
-                    position: "absolute",
-                    width: screenWidth,
-                    height: screenHeight,
-                    zIndex: 10
-                }}
-                >
+                <Animated.View style={[SplashStyle.ColorImageContainer, { opacity: this._opacityColorIcon }]}>
                     <Animated.Image
-                        style={{
+                        style={[SplashStyle.ColorImage, {
+                            marginTop: this._iconMarginTop,
                             width: this._imageSize,
                             height: this._imageSize,
-                            alignSelf: "center",
-                            marginLeft: (screenWidth / 2) - (this._imageSize / 2),
-                            marginTop: this._iconMarginTop,
-                        }}
+                        }]}
                         source={require('./../assets/img/icon/icon.png')} />
                 </Animated.View>
 
-                <Animated.View style={{
-                    position: "absolute",
-                    width: screenWidth,
-                    height: this._barHeight,
-                    backgroundColor: 'black',
-                    opacity: 0.7
-                }}>
+                <Animated.View style={[SplashStyle.barContainer, { height: this._barHeight }]}>
                 </Animated.View>
 
-                <Animated.View style={{
-                    position: "absolute",
-                    width: (screenWidth / 2),
-                    height: this.state.barHeight,
-                    justifyContent: 'center',
-                    opacity: this._opacityTitle
-                }}>
-                    <Animated.Text style={{
-                        fontFamily: 'ObliviousFont',
-                        fontSize: 20,
-                        color: 'white',
-                        alignSelf: "flex-end",
-                        marginRight: this._initLeftMarginTitle
-                    }}>
+                <Animated.View style={[SplashStyle.textCinemaContainer, { opacity: this._opacityTitle }]}>
+                    <Animated.Text style={[SplashStyle.textCinema, { marginRight: this._initLeftMarginTitle }]}>
                         Cinema
                     </Animated.Text>
                 </Animated.View>
 
-                <Animated.View style={{
-                    position: "absolute",
-                    width: (screenWidth / 2),
-                    height: this.state.barHeight,
-                    justifyContent: 'center',
-                    marginLeft: (screenWidth / 2),
-                    opacity: this._opacityTitle
-                }}>
-                    <Animated.Text style={{
-                        fontFamily: 'ObliviousFont',
-                        fontSize: 20,
-                        color: 'white',
-                        alignSelf: "flex-start",
-                        marginLeft: this._initRightMarginTitle
-                    }}>
+                <Animated.View style={[SplashStyle.textAppContainer, { opacity: this._opacityTitle }]}>
+                    <Animated.Text style={[SplashStyle.textApp, { marginLeft: this._initRightMarginTitle }]}>
                         App
                     </Animated.Text>
                 </Animated.View>
-            </Animated.View>
+            </Animated.View >
         );
     }
 }

@@ -22,6 +22,8 @@ class Splash extends PureComponent {
         this._barHeight = new Animated.Value(0);
         this._imageSize = new Animated.Value(this.state.iconSize);
         this._iconMarginTop = new Animated.Value((screenHeight / 2) - (this.state.iconSize / 2));
+
+        this.callBack = this.props.changeSplashState;
     }
 
     componentWillMount() {
@@ -56,7 +58,15 @@ class Splash extends PureComponent {
         anim.push(this.changeVariable(this._opacityTitle, 1, 0));
         anim.push(this.changeVariable(this._initLeftMarginTitle, this.state.finalIconSize, 0));
         anim.push(this.changeVariable(this._initRightMarginTitle, this.state.finalIconSize, 0));
-        Animated.parallel(anim).start();
+        Animated.parallel(anim).start(
+            () => {
+                this.closeSplash();
+            }
+        );
+    }
+
+    closeSplash() {
+        this.callBack(false);
     }
 
     changeVariable(variable, v, delay) {

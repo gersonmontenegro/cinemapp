@@ -3,6 +3,7 @@ import { TouchableHighlight, Image, ScrollView, FlatList, List, ListItem, Animat
 import HeaderComponent from './../components/general/HeaderComponent';
 import { defaultTimeAnimation, _barHeight, screenHeight, screenWidth } from './../assets/css/general';
 import Actions from './../providers/Actions';
+import MainMovie from './../components/main/MainMovie';
 
 const data = [
     { id: 1, name: "Popular" },
@@ -53,9 +54,7 @@ class MainContainer extends PureComponent {
         ];
         return (
             <Animated.View style={{ width: screenWidth }}>
-                <Animated.View style={{ height: this.mainMovieHeight }}>
-                    <Image source={require('./../assets/img/movie.jpg')} />
-                </Animated.View>
+                <MainMovie height={this.mainMovieHeight} />
                 <Animated.View style={{ width: screenWidth }}>
                     {
                         data.map((item) => (

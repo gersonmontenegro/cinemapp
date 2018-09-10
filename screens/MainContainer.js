@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { TouchableHighlight, Image, ScrollView, FlatList, List, ListItem, Animated, View, Text, StyleSheet } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
-import { defaultTimeAnimation, _barHeight, screenHeight, screenWidth } from './../assets/css/general';
+import { finalHeighMainMovie, _barHeight, screenWidth } from './../assets/css/general';
 import Actions from './../providers/Actions';
 import MainMovie from './../components/main/MainMovie';
 

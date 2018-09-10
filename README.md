@@ -194,3 +194,7 @@ This behavior allows me give the user a great experience.
 Then, I made an animation in order to create an app flow until the main interface.
 
 Now, is time to create the main interface, and I have a idea that I want to implement.
+
+After struggling with some things, I decided keep it as simple as I can, because I haven't time enough (you know, house chores and food doesn't make by itself), so, I made the minimal interface with basic components, like View, ScrollView, FlatList, Image, and Text:
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/movie_list_first_version.gif" width="300px">

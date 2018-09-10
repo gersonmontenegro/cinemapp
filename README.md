@@ -364,3 +364,6 @@ Besides that, in order to show the image, it's important to set the width and he
 
     <Animated.Image style={{ width:  screenWidth, height:  this.props.height }} source={{ uri:  IMAGE_URL + this.props.data.backdrop_path }}  />
 
+![enter image description here](https://lh3.googleusercontent.com/KmvG2GvtcGalp-2jj95UTjL-RaAOkvIqfZjbJSpHW5N9iyeZrxpQe-ZcrT-GkeESMzUkGcmPpw3L=s600)
+
+And then, I made almost all the layout for the Main Movie component. I think there is one more piece left: The ranking indicador.

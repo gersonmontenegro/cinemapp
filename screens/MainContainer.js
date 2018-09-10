@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import { TouchableHighlight, Image, ScrollView, FlatList, List, ListItem, Animated, View, Text, StyleSheet } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
-import { defaultTimeAnimation, _barHeight, screenHeight, screenWidth } from './../assets/css/general';
+import { finalHeighMainMovie, _barHeight, screenWidth } from './../assets/css/general';
+import Actions from './../providers/Actions';
+import MainMovie from './../components/main/MainMovie';
 
 const data = [
     { id: 1, name: "Popular" },
@@ -18,6 +20,7 @@ class MainContainer extends PureComponent {
         };
         this.onPressMovie = this.onPressMovie.bind(this);
         this.mainMovieHeight = new Animated.Value(0);
+        this.Actions = Actions.getInstance();
     }
 
     render() {
@@ -34,18 +37,8 @@ class MainContainer extends PureComponent {
         );
     }
 
-    changeVariable(variable, v, delay) {
-        return Animated.timing(
-            variable, {
-                toValue: v,
-                duration: defaultTimeAnimation,
-                delay: delay
-            }
-        );
-    }
-
     onPressMovie = () => {
-        this.changeVariable(this.mainMovieHeight, this.state.finalHeighMainMovie, 0).start();
+        this.Actions.changeVariable(this.mainMovieHeight, this.state.finalHeighMainMovie, 0).start();
     }
 
     renderItems = () => {
@@ -59,11 +52,32 @@ class MainContainer extends PureComponent {
             { key: '7', name: 'Superboy' },
             { key: '8', name: 'The call' },
         ];
+        let movieDetails =
+        {
+            "vote_count": 7720,
+            "id": 299536,
+            "video": false,
+            "vote_average": 8.3,
+            "title": "Avengers: Infinity War",
+            "popularity": 260.161,
+            "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+            url_img: require('./../assets/img/movie.jpg'),
+            "original_language": "en",
+            "original_title": "Avengers: Infinity War",
+            "genre_ids": [
+                12,
+                878,
+                14,
+                28
+            ],
+            "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+            "adult": false,
+            "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+            "release_date": "2018-04-25"
+        }
         return (
             <Animated.View style={{ width: screenWidth }}>
-                <Animated.View style={{ height: this.mainMovieHeight }}>
-                    <Image source={require('./../assets/img/movie.jpg')} />
-                </Animated.View>
+                <MainMovie height={this.mainMovieHeight} data={movieDetails} />
                 <Animated.View style={{ width: screenWidth }}>
                     {
                         data.map((item) => (

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { TouchableHighlight, Image, ScrollView, FlatList, List, ListItem, Animated, View, Text, StyleSheet } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
 import { defaultTimeAnimation, _barHeight, screenHeight, screenWidth } from './../assets/css/general';
+import Actions from './../providers/Actions';
 
 const data = [
     { id: 1, name: "Popular" },
@@ -18,6 +19,7 @@ class MainContainer extends PureComponent {
         };
         this.onPressMovie = this.onPressMovie.bind(this);
         this.mainMovieHeight = new Animated.Value(0);
+        this.Actions = Actions.getInstance();
     }
 
     render() {
@@ -34,18 +36,8 @@ class MainContainer extends PureComponent {
         );
     }
 
-    changeVariable(variable, v, delay) {
-        return Animated.timing(
-            variable, {
-                toValue: v,
-                duration: defaultTimeAnimation,
-                delay: delay
-            }
-        );
-    }
-
     onPressMovie = () => {
-        this.changeVariable(this.mainMovieHeight, this.state.finalHeighMainMovie, 0).start();
+        this.Actions.changeVariable(this.mainMovieHeight, this.state.finalHeighMainMovie, 0).start();
     }
 
     renderItems = () => {

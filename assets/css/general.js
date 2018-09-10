@@ -4,6 +4,9 @@ export const screenWidth = Dimensions.get("window").width;
 export const screenHeight = Dimensions.get("window").height;
 export const defaultTimeAnimation = 400;
 export const _barHeight = 75;
+export const finalHeighMainMovie = 280;
+
+export const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 const _imageSize = 256;
 

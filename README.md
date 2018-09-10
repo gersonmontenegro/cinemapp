@@ -255,3 +255,112 @@ When one movie is pressed, the main movie is expanded:
     }
 
 Obviously, this is only a first test in order to make a clean version.
+
+Now, I'm trying to load the images directly from the server, so, in order to started to use something from the TMDB API, I wanna use the same JSON response that give me the details from a movie:
+
+    {  
+    "vote_count":7720,  
+    "id":299536,  
+    "video":false,  
+    "vote_average":8.3,  
+    "title":"Avengers: Infinity War",  
+    "popularity":260.161,  
+    "poster_path":"/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",  
+    "original_language":"en",  
+    "original_title":"Avengers: Infinity War",  
+    "genre_ids":[  
+    12,  
+    878,  
+    14,  
+    28  
+    ],  
+    "backdrop_path":"/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",  
+    "adult":false,  
+    "overview":"As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",  
+    "release_date":"2018-04-25"  
+    }
+
+At this point, I got the name of the image, but I haven't the complete URL, so, I decided use an easy way to realized that, instead get myself in the API documentation again: Google it!
+
+I needed first to copy a name from the query in Postman:
+
+![](https://lh3.googleusercontent.com/WjWuAk52r_UEXyuX4xS3VPG-8UsKbMg2tPxRnBCnnnWWYAsf0Fz-qkE8D0_N29tis1t59jjGE-bU=s400)
+
+And then, I put the name on Google, and as you can imagine, in the same result I can read what I'm looking for:
+
+![enter image description here](https://lh3.googleusercontent.com/O5-Oa9mNPdSxsI37XEissSOO3CbRSMkPz9mtElAAV0abjkJqE4DlID0FvCGNeFNJJ0Lvg8dFpU83=s500)
+
+Bingo! I got the URL. Now I can continue.
+
+I made a little component to keep all the Movie data, but I started with the image:
+
+    render() {
+        return (
+            <Animated.View style={{ height: this.props.height }}>
+                <Animated.Image
+                    style={{ width: screenWidth, height: this.props.height }}
+                    source={{ uri: IMAGE_URL + this.props.data.backdrop_path }} />
+            </Animated.View>
+        );
+    }
+In the above code there are three principal things (2 props and 1 const):
+
+ 1. Prop height
+ 2. Prop data.backdrop_path
+ 3. IMAGE_URL
+
+Height is the prop that is attached to the Animated variable that controls the height of the image:
+
+    <MainMovie  height={this.mainMovieHeight} ...
+
+Inside MainContainer I defined a temporary variable with the data, and then, I passed to the component:
+
+        let movieDetails =
+        {
+            "vote_count": 7720,
+            "id": 299536,
+            "video": false,
+            "vote_average": 8.3,
+            "title": "Avengers: Infinity War",
+            "popularity": 260.161,
+            "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+            url_img: require('./../assets/img/movie.jpg'),
+            "original_language": "en",
+            "original_title": "Avengers: Infinity War",
+            "genre_ids": [
+                12,
+                878,
+                14,
+                28
+            ],
+            "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+            "adult": false,
+            "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+            "release_date": "2018-04-25"
+        }
+        return (
+            <Animated.View style={{ width: screenWidth }}>
+                <MainMovie height={this.mainMovieHeight} data={movieDetails} />
+
+IMAGE_URL is a constant defined in the general CSS file, and here I keep the base URL to load images:
+
+    export  const  IMAGE_URL  = "https://image.tmdb.org/t/p/w500";
+
+That's all, but is importar to keep in mind that if you want to load files from a non HTTPS url, I mean, something like:
+
+    export  const  IMAGE_URL  = "http://image.tmdb.org/t/p/w500";
+
+...you need to modify the Info.list in your Xcode project adding the next lines:
+
+    <key>NSAppTransportSecurity</key>
+    <dict>
+	    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+    </dict>
+
+So, you need to take care about this topic, but is not my purpose talk about this time. I found dome useful information the article [Configuring App Transport Security Exceptions in iOS 9 and OSX 10.11].(https://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/)
+
+Besides that, in order to show the image, it's important to set the width and height for the Animated.Image component, like you can see below:
+
+    <Animated.Image style={{ width:  screenWidth, height:  this.props.height }} source={{ uri:  IMAGE_URL + this.props.data.backdrop_path }}  />
+

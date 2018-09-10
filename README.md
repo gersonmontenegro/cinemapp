@@ -198,3 +198,60 @@ Now, is time to create the main interface, and I have a idea that I want to impl
 After struggling with some things, I decided keep it as simple as I can, because I haven't time enough (you know, house chores and food doesn't make by itself), so, I made the minimal interface with basic components, like View, ScrollView, FlatList, Image, and Text:
 
 <img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/movie_list_first_version.gif" width="300px">
+
+After that, I started to think in an idea, not as simple, but not so complex, and, in a few minutes, I got the effect that I wanted at the beginning :) 
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/movie_list_2_version.gif" width="300px">
+
+I just turn the Views component to Animated.View, and I started to play with the height of the Main Movie:
+
+    <Animated.View style={{ width: screenWidth }}>
+        <Animated.View style={{ height: this.mainMovieHeight }}>
+            <Image source={require('./../assets/img/movie.jpg')} />
+        </Animated.View>
+        <Animated.View style={{ width: screenWidth }}>
+            {
+            data.map((item) => (
+            <Animated.View key={item.id} style={{ backgroundColor: '#555555', height: 150 }}>
+                <Text style={{
+                                        fontFamily: 'ObliviousFont',
+                                        fontSize: 15,
+                                        left: 5,
+                                        top: 3,
+                                        color: 'white'
+                                    }}>
+                    {item.name}
+                </Text>
+                <View style={{ marginTop: 5 }}>
+                    <FlatList horizontal={true} data={moviesData} renderItem={({ item })=> (
+                        <TouchableHighlight onPress={()=> this.onPressMovie()} style={{ marginLeft: 5, height: 150 }}>
+                            <Image source={require('./../assets/img/movie_small.jpg')} />
+                        </TouchableHighlight>
+                        )}
+                        />
+                </View>
+            </Animated.View>
+            ))
+            }
+        </Animated.View>
+    </Animated.View>
+
+As you can see, I got the *mainMovieHeight* variable controlling the height of the main movie.
+
+When one movie is pressed, the main movie is expanded:
+
+    changeVariable(variable, v, delay) {
+        return Animated.timing(
+            variable, {
+                toValue: v,
+                duration: defaultTimeAnimation,
+                delay: delay
+            }
+        );
+    }
+    
+    onPressMovie = () => {
+        this.changeVariable(this.mainMovieHeight, this.state.finalHeighMainMovie, 0).start();
+    }
+
+Obviously, this is only a first test in order to make a clean version.

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Image, ScrollView, FlatList, List, ListItem, Animated, View, Text, StyleSheet } from 'react-native';
+import { TouchableHighlight, Image, ScrollView, FlatList, List, ListItem, Animated, View, Text, StyleSheet } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
-import { _barHeight, screenHeight, screenWidth } from './../assets/css/general';
+import { defaultTimeAnimation, _barHeight, screenHeight, screenWidth } from './../assets/css/general';
 
 const data = [
     { id: 1, name: "Popular" },
@@ -14,8 +14,10 @@ class MainContainer extends PureComponent {
         super(props);
         this.state = {
             animatedValue: new Animated.Value(0),
+            finalHeighMainMovie: 280
         };
-
+        this.onPressMovie = this.onPressMovie.bind(this);
+        this.mainMovieHeight = new Animated.Value(0);
     }
 
     render() {
@@ -32,6 +34,20 @@ class MainContainer extends PureComponent {
         );
     }
 
+    changeVariable(variable, v, delay) {
+        return Animated.timing(
+            variable, {
+                toValue: v,
+                duration: defaultTimeAnimation,
+                delay: delay
+            }
+        );
+    }
+
+    onPressMovie = () => {
+        this.changeVariable(this.mainMovieHeight, this.state.finalHeighMainMovie, 0).start();
+    }
+
     renderItems = () => {
         let moviesData = [
             { key: '1', name: 'Captain America' },
@@ -44,14 +60,14 @@ class MainContainer extends PureComponent {
             { key: '8', name: 'The call' },
         ];
         return (
-            <View style={{ width: screenWidth }}>
-                <View>
+            <Animated.View style={{ width: screenWidth }}>
+                <Animated.View style={{ height: this.mainMovieHeight }}>
                     <Image source={require('./../assets/img/movie.jpg')} />
-                </View>
-                <View style={{ width: screenWidth }}>
+                </Animated.View>
+                <Animated.View style={{ width: screenWidth }}>
                     {
                         data.map((item) => (
-                            <View
+                            <Animated.View
                                 key={item.id}
                                 style={{ backgroundColor: '#555555', height: 150 }}>
                                 <Text style={{
@@ -68,17 +84,17 @@ class MainContainer extends PureComponent {
                                         horizontal={true}
                                         data={moviesData}
                                         renderItem={({ item }) => (
-                                            <View style={{ marginLeft: 5, height: 150 }}>
+                                            <TouchableHighlight onPress={() => this.onPressMovie()} style={{ marginLeft: 5, height: 150 }}>
                                                 <Image source={require('./../assets/img/movie_small.jpg')} />
-                                            </View>
+                                            </TouchableHighlight>
                                         )}
                                     />
                                 </View>
-                            </View>
+                            </Animated.View>
                         ))
                     }
-                </View>
-            </View>
+                </Animated.View>
+            </Animated.View>
         );
     }
 

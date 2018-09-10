@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, TouchableHighlight, Animated, Text } from 'react-native'
 import { IMAGE_URL, screenWidth } from '../../assets/css/general';
 import Process from './../../providers/Process';
+import TextInfo from './TextInfo';
 
 class MainMovie extends PureComponent {
     constructor(props) {
@@ -15,44 +16,12 @@ class MainMovie extends PureComponent {
                 <Animated.Image
                     style={{ width: screenWidth, height: this.props.height }}
                     source={{ uri: IMAGE_URL + this.props.data.backdrop_path }} />
-                <Animated.View style={{ width: screenWidth, height: 30 }}>
-                    <Text style={{
-                        top: -105,
-                        left: 5,
-                        fontFamily: 'ObliviousFont',
-                        fontSize: 15,
-                        color: 'white',
-                        backgroundColor: '#00000055'
-                    }}>
-                        {this.Process.toUpper(this.props.data.title)}
-                    </Text>
-                </Animated.View>
-                <Animated.View style={{ width: screenWidth, height: 30, alignItems: 'center' }}>
-                    <Text style={{
-                        top: -118,
-                        fontFamily: 'ObliviousFont',
-                        fontSize: 12,
-                        color: 'white',
-                        backgroundColor: '#00000055',
-                        alignSelf: "center"
-                    }}>
-                        Action | Fiction | Fantasy
-                    </Text>
-                </Animated.View>
-                <Animated.View style={{ width: screenWidth, height: 30 }}>
-                    <Text style={{
-                        top: -135,
-                        left: 5,
-                        width: screenWidth,
-                        fontFamily: 'ObliviousFont',
-                        fontSize: 12,
-                        color: 'white',
-                        backgroundColor: '#00000055',
-                    }}>
-                        {this.Process.cutText(this.props.data.overview, 95)}
-                    </Text>
-                </Animated.View>
-                {/* <Animated.View style={{ top: -125 }}> */}
+
+                <TextInfo top={-105} fontSize={15} text={this.Process.toUpper(this.props.data.title)} />
+                <TextInfo center={true} top={-118} fontSize={12} text="Action | Fiction | Fantasy" />
+                <TextInfo top={-135} fontSize={12} text={this.Process.cutText(this.props.data.overview, 95)} />
+
+
                 <Animated.View style={{ top: -130 }}>
                     <View style={{ width: screenWidth, flexDirection: "row", height: 30 }}>
                         <TouchableHighlight style={{ width: (screenWidth / 3), backgroundColor: '#00ff0000', justifyContent: "center", alignItems: "flex-end" }}>

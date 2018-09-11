@@ -387,5 +387,5 @@ Some hours ago, I thought is moment to start to load data from the TMDB API, so,
 
 ***In yellow*** I made the [movie list component](https://github.com/gersonmontenegro/cinemapp/blob/master/components/categories/MovieList.js), in order to keep one simple list, I mean, the category movie list.
 
-And the, I made, ***in green***, the [mini movie component](https://github.com/gersonmontenegro/cinemapp/blob/master/components/categories/MiniMovie.js), who is in charge to keep the data from one unique movie.
+And then, I made, ***in green***, the [mini movie component](https://github.com/gersonmontenegro/cinemapp/blob/master/components/categories/MiniMovie.js), who is in charge to keep the data from one unique movie.
 

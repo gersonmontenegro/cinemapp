@@ -42,6 +42,7 @@
 		A988C768955893520814E510 /* libPods-CinemaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B5126A47B7A38F6209FCF6B1 /* libPods-CinemaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2E221A46F25D5347D42745 /* libPods-CinemaAppTests.a */; };
+		C3052ECB21472C7E001F4DE7 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3052EC821472BF5001F4DE7 /* libART.a */; };
 		C3DF68452144985E000E2EEA /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF684421449835000E2EEA /* libSplashScreen.a */; };
 		CE8C825585C7450BB479F36D /* ObliviousFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741FCF9C45134ABBBE7FCE74 /* ObliviousFont.ttf */; };
 /* End PBXBuildFile section */
@@ -320,6 +321,20 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		C3052EC721472BF5001F4DE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3052EC221472BF5001F4DE7 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = ART;
+		};
+		C3052EC921472BF5001F4DE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3052EC221472BF5001F4DE7 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 323A12871E5F266B004975B8;
+			remoteInfo = "ART-tvOS";
+		};
 		C3DF684321449835000E2EEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */;
@@ -361,6 +376,7 @@
 		9F0660457E06F670D0595C34 /* Pods-CinemaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp/Pods-CinemaApp.release.xcconfig"; sourceTree = "<group>"; };
 		A65C79845FB24307866D8B24 /* Semi-Coder-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Semi-Coder-Regular.otf"; path = "../assets/fonts/Semi-Coder-Regular.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		C3052EC221472BF5001F4DE7 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		C3DF684621449B0A000E2EEA /* RNSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNSplashScreen.h; path = "../node_modules/react-native-splash-screen/ios/RNSplashScreen.h"; sourceTree = "<group>"; };
 		D078E73DB1AEAB481AC1E95C /* Pods-CinemaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaAppTests/Pods-CinemaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -385,6 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3052ECB21472C7E001F4DE7 /* libART.a in Frameworks */,
 				C3DF68452144985E000E2EEA /* libSplashScreen.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -579,6 +596,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C3052EC221472BF5001F4DE7 /* ART.xcodeproj */,
 				C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -659,6 +677,15 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3052EC321472BF5001F4DE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3052EC821472BF5001F4DE7 /* libART.a */,
+				C3052ECA21472BF5001F4DE7 /* libART-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -788,6 +815,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = C3052EC321472BF5001F4DE7 /* Products */;
+					ProjectRef = C3052EC221472BF5001F4DE7 /* ART.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -1109,6 +1140,20 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3052EC821472BF5001F4DE7 /* libART.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libART.a;
+			remoteRef = C3052EC721472BF5001F4DE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3052ECA21472BF5001F4DE7 /* libART-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libART-tvOS.a";
+			remoteRef = C3052EC921472BF5001F4DE7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C3DF684421449835000E2EEA /* libSplashScreen.a */ = {

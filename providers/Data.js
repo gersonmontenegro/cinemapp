@@ -1,3 +1,11 @@
+import { API_KEY } from './../providers/ApiAuth';
+
+export const Categories = [
+    { id: 1, name: "Popular", url: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&append_to_response=videos&api_key=" + API_KEY },
+    { id: 2, name: "Top rated", url: "https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=" + API_KEY },
+    { id: 3, name: "Upcoming", url: "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&append_to_response=video&api_key=" + API_KEY }
+];
+
 export const MoviesQuery = {
     "page": 1,
     "total_results": 377119,

@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Text, View, FlatList, Animated } from 'react-native';
+import { Text, Animated } from 'react-native';
 import { CategoriesStyle, _barHeight, screenWidth } from './../../assets/css/general';
-import { MoviesQuery } from './../../providers/Data';
-import MiniMovie from './MiniMovie';
 import { Categories } from './../../providers/Data';
 import FetchData from './../../providers/FetchData';
 import MovieList from './MovieList';

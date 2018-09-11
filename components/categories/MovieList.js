@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList } from 'react-native';
 import MiniMovie from './MiniMovie';
 import FetchData from './../../providers/FetchData';
 

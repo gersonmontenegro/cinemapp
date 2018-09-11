@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Animated, Text } from 'react-native';
-import { screenWidth } from './../../assets/css/general';
+import { MainMovieStyle, screenWidth } from './../../assets/css/general';
 
 class TextInfo extends PureComponent {
     constructor(props) {
@@ -10,15 +10,11 @@ class TextInfo extends PureComponent {
     render() {
         return (
             <Animated.View style={{ width: screenWidth, height: 30 }}>
-                <Text style={{
-                    top: this.props.top,
-                    left: 5,
-                    fontFamily: 'ObliviousFont',
+                <Text style={[MainMovieStyle.textMainMovie, {
                     fontSize: this.props.fontSize,
-                    color: 'white',
-                    backgroundColor: '#00000055',
-                    alignSelf: this.props.center ? "center" : "flex-start"
-                }}>
+                    alignSelf: this.props.center ? "center" : "flex-start",
+                    top: this.props.top,
+                }]}>
                     {this.props.text}
                 </Text>
             </Animated.View>

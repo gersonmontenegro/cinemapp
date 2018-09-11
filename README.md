@@ -378,3 +378,14 @@ By the way, the final result is very nice:
 
 ![](https://lh3.googleusercontent.com/c2R3ByXl34hTflqojh7w35KVYstfMfOPvJY1N3NexnxJPiHXxTIarCPBrVcSaE45rZtl84bmZlDu=s600)
 
+
+Some hours ago, I thought is moment to start to load data from the TMDB API, so, I made a provider to fetch the movie data, and then I made a few components in order to organized and keep the control over the app:
+
+![](https://lh3.googleusercontent.com/2Zq9aFL_HxZssTSYqB2skuKVbe5TK80al7XMUMVQAd42xVT3Jr5rS6R9_4iWVO2rrYbmZRL-nIXu=s600)
+
+***In red*** I made the general [categories component](https://github.com/gersonmontenegro/cinemapp/blob/master/components/categories/CategoriesContainer.js) who is in charge to keep all the three lists.
+
+***In yellow*** I made the [movie list component](https://github.com/gersonmontenegro/cinemapp/blob/master/components/categories/MovieList.js), in order to keep one simple list, I mean, the category movie list.
+
+And the, I made, ***in green***, the [mini movie component](https://github.com/gersonmontenegro/cinemapp/blob/master/components/categories/MiniMovie.js), who is in charge to keep the data from one unique movie.
+

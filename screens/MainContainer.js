@@ -3,7 +3,7 @@ import { TouchableHighlight, Image, ScrollView, FlatList, List, ListItem, Animat
 import HeaderComponent from './../components/general/HeaderComponent';
 import { finalHeighMainMovie, _barHeight, screenWidth } from './../assets/css/general';
 import Actions from './../providers/Actions';
-import MainMovie from './../components/main/MainMovie';
+import MainMovie from './../components/mainmovie/MainMovie';
 
 const data = [
     { id: 1, name: "Popular" },

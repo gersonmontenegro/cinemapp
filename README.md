@@ -367,3 +367,14 @@ Besides that, in order to show the image, it's important to set the width and he
 ![enter image description here](https://lh3.googleusercontent.com/KmvG2GvtcGalp-2jj95UTjL-RaAOkvIqfZjbJSpHW5N9iyeZrxpQe-ZcrT-GkeESMzUkGcmPpw3L=s600)
 
 And then, I made almost all the layout for the Main Movie component. I think there is one more piece left: The ranking indicador.
+
+The last piece in that layout is the average qualification, and I wanted to put a chart.
+
+I used some weeks ago the [Circular progress bar](https://formidable.com/open-source/victory/gallery/animating-circular-progress-bar/), and is easy to use, but this time I decided give the opportunity to another library: [react-native-pie](https://github.com/nihgwu/react-native-pie).
+
+It was easy to use, buuuut, it needed add some extra configuration in Xcode. The result is nice, but not as nice as with the [Victory API](https://formidable.com/open-source/victory/gallery/animating-circular-progress-bar/), because we don't have animations options. I'll think twice to keep this library in the next days because I don't like the extra configuration, is such a annoying thing.
+
+By the way, the final result is very nice:
+
+![](https://lh3.googleusercontent.com/c2R3ByXl34hTflqojh7w35KVYstfMfOPvJY1N3NexnxJPiHXxTIarCPBrVcSaE45rZtl84bmZlDu=s600)
+

@@ -79,3 +79,13 @@ export const MainMovieStyle = StyleSheet.create({
         backgroundColor: '#00000055',
     }
 });
+
+export const CategoriesStyle = StyleSheet.create({
+    titleStyle: {
+        fontFamily: 'ObliviousFont',
+        fontSize: 15,
+        left: 5,
+        top: 3,
+        color: 'white'
+    }
+});

@@ -1,24 +1,20 @@
 import React, { PureComponent } from 'react';
-import { TouchableHighlight, Image, ScrollView, FlatList, List, ListItem, Animated, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, FlatList, List, ListItem, Animated, View } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
 import { finalHeighMainMovie, _barHeight, screenWidth } from './../assets/css/general';
 import Actions from './../providers/Actions';
 import MainMovie from './../components/mainmovie/MainMovie';
+import CategoriesContainer from './../components/categories/CategoriesContainer';
 
-const data = [
-    { id: 1, name: "Popular" },
-    { id: 2, name: "Top rated" },
-    { id: 3, name: "Upcoming" }
-];
 
 class MainContainer extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             animatedValue: new Animated.Value(0),
-            finalHeighMainMovie: 280
         };
-        this.onPressMovie = this.onPressMovie.bind(this);
+
+        // this.mainMovieHeight = new Animated.Value(finalHeighMainMovie);
         this.mainMovieHeight = new Animated.Value(0);
         this.Actions = Actions.getInstance();
     }
@@ -37,21 +33,8 @@ class MainContainer extends PureComponent {
         );
     }
 
-    onPressMovie = () => {
-        this.Actions.changeVariable(this.mainMovieHeight, this.state.finalHeighMainMovie, 0).start();
-    }
 
     renderItems = () => {
-        let moviesData = [
-            { key: '1', name: 'Captain America' },
-            { key: '2', name: 'AntMan' },
-            { key: '3', name: 'SpiderMan' },
-            { key: '4', name: 'SuperMan' },
-            { key: '5', name: 'CornMan' },
-            { key: '6', name: 'Conan' },
-            { key: '7', name: 'Superboy' },
-            { key: '8', name: 'The call' },
-        ];
         let movieDetails =
         {
             "vote_count": 7720,
@@ -78,36 +61,7 @@ class MainContainer extends PureComponent {
         return (
             <Animated.View style={{ width: screenWidth }}>
                 <MainMovie height={this.mainMovieHeight} data={movieDetails} />
-                <Animated.View style={{ width: screenWidth }}>
-                    {
-                        data.map((item) => (
-                            <Animated.View
-                                key={item.id}
-                                style={{ backgroundColor: '#555555', height: 150 }}>
-                                <Text style={{
-                                    fontFamily: 'ObliviousFont',
-                                    fontSize: 15,
-                                    left: 5,
-                                    top: 3,
-                                    color: 'white'
-                                }}>
-                                    {item.name}
-                                </Text>
-                                <View style={{ marginTop: 5 }}>
-                                    <FlatList
-                                        horizontal={true}
-                                        data={moviesData}
-                                        renderItem={({ item }) => (
-                                            <TouchableHighlight onPress={() => this.onPressMovie()} style={{ marginLeft: 5, height: 150 }}>
-                                                <Image source={require('./../assets/img/movie_small.jpg')} />
-                                            </TouchableHighlight>
-                                        )}
-                                    />
-                                </View>
-                            </Animated.View>
-                        ))
-                    }
-                </Animated.View>
+                <CategoriesContainer height={this.mainMovieHeight} />
             </Animated.View>
         );
     }

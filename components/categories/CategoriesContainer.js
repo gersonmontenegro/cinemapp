@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { TouchableHighlight, Image, Text, View, FlatList, Animated } from 'react-native';
 import { finalHeighMainMovie, _barHeight, screenWidth } from './../../assets/css/general';
 import Actions from './../../providers/Actions';
+import { MoviesQuery } from './../../providers/Data';
 
 const data = [
     { id: 1, name: "Popular" },
@@ -51,7 +52,7 @@ class CategoriesContainer extends PureComponent {
                             <View style={{ marginTop: 5 }}>
                                 <FlatList
                                     horizontal={true}
-                                    data={moviesData}
+                                    data={MoviesQuery.results}
                                     renderItem={({ item }) => (
                                         <TouchableHighlight onPress={() => this.onPressMovie()} style={{ marginLeft: 5, height: 150 }}>
                                             <Image source={require('./../../assets/img/movie_small.jpg')} />

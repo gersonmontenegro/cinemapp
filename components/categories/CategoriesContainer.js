@@ -52,9 +52,6 @@ class CategoriesContainer extends PureComponent {
                                     keyExtractor={this._keyExtractor}
                                     renderItem={({ item }) => (
                                         <MiniMovie item={item} height={this.props.height} />
-                                        // <TouchableHighlight key={item.id} onPress={() => this.onPressMovie()} style={{ marginLeft: 5, height: 150 }}>
-                                        //     <Image source={require('./../../assets/img/movie_small.jpg')} />
-                                        // </TouchableHighlight>
                                     )}
                                 />
                             </View>

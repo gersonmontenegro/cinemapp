@@ -5,32 +5,12 @@ import { MoviesQuery } from './../../providers/Data';
 import MiniMovie from './MiniMovie';
 import { Categories } from './../../providers/Data';
 import FetchData from './../../providers/FetchData';
+import MovieList from './MovieList';
 
 class CategoriesContainer extends PureComponent {
     constructor(props) {
         super(props);
         this.FetchData = FetchData.getInstance();
-    }
-
-    _keyExtractor = (item) => item.id.toString();
-
-    getMovieCategories = (url) => {
-        // this.FetchData.getData(url).then(
-        //     (data) => {
-        //         console.log("R>>" + JSON.stringify(data));
-        //     }
-        // );
-        return (
-            <FlatList
-                style={{ marginTop: 10 }}
-                horizontal={true}
-                data={MoviesQuery.results}
-                keyExtractor={this._keyExtractor}
-                renderItem={({ item }) => (
-                    <MiniMovie item={item} height={this.props.height} />
-                )}
-            />
-        );
     }
 
     render() {
@@ -44,7 +24,7 @@ class CategoriesContainer extends PureComponent {
                             <Text style={CategoriesStyle.titleStyle}>
                                 {item.name}
                             </Text>
-                            {this.getMovieCategories(item.url)}
+                            <MovieList url={item.url} height={this.props.height} />
                         </Animated.View>
                     ))
                 }

@@ -70,3 +70,12 @@ export const SplashStyle = StyleSheet.create({
         opacity: 0.7
     }
 });
+
+export const MainMovieStyle = StyleSheet.create({
+    textMainMovie: {
+        left: 5,
+        fontFamily: 'ObliviousFont',
+        color: 'white',
+        backgroundColor: '#00000055',
+    }
+});

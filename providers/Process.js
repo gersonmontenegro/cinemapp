@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { HEART_EMPTY_ICON, MORE_EMPTY_ICON, PLAY_ICON } from './../assets/css/general';
 
 class Process extends PureComponent {
     static instance = null;
@@ -23,6 +24,9 @@ class Process extends PureComponent {
         return text != '' ? text.toUpperCase() : '';
     }
 
+    getIconType(type) {
+        return type == 0 ? HEART_EMPTY_ICON : type == 1 ? PLAY_ICON : MORE_EMPTY_ICON;
+    }
 }
 
 export default Process;

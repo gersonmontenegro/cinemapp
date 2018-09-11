@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import { TouchableHighlight, Image, Text, View, FlatList, Animated } from 'react-native';
-import { finalHeighMainMovie, _barHeight, screenWidth } from './../../assets/css/general';
-import Actions from './../../providers/Actions';
+import { Text, View, FlatList, Animated } from 'react-native';
+import { _barHeight, screenWidth } from './../../assets/css/general';
 import { MoviesQuery } from './../../providers/Data';
+import MiniMovie from './MiniMovie';
 
 const data = [
     { id: 1, name: "Popular" },
@@ -24,13 +24,9 @@ const moviesData = [
 class CategoriesContainer extends PureComponent {
     constructor(props) {
         super(props);
-        this.onPressMovie = this.onPressMovie.bind(this);
-        this.Actions = Actions.getInstance();
     }
 
-    onPressMovie = () => {
-        this.Actions.changeVariable(this.props.height, finalHeighMainMovie).start();
-    }
+    _keyExtractor = (item) => item.id.toString();
 
     render() {
         return (
@@ -53,10 +49,12 @@ class CategoriesContainer extends PureComponent {
                                 <FlatList
                                     horizontal={true}
                                     data={MoviesQuery.results}
+                                    keyExtractor={this._keyExtractor}
                                     renderItem={({ item }) => (
-                                        <TouchableHighlight onPress={() => this.onPressMovie()} style={{ marginLeft: 5, height: 150 }}>
-                                            <Image source={require('./../../assets/img/movie_small.jpg')} />
-                                        </TouchableHighlight>
+                                        <MiniMovie item={item} height={this.props.height} />
+                                        // <TouchableHighlight key={item.id} onPress={() => this.onPressMovie()} style={{ marginLeft: 5, height: 150 }}>
+                                        //     <Image source={require('./../../assets/img/movie_small.jpg')} />
+                                        // </TouchableHighlight>
                                     )}
                                 />
                             </View>

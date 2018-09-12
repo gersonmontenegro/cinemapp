@@ -6,6 +6,8 @@ export const Categories = [
     { id: 3, name: "Upcoming", url: "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&append_to_response=video&api_key=" + API_KEY }
 ];
 
+export const Genres_URL = "https://api.themoviedb.org/3/genre/movie/list?"
+
 export const MoviesQuery = {
     "page": 1,
     "total_results": 377119,

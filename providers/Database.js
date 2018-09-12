@@ -87,6 +87,23 @@ class Database {
             });
         });
     }
+
+    executeQuery = (query) => {
+        return new Promise((resolve, reject) => {
+            this._db.transaction((tx) => {
+                tx.executeSql(query, [], (tx, results) => {
+                    resolve(results);
+                });
+            });
+        });
+    }
+
+    openCB = () => {
+        console.log("Open?");
+    }
+
+    errorCB = () => {
+        console.log("Error?");
     }
 
 

@@ -98,6 +98,15 @@ class Database {
         });
     }
 
+    query2JSON = (resQuery) => {
+        var quantity = resQuery.rows.length;
+        var data = [];
+        for (var r = 0; r < quantity; r++) {
+            data.push(resQuery.rows.item(r));
+        }
+        return data;
+    }
+
     openCB = () => {
         console.log("Open?");
     }

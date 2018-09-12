@@ -29,6 +29,26 @@ class Process extends PureComponent {
         return text != null ? text : '';
     }
 
+    arrayExists(array) {
+        if (array != null) {
+            console.log(">" + JSON.stringify(array));
+            let query = `select name from genre where id in (${array})`;
+            this.db.executeQuery(query).then(
+                (data) => {
+                    let genres = this.db.query2JSON(data);
+                    let genresList = [];
+                    genres.forEach((item) => {
+                        genresList.push(item.name);
+                    });
+                    return genresList.join(',');
+                }
+            );
+        } else {
+            return '';
+        }
+
+    }
+
     getIconType(type) {
         return type == 0 ? HEART_EMPTY_ICON : type == 1 ? PLAY_ICON : MORE_EMPTY_ICON;
     }

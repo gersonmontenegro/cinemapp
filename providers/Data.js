@@ -6,7 +6,9 @@ export const Categories = [
     { id: 3, name: "Upcoming", url: "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&append_to_response=video&api_key=" + API_KEY }
 ];
 
-export const Genres_URL = "https://api.themoviedb.org/3/genre/movie/list?"
+export const GENRES_URL = "https://api.themoviedb.org/3/genre/movie/list?"
+export const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+
 
 export const MoviesQuery = {
     "page": 1,

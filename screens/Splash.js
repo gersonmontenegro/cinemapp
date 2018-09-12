@@ -6,7 +6,7 @@ import Actions from './../providers/Actions';
 import FetchData from './../providers/FetchData';
 import Process from './../providers/Process';
 import { API_KEY } from './../providers/ApiAuth';
-import { Genres_URL } from './../providers/Data';
+import { GENRES_URL } from './../providers/Data';
 
 class Splash extends PureComponent {
     constructor(props) {
@@ -42,7 +42,7 @@ class Splash extends PureComponent {
     }
 
     loadGenres() {
-        this.FetchData.getData(Genres_URL + "&api_key=" + API_KEY).then((data) => {
+        this.FetchData.getData(GENRES_URL + "&api_key=" + API_KEY).then((data) => {
             this.Process.saveGenres(data);
             this.initHideShow();
         });

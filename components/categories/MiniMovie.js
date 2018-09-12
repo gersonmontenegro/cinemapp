@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Image, TouchableHighlight } from 'react-native';
 import { IMAGE_URL, finalHeighMainMovie } from './../../assets/css/general';
 import Actions from './../../providers/Actions';
+import { IMAGE_URL } from './../../providers/Data';
 
 class MiniMovie extends PureComponent {
     constructor(props) {

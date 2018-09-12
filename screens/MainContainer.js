@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { ScrollView, FlatList, List, ListItem, Animated, View } from 'react-native';
+import { ScrollView, Animated, View } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
-import { finalHeighMainMovie, _barHeight, screenWidth } from './../assets/css/general';
+import { _barHeight, screenWidth } from './../assets/css/general';
 import Actions from './../providers/Actions';
 import MainMovie from './../components/mainmovie/MainMovie';
 import CategoriesContainer from './../components/categories/CategoriesContainer';

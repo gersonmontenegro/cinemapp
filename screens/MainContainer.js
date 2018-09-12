@@ -34,7 +34,15 @@ class MainContainer extends PureComponent {
         );
     }
 
+    changeState = (item) => {
+        this.setState({
+            currentMovie: {
                 title: item.title,
+                overview: item.overview,
+                backdrop_path: item.backdrop_path == null ? item.poster_path : item.backdrop_path,
+            }
+        });
+    }
 
     renderItems = () => {
         let movieDetails =

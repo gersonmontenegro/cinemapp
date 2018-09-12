@@ -16,6 +16,11 @@ class Database {
         return Database.instance;
     }
 
+    init() {
+        this._db = SQLite.openDatabase('cinemapp.db', '1.0', 'Cinemapp database', 200000, this.openCB, this.errorCB);
+        return this.createTables();
+    }
+
     createTables = () => {
         return new Promise((resolve, reject) => {
             var tables = [];

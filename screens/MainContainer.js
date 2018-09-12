@@ -12,6 +12,7 @@ class MainContainer extends PureComponent {
         super(props);
         this.state = {
             animatedValue: new Animated.Value(0),
+            currentMovie: {}
         };
 
         // this.mainMovieHeight = new Animated.Value(finalHeighMainMovie);

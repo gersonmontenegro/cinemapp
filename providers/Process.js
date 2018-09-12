@@ -25,6 +25,10 @@ class Process extends PureComponent {
         return text != '' ? text.toUpperCase() : '';
     }
 
+    exists(text) {
+        return text != null ? text : '';
+    }
+
     getIconType(type) {
         return type == 0 ? HEART_EMPTY_ICON : type == 1 ? PLAY_ICON : MORE_EMPTY_ICON;
     }

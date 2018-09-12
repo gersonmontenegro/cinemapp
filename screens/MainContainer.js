@@ -34,6 +34,7 @@ class MainContainer extends PureComponent {
         );
     }
 
+                title: item.title,
 
     renderItems = () => {
         let movieDetails =

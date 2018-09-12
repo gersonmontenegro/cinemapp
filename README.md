@@ -100,7 +100,7 @@ After add the first commit into the repository, I would like to remember what ki
  - [NativeBase](https://nativebase.io). Maybe I need some component to avoid build it from scratch.
  - [Some fonts](www.1001freefonts.com/). Actually, right now I don't know what kind of font to use, but I hope not to take to much time making a decision.
 
-From the above list, there are two thinks that I've never used in React Native: the TMDb API, and the Youtube Component, so, I need to study a little bit about them.
+From the above list, there are two things that I've never used in React Native: the TMDb API, and the Youtube Component, so, I need to study a little bit about them.
 
 Also I figured out that I've never worked with SQLite3 in React Native, but, after a little while reading the documentation, I realized that is exactly the same library I used to work with jQuery Mobile in many projects a few years ago, so, I need to take care about it because I don't want surprises with this technology.
 

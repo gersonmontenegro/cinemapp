@@ -1,6 +1,11 @@
 import React, { PureComponent } from 'react';
 import { Animated } from 'react-native';
 import { defaultTimeAnimation, SplashStyle, screenHeight } from './../assets/css/general';
+import Database from './../providers/Database';
+import FetchData from './../providers/FetchData';
+import Process from './../providers/Process';
+import { API_KEY } from './../providers/ApiAuth';
+import { Genres_URL } from './../providers/Data';
 
 class Splash extends PureComponent {
     constructor(props) {
@@ -24,10 +29,25 @@ class Splash extends PureComponent {
         this._iconMarginTop = new Animated.Value((screenHeight / 2) - (this.state.iconSize / 2));
 
         this.callBack = this.props.changeSplashState;
+
+        this.db = Database.getInstance();
+        this.FetchData = FetchData.getInstance();
+        this.Process = Process.getInstance();
+
+        this.db.init().then((data) => {
+            this.loadGenres();
+        });
     }
 
-    componentWillMount() {
-        this.initHideShow();
+    loadGenres() {
+        this.FetchData.getData(Genres_URL + "&api_key=" + API_KEY).then((data) => {
+            this.Process.saveGenres(data);
+            this.initHideShow();
+        });
+    }
+
+    onLoadGenres(data) {
+        this.Process.saveGenres(data);
     }
 
     initHideShow = () => {

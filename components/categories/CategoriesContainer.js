@@ -22,7 +22,7 @@ class CategoriesContainer extends PureComponent {
                             <Text style={CategoriesStyle.titleStyle}>
                                 {item.name}
                             </Text>
-                            <MovieList url={item.url} height={this.props.height} />
+                            <MovieList url={item.url} height={this.props.height} changeFunction={this.props.changeFunction} />
                         </Animated.View>
                     ))
                 }

@@ -29,7 +29,7 @@ class MovieList extends PureComponent {
                 data={this.state.movies}
                 keyExtractor={this._keyExtractor}
                 renderItem={({ item }) => (
-                    <MiniMovie item={item} height={this.props.height} />
+                    <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
                 )}
             />)
     }

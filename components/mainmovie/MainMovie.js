@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { View, TouchableHighlight, Animated, Text } from 'react-native'
-import { IMAGE_URL, screenWidth } from '../../assets/css/general';
+import { screenWidth } from '../../assets/css/general';
 import Process from './../../providers/Process';
+import { IMAGE_URL } from './../../providers/Data';
 import TextInfo from './TextInfo';
 import BottomButtons from './BottomButtons';
 import Pie from 'react-native-pie';
@@ -42,9 +43,9 @@ class MainMovie extends PureComponent {
                         }}>60%</Text>
                     </View>
                 </View>
-                <TextInfo top={-165} fontSize={15} text={this.Process.toUpper(this.props.data.title)} />
+                <TextInfo top={-165} fontSize={15} text={this.Process.toUpper(this.Process.exists(this.props.data.title))} />
                 <TextInfo center={true} top={-180} fontSize={12} text="Action | Fiction | Fantasy" />
-                <TextInfo top={-195} fontSize={12} text={this.Process.cutText(this.props.data.overview, 95)} />
+                <TextInfo top={-195} fontSize={12} text={this.Process.cutText(this.Process.exists(this.props.data.overview), 95)} />
                 <BottomButtons top={-190} />
             </Animated.View>
         );

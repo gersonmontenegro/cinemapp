@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Animated } from 'react-native';
 import { defaultTimeAnimation, SplashStyle, screenHeight } from './../assets/css/general';
 import Database from './../providers/Database';
+import Actions from './../providers/Actions';
 import FetchData from './../providers/FetchData';
 import Process from './../providers/Process';
 import { API_KEY } from './../providers/ApiAuth';
@@ -33,6 +34,7 @@ class Splash extends PureComponent {
         this.db = Database.getInstance();
         this.FetchData = FetchData.getInstance();
         this.Process = Process.getInstance();
+        this.Actions = Actions.getInstance();
 
         this.db.init().then((data) => {
             this.loadGenres();
@@ -52,8 +54,8 @@ class Splash extends PureComponent {
 
     initHideShow = () => {
         var anim = [];
-        anim.push(this.changeVariable(this._opacityBWIcon, 0, 0));
-        anim.push(this.changeVariable(this._opacityColorIcon, 1, 500));
+        anim.push(this.Actions.changeVariable(this._opacityBWIcon, 0, 0));
+        anim.push(this.Actions.changeVariable(this._opacityColorIcon, 1, 500));
         Animated.parallel(anim).start(
             () => {
                 this.moveIcon();
@@ -63,9 +65,9 @@ class Splash extends PureComponent {
 
     moveIcon = () => {
         const anim = [];
-        anim.push(this.changeVariable(this._imageSize, this.state.finalIconSize, 0));
-        anim.push(this.changeVariable(this._iconMarginTop, this.state.baseTop, 0));
-        anim.push(this.changeVariable(this._barHeight, this.state.barHeight, 0));
+        anim.push(this.Actions.changeVariable(this._imageSize, this.state.finalIconSize, 0));
+        anim.push(this.Actions.changeVariable(this._iconMarginTop, this.state.baseTop, 0));
+        anim.push(this.Actions.changeVariable(this._barHeight, this.state.barHeight, 0));
         Animated.parallel(anim).start(
             () => {
                 this.showUpTitle();
@@ -75,9 +77,9 @@ class Splash extends PureComponent {
 
     showUpTitle = () => {
         const anim = [];
-        anim.push(this.changeVariable(this._opacityTitle, 1, 0));
-        anim.push(this.changeVariable(this._initLeftMarginTitle, this.state.finalIconSize, 0));
-        anim.push(this.changeVariable(this._initRightMarginTitle, this.state.finalIconSize, 0));
+        anim.push(this.Actions.changeVariable(this._opacityTitle, 1, 0));
+        anim.push(this.Actions.changeVariable(this._initLeftMarginTitle, this.state.finalIconSize, 0));
+        anim.push(this.Actions.changeVariable(this._initRightMarginTitle, this.state.finalIconSize, 0));
         Animated.parallel(anim).start(
             () => {
                 this.closeSplash();
@@ -87,16 +89,6 @@ class Splash extends PureComponent {
 
     closeSplash() {
         this.callBack(false);
-    }
-
-    changeVariable(variable, v, delay) {
-        return Animated.timing(
-            variable, {
-                toValue: v,
-                duration: defaultTimeAnimation,
-                delay: delay
-            }
-        );
     }
 
     render() {

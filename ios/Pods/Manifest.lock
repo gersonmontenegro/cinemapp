@@ -1,7 +1,11 @@
 PODS:
   - React (0.56.0):
     - React/Core (= 0.56.0)
+  - react-native-splash-screen (3.1.1):
+    - React
   - react-native-sqlite-storage (3.3.6):
+    - React
+  - react-native-youtube (1.1.0):
     - React
   - React/Core (0.56.0):
     - yoga (= 0.56.0.React)
@@ -9,22 +13,30 @@ PODS:
 
 DEPENDENCIES:
   - React (from `../node_modules/react-native`)
+  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-sqlite-storage (from `../node_modules/react-native-sqlite-storage`)
+  - react-native-youtube (from `../node_modules/react-native-youtube`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 EXTERNAL SOURCES:
   React:
     :path: "../node_modules/react-native"
+  react-native-splash-screen:
+    :path: "../node_modules/react-native-splash-screen"
   react-native-sqlite-storage:
     :path: "../node_modules/react-native-sqlite-storage"
+  react-native-youtube:
+    :path: "../node_modules/react-native-youtube"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  react-native-splash-screen: 8e3f866dc79bfe533baeffd0a38c33f7a7eae7f8
   react-native-sqlite-storage: 848fb96c0b6d17b3f70e169ac41f84434cdad94c
+  react-native-youtube: 7ab01f1320b037d605e6c6ac9d59cc2b92091799
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 76cc0c1c798612a839089f0dfb33f4775fcf48e4
+PODFILE CHECKSUM: e3bbe94d5269560f05a344a3587219a5952bc0af
 
 COCOAPODS: 1.5.3

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { TouchableHighlight, View, Animated } from 'react-native';
-import { screenWidth } from '../../assets/css/general';
+import { screenWidth, HEART_FULL_ICON } from '../../assets/css/general';
 import Process from './../../providers/Process';
 
 class BottomButton extends PureComponent {
@@ -8,16 +8,21 @@ class BottomButton extends PureComponent {
         super(props);
         this.onPressButton = this.onPressButton.bind(this);
         this.Process = Process.getInstance();
+        this.state = { source: this.Process.getIconType(this.props.type) };
     }
 
     onPressButton = () => {
-
+        if (this.props.type == 0) {
+            this.setState({ source: HEART_FULL_ICON });
+        }
     }
 
     render() {
         return (
             <TouchableHighlight onPress={() => this.onPressButton()} style={{ width: (screenWidth / 3), backgroundColor: '#00ff0000', justifyContent: "center", alignItems: this.props.alignItems }}>
-                <Animated.Image style={{ width: this.props.width, height: this.props.height }} source={this.Process.getIconType(this.props.type)} />
+                <Animated.Image
+                    style={{ width: this.props.width, height: this.props.height }}
+                    source={this.state.source} />
             </TouchableHighlight>
         );
     }

@@ -5,6 +5,7 @@ import { _barHeight, screenWidth } from './../assets/css/general';
 import Actions from './../providers/Actions';
 import MainMovie from './../components/mainmovie/MainMovie';
 import CategoriesContainer from './../components/categories/CategoriesContainer';
+import YouTube from 'react-native-youtube';
 
 class MainContainer extends PureComponent {
     constructor(props) {

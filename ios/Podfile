@@ -9,11 +9,13 @@ target 'CinemaApp' do
   pod 'React', :path => '../node_modules/react-native'
   pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'react-native-youtube', :path => '../node_modules/react-native-youtube'
 
   target 'CinemaApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
 
   end
 

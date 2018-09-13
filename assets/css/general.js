@@ -2,11 +2,9 @@ import { StyleSheet, Dimensions } from "react-native";
 
 export const screenWidth = Dimensions.get("window").width;
 export const screenHeight = Dimensions.get("window").height;
-export const defaultTimeAnimation = 40;
+export const defaultTimeAnimation = 400;
 export const _barHeight = 75;
 export const finalHeighMainMovie = 280;
-
-export const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 export const MORE_EMPTY_ICON = require('./../img/more_empty.png');
 export const HEART_EMPTY_ICON = require('./../img/heart_empty.png');

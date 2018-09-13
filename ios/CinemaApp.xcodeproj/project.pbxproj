@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -387,6 +386,7 @@
 		E7B3D761D44C711A3F5ACEEF /* Pods-CinemaApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp-tvOSTests/Pods-CinemaApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CinemaApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465E93BC23AFDBFA3B29AF7 /* Pods-CinemaApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp-tvOSTests/Pods-CinemaApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A130056248034F75B39DD337 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "usr/lib/libsqlite3.0.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

@@ -45,6 +45,7 @@
 		C3052ECB21472C7E001F4DE7 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3052EC821472BF5001F4DE7 /* libART.a */; };
 		C3DF68452144985E000E2EEA /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF684421449835000E2EEA /* libSplashScreen.a */; };
 		CE8C825585C7450BB479F36D /* ObliviousFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741FCF9C45134ABBBE7FCE74 /* ObliviousFont.ttf */; };
+		EDBBD2FC4AC74DEAB03BCD34 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D6B15E2D8F437DB7A3107F /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,6 +366,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CinemaApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CinemaApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		21D6B15E2D8F437DB7A3107F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		2D02E47B1E0B4A5D006451C7 /* CinemaApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CinemaApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* CinemaApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CinemaApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,6 +419,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				A988C768955893520814E510 /* libPods-CinemaApp.a in Frameworks */,
+				EDBBD2FC4AC74DEAB03BCD34 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +574,7 @@
 				E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */,
 				02D4D41F2D5E4684CF4DE26A /* libPods-CinemaApp-tvOSTests.a */,
 				DC2E221A46F25D5347D42745 /* libPods-CinemaAppTests.a */,
+				21D6B15E2D8F437DB7A3107F /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -729,6 +733,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				17D163F3AADD1A4F0FDE36C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1215,6 +1220,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		17D163F3AADD1A4F0FDE36C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CinemaApp/Pods-CinemaApp-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-youtube/assets/YTPlayerView-iframe-player.html",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YTPlayerView-iframe-player.html",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CinemaApp/Pods-CinemaApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;

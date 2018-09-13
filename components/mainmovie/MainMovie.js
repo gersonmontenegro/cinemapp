@@ -11,6 +11,22 @@ class MainMovie extends PureComponent {
     constructor(props) {
         super(props);
         this.Process = Process.getInstance();
+        this.state = { genres: '', average: 0 };
+    }
+
+    loadGenres = () => {
+        if (this.props.data.genre_ids != undefined) {
+            this.Process.getGenres(this.props.data.genre_ids.join(",")).then((data) => {
+                this.setState({ genres: data });
+            });
+        }
+        if (this.props.data.vote_average != undefined) {
+            this.setState({ average: parseInt(parseFloat(this.props.data.vote_average) * 10) })
+        }
+    }
+
+    componentDidUpdate() {
+        this.loadGenres();
     }
 
     render() {
@@ -23,7 +39,7 @@ class MainMovie extends PureComponent {
                     <Pie
                         radius={30}
                         innerRadius={25}
-                        series={[60]}
+                        series={[this.state.average]}
                         colors={['#f00']}
                         backgroundColor='white'
                     />
@@ -40,11 +56,11 @@ class MainMovie extends PureComponent {
                             alignSelf: 'center',
                             fontFamily: 'ObliviousFont',
                             fontSize: 16,
-                        }}>60%</Text>
+                        }}>{this.state.average}%</Text>
                     </View>
                 </View>
                 <TextInfo top={-165} fontSize={15} text={this.Process.toUpper(this.Process.exists(this.props.data.title))} />
-                <TextInfo center={true} top={-180} fontSize={12} text="Action | Fiction | Fantasy" />
+                <TextInfo center={true} top={-180} fontSize={12} text={this.state.genres} />
                 <TextInfo top={-195} fontSize={12} text={this.Process.cutText(this.Process.exists(this.props.data.overview), 95)} />
                 <BottomButtons top={-190} />
             </Animated.View>

@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { View, Text } from 'react-native';
 import Splash from './screens/Splash';
 import SplashScreen from 'react-native-splash-screen';
 import MainContainer from './screens/MainContainer';
+import { screenWidth } from './assets/css/general';
 
 type Props = {};
 export default class App extends Component<Props> {
   constructor(props) {
     super(props);
-    this.state = { splash: true };
+    this.state = {
+      splash: true,
+      isReady: true,
+      status: null,
+      quality: null,
+      error: null
+    };
   }
 
   changeSplashState = (value) => {
@@ -27,7 +34,6 @@ export default class App extends Component<Props> {
     if (this.state.splash) {
       return (<Splash changeSplashState={this.changeSplashState} />);
     } else {
-      console.log("MAIN!");
       return (<MainContainer />);
     }
   }

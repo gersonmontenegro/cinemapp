@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -45,6 +44,7 @@
 		C3052ECB21472C7E001F4DE7 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3052EC821472BF5001F4DE7 /* libART.a */; };
 		C3DF68452144985E000E2EEA /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF684421449835000E2EEA /* libSplashScreen.a */; };
 		CE8C825585C7450BB479F36D /* ObliviousFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741FCF9C45134ABBBE7FCE74 /* ObliviousFont.ttf */; };
+		3083D0728BA2405290541009 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A130056248034F75B39DD337 /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,6 +385,7 @@
 		E7B3D761D44C711A3F5ACEEF /* Pods-CinemaApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp-tvOSTests/Pods-CinemaApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CinemaApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465E93BC23AFDBFA3B29AF7 /* Pods-CinemaApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp-tvOSTests/Pods-CinemaApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A130056248034F75B39DD337 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "usr/lib/libsqlite3.0.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +418,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				A988C768955893520814E510 /* libPods-CinemaApp.a in Frameworks */,
+				3083D0728BA2405290541009 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +573,7 @@
 				E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */,
 				02D4D41F2D5E4684CF4DE26A /* libPods-CinemaApp-tvOSTests.a */,
 				DC2E221A46F25D5347D42745 /* libPods-CinemaAppTests.a */,
+				A130056248034F75B39DD337 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

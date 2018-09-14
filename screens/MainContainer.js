@@ -35,14 +35,18 @@ class MainContainer extends PureComponent {
 
     changeState = (item) => {
         this.setState({
-            currentMovie: {
-                title: item.title,
-                overview: item.overview,
-                backdrop_path: item.backdrop_path == null ? item.poster_path : item.backdrop_path,
-                genre_ids: item.genre_ids,
-                vote_average: item.vote_average,
-            }
+            currentMovie: { item }
         });
+        // this.setState({
+        //     currentMovie: {
+        //         title: item.title,
+        //         overview: item.overview,
+        //         backdrop_path: item.backdrop_path == null ? item.poster_path : item.backdrop_path,
+        //         genre_ids: item.genre_ids,
+        //         vote_average: item.vote_average,
+        //         id: item.id,
+        //     }
+        // });
     }
 
     changeMainMoviePosition = (value) => {

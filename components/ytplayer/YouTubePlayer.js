@@ -18,8 +18,13 @@ class YouTubePlayer extends PureComponent {
         this.onPressClose = this.onPressClose.bind(this);
     }
 
-    componentDidUpdate() {
-        console.log("LOAD THIS MOVIE: " + JSON.stringify(this.props.movieData));
+    componentWillReceiveProps() {
+        this.setState({ movieData: this.props.movieData });
+        this.setState({ play: this.props.play });
+        if (this.props.movieData.item != undefined) {
+            this.updateVideoData();
+        }
+    }
 
     }
 

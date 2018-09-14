@@ -3,6 +3,10 @@ import { Animated, TouchableHighlight } from 'react-native'
 import { YTStyle, screenWidth, finalHeighMainMovie, backColorToRemoveWink, CLOSE_ICON } from '../../assets/css/general';
 import YouTube from 'react-native-youtube';
 import BasicButton from '../general/BasicButton';
+import FetchData from './../../providers/FetchData';
+import Process from './../../providers/Process';
+import { VIDEOS_URL } from '../../providers/Data';
+import { API_KEY } from '../../providers/ApiAuth';
 
 class YouTubePlayer extends PureComponent {
     constructor(props) {
@@ -16,6 +20,8 @@ class YouTubePlayer extends PureComponent {
             movieData: this.props.movieData
         };
         this.onPressClose = this.onPressClose.bind(this);
+        this.FetchData = FetchData.getInstance();
+        this.Process = Process.getInstance();
     }
 
     componentWillReceiveProps() {
@@ -26,6 +32,19 @@ class YouTubePlayer extends PureComponent {
         }
     }
 
+    updateVideoData() {
+        if (this.props.movieData.item != undefined) {
+            this.setState({ query: false });
+            let url_videos = VIDEOS_URL.replace('%ID_VIDEO%', this.props.movieData.item.id) + API_KEY;
+            this.FetchData.getData(url_videos).then(
+                (data) => {
+                    if (parseInt(data.results.length) > 0) {
+                        this.setState({ videoList: data.results });
+                        this.setState({ idvideo: data.results[0].key });
+                    }
+                }
+            );
+        }
     }
 
     onPressClose = () => {

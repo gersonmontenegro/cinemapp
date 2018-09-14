@@ -1,22 +1,56 @@
 import React, { PureComponent } from 'react'
-import { Animated, TouchableHighlight } from 'react-native'
-import { YTStyle, screenWidth, finalHeighMainMovie, backColorToRemoveWink, CLOSE_ICON } from '../../assets/css/general';
+import { Animated } from 'react-native'
+import { YTStyle, screenWidth, finalHeighMainMovie, CLOSE_ICON } from '../../assets/css/general';
 import YouTube from 'react-native-youtube';
+import BasicButton from '../general/BasicButton';
+import FetchData from './../../providers/FetchData';
+import Process from './../../providers/Process';
+import { VIDEOS_URL } from '../../providers/Data';
+import { API_KEY } from '../../providers/ApiAuth';
 
 class YouTubePlayer extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            play: false,
-            fullscreen: false,
-            loop: false,
-            isReady: true,
-            idvideo: ''
+            play: this.props.play,
+            fullscreen: this.props.fullscreen,
+            loop: this.props.loop,
+            isReady: this.props.isReady,
+            idvideo: this.props.idvideo,
+            movieData: this.props.movieData,
+            videoList: [],
+            query: this.props.query,
         };
         this.onPressClose = this.onPressClose.bind(this);
+        this.FetchData = FetchData.getInstance();
+        this.Process = Process.getInstance();
+    }
+
+    componentWillReceiveProps() {
+        this.setState({ movieData: this.props.movieData });
+        this.setState({ play: this.props.play });
+        if (this.props.movieData.item != undefined) {
+            this.updateVideoData();
+        }
+    }
+
+    updateVideoData() {
+        if (this.props.movieData.item != undefined) {
+            this.setState({ query: false });
+            let url_videos = VIDEOS_URL.replace('%ID_VIDEO%', this.props.movieData.item.id) + API_KEY;
+            this.FetchData.getData(url_videos).then(
+                (data) => {
+                    if (parseInt(data.results.length) > 0) {
+                        this.setState({ videoList: data.results });
+                        this.setState({ idvideo: data.results[0].key });
+                    }
+                }
+            );
+        }
     }
 
     onPressClose = () => {
+        this.setState({ play: false });
         this.props.changeMainMoviePosition(0);
     }
 
@@ -34,12 +68,7 @@ class YouTubePlayer extends PureComponent {
                     onError={e => this.setState({ error: e.error })}
                     style={{ alignSelf: 'stretch', height: finalHeighMainMovie }}
                 />
-                <TouchableHighlight
-                    onPress={() => this.onPressClose()}
-                    underlayColor={backColorToRemoveWink}
-                    style={YTStyle.closeButton}>
-                    <Animated.Image style={{ width: 30, height: 30 }} source={CLOSE_ICON} />
-                </TouchableHighlight>
+                <BasicButton onPressClose={this.onPressClose} buttonStyle={YTStyle.closeButton} icon={CLOSE_ICON} />
             </Animated.View>
         );
     }

@@ -12,7 +12,9 @@ class MainContainer extends PureComponent {
         super(props);
         this.state = {
             animatedValue: new Animated.Value(0),
-            currentMovie: {}
+            currentMovie: {},
+            state: false,
+            playVideo: false
         };
         this.mainMovieHeight = new Animated.Value(0);
         this.mainMoviePosition = new Animated.Value(0);
@@ -35,17 +37,19 @@ class MainContainer extends PureComponent {
 
     changeState = (item) => {
         this.setState({
-            currentMovie: {
-                title: item.title,
-                overview: item.overview,
-                backdrop_path: item.backdrop_path == null ? item.poster_path : item.backdrop_path,
-                genre_ids: item.genre_ids,
-                vote_average: item.vote_average,
-            }
+            currentMovie: { item }
         });
+        this.setState({ playVideo: false });
+        this.Actions.changeVariable(this.mainMoviePosition, 0, 0).start();
     }
 
     changeMainMoviePosition = (value) => {
+        if (value < 0) {
+            this.setState({ playVideo: false });
+        } else {
+            this.setState({ playVideo: true });
+        }
+        this.setState({ query: true });
         this.Actions.changeVariable(this.mainMoviePosition, value, 0).start();
     }
 
@@ -61,7 +65,7 @@ class MainContainer extends PureComponent {
                             backgroundColor: 'black'
                         }}
                     >
-                        <YouTubePlayer movieData={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
+                        <YouTubePlayer play={this.state.playVideo} query={this.state.query} movieData={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
                     </Animated.View>
                 </Animated.View>
                 <CategoriesContainer height={this.mainMovieHeight} changeFunction={this.changeState} />

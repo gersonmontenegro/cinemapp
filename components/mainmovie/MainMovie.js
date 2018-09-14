@@ -12,21 +12,25 @@ class MainMovie extends PureComponent {
     constructor(props) {
         super(props);
         this.Process = Process.getInstance();
-        this.state = { genres: '', average: 0 };
+        this.state = { genres: '', average: 0, backdrop_path: '', title: '', overview: '' };
+
     }
 
     loadGenres = () => {
-        if (this.props.data.genre_ids != undefined) {
-            this.Process.getGenres(this.props.data.genre_ids.join(",")).then((data) => {
+        if (this.props.data.item.genre_ids != undefined) {
+            this.Process.getGenres(this.props.data.item.genre_ids.join(",")).then((data) => {
                 this.setState({ genres: data });
             });
         }
-        if (this.props.data.vote_average != undefined) {
-            this.setState({ average: parseInt(parseFloat(this.props.data.vote_average) * 10) })
+        if (this.props.data.item.vote_average != undefined) {
+            this.setState({ average: parseInt(parseFloat(this.props.data.item.vote_average) * 10) })
         }
     }
 
     componentDidUpdate() {
+        this.setState({ backdrop_path: this.props.data.item.backdrop_path });
+        this.setState({ title: this.props.data.item.title });
+        this.setState({ overview: this.props.data.item.overview });
         this.loadGenres();
     }
 
@@ -35,7 +39,8 @@ class MainMovie extends PureComponent {
             <Animated.View style={{ height: this.props.height }}>
                 <Animated.Image
                     style={{ width: screenWidth, height: this.props.height }}
-                    source={{ uri: IMAGE_URL + this.props.data.backdrop_path }} />
+                    source={{ uri: IMAGE_URL + this.Process.exists(this.state.backdrop_path) }}
+                />
                 <View style={{ top: -280 }}>
                     <Pie
                         radius={30}
@@ -60,11 +65,16 @@ class MainMovie extends PureComponent {
                         }}>{this.state.average}%</Text>
                     </View>
                 </View>
-                <TextInfo top={-165} fontSize={15} text={this.Process.toUpper(this.Process.exists(this.props.data.title))} />
-                <TextInfo center={true} top={-180} fontSize={12} text={this.state.genres} />
-                <TextInfo top={-195} fontSize={12} text={this.Process.cutText(this.Process.exists(this.props.data.overview), 95)} />
+                <TextInfo top={-165} fontSize={15}
+                    text={this.Process.toUpper(this.Process.exists(this.state.title))}
+                />
+                <TextInfo center={true} top={-180} fontSize={12}
+                    text={this.state.genres}
+                />
+                <TextInfo top={-195} fontSize={12}
+                    text={this.Process.cutText(this.Process.exists(this.state.overview), 95)}
+                />
                 <BottomButtons top={-190} changeMainMoviePosition={this.props.changeMainMoviePosition} />
-                {/* <YouTubePlayer style={{ position: 'absolute', top: -200, zIndex: 11 }} /> */}
             </Animated.View>
         );
     }

@@ -33,9 +33,6 @@ class Process extends PureComponent {
         return new Promise((resolve, reject) => {
             if (ids_str != null) {
                 let query = `select name from genre where id in (${ids_str})`;
-                console.log("IDS>" + ids_str);
-                console.log("Q>" + query);
-
                 this.db.executeQuery(query).then(
                     (data) => {
                         let genres = this.db.query2JSON(data);

@@ -50,6 +50,7 @@ class YouTubePlayer extends PureComponent {
     }
 
     onPressClose = () => {
+        this.setState({ play: false });
         this.props.changeMainMoviePosition(0);
     }
 

@@ -50,6 +50,12 @@ class MainContainer extends PureComponent {
     }
 
     changeMainMoviePosition = (value) => {
+        if (value < 0) {
+            this.setState({ playVideo: false });
+        } else {
+            this.setState({ playVideo: true });
+        }
+        this.setState({ query: true });
         this.Actions.changeVariable(this.mainMoviePosition, value, 0).start();
     }
 

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Animated, TouchableHighlight } from 'react-native'
-import { screenWidth, finalHeighMainMovie } from '../../assets/css/general';
+import { YTStyle, screenWidth, finalHeighMainMovie, backColorToRemoveWink, CLOSE_ICON } from '../../assets/css/general';
 import YouTube from 'react-native-youtube';
 
 class YouTubePlayer extends PureComponent {
@@ -36,16 +36,9 @@ class YouTubePlayer extends PureComponent {
                 />
                 <TouchableHighlight
                     onPress={() => this.onPressClose()}
-                    underlayColor={'#ffffff00'}
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: 30,
-                        height: 30,
-                        backgroundColor: '#ffffff00'
-                    }}>
-                    <Animated.Image style={{ width: 30, height: 30 }} source={require('./../../assets/img/icon/close.png')} />
+                    underlayColor={backColorToRemoveWink}
+                    style={YTStyle.closeButton}>
+                    <Animated.Image style={{ width: 30, height: 30 }} source={CLOSE_ICON} />
                 </TouchableHighlight>
             </Animated.View>
         );

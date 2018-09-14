@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Animated, TouchableHighlight } from 'react-native'
 import { YTStyle, screenWidth, finalHeighMainMovie, backColorToRemoveWink, CLOSE_ICON } from '../../assets/css/general';
 import YouTube from 'react-native-youtube';
+import BasicButton from '../general/BasicButton';
 
 class YouTubePlayer extends PureComponent {
     constructor(props) {
@@ -34,12 +35,7 @@ class YouTubePlayer extends PureComponent {
                     onError={e => this.setState({ error: e.error })}
                     style={{ alignSelf: 'stretch', height: finalHeighMainMovie }}
                 />
-                <TouchableHighlight
-                    onPress={() => this.onPressClose()}
-                    underlayColor={backColorToRemoveWink}
-                    style={YTStyle.closeButton}>
-                    <Animated.Image style={{ width: 30, height: 30 }} source={CLOSE_ICON} />
-                </TouchableHighlight>
+                <BasicButton onPressClose={this.onPressClose} buttonStyle={YTStyle.closeButton} icon={CLOSE_ICON} />
             </Animated.View>
         );
     }

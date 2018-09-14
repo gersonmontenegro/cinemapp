@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
-import { View, TouchableHighlight, Animated, Text } from 'react-native'
+import { View, Animated, Text } from 'react-native'
 import { screenWidth } from '../../assets/css/general';
 import Process from './../../providers/Process';
 import { IMAGE_URL } from './../../providers/Data';
 import TextInfo from './TextInfo';
 import BottomButtons from './BottomButtons';
 import Pie from 'react-native-pie';
+import YouTubePlayer from '../ytplayer/YouTubePlayer';
 
 class MainMovie extends PureComponent {
     constructor(props) {
@@ -62,7 +63,8 @@ class MainMovie extends PureComponent {
                 <TextInfo top={-165} fontSize={15} text={this.Process.toUpper(this.Process.exists(this.props.data.title))} />
                 <TextInfo center={true} top={-180} fontSize={12} text={this.state.genres} />
                 <TextInfo top={-195} fontSize={12} text={this.Process.cutText(this.Process.exists(this.props.data.overview), 95)} />
-                <BottomButtons top={-190} />
+                <BottomButtons top={-190} changeMainMoviePosition={this.props.changeMainMoviePosition} />
+                {/* <YouTubePlayer style={{ position: 'absolute', top: -200, zIndex: 11 }} /> */}
             </Animated.View>
         );
     }

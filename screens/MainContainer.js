@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
-import { ScrollView, Animated, View } from 'react-native';
+import { ScrollView, Animated, View, Text } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
-import { _barHeight, screenWidth } from './../assets/css/general';
+import { _barHeight, screenWidth, finalHeighMainMovie } from './../assets/css/general';
 import Actions from './../providers/Actions';
 import MainMovie from './../components/mainmovie/MainMovie';
 import CategoriesContainer from './../components/categories/CategoriesContainer';
-import YouTube from 'react-native-youtube';
+import YouTubePlayer from '../components/ytplayer/YouTubePlayer';
 
 class MainContainer extends PureComponent {
     constructor(props) {
@@ -15,6 +15,7 @@ class MainContainer extends PureComponent {
             currentMovie: {}
         };
         this.mainMovieHeight = new Animated.Value(0);
+        this.mainMoviePosition = new Animated.Value(0);
         this.Actions = Actions.getInstance();
     }
 
@@ -44,10 +45,25 @@ class MainContainer extends PureComponent {
         });
     }
 
+    changeMainMoviePosition = (value) => {
+        this.Actions.changeVariable(this.mainMoviePosition, value, 0).start();
+    }
+
     renderItems = () => {
         return (
             <Animated.View style={{ width: screenWidth }}>
-                <MainMovie height={this.mainMovieHeight} data={this.state.currentMovie} />
+                <Animated.View style={{ flexDirection: "row", marginLeft: this.mainMoviePosition }}>
+                    <MainMovie height={this.mainMovieHeight} data={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
+                    <Animated.View
+                        style={{
+                            width: screenWidth,
+                            height: this.mainMovieHeight,
+                            backgroundColor: 'black'
+                        }}
+                    >
+                        <YouTubePlayer movieData={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
+                    </Animated.View>
+                </Animated.View>
                 <CategoriesContainer height={this.mainMovieHeight} changeFunction={this.changeState} />
             </Animated.View>
         );

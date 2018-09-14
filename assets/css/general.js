@@ -10,6 +10,9 @@ export const MORE_EMPTY_ICON = require('./../img/more_empty.png');
 export const HEART_EMPTY_ICON = require('./../img/heart_empty.png');
 export const HEART_FULL_ICON = require('./../img/heart_full.png');
 export const PLAY_ICON = require('./../img/play.png');
+export const CLOSE_ICON = require('./../../assets/img/icon/close.png');
+
+export const backColorToRemoveWink = '#ffffff00';
 
 const _imageSize = 256;
 
@@ -85,5 +88,16 @@ export const CategoriesStyle = StyleSheet.create({
         left: 5,
         top: 3,
         color: 'white'
+    }
+});
+
+export const YTStyle = StyleSheet.create({
+    closeButton: {
+        backgroundColor: backColorToRemoveWink,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: 30,
+        height: 30,
     }
 });

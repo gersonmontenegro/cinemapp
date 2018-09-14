@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
-import { Animated, TouchableHighlight } from 'react-native'
-import { YTStyle, screenWidth, finalHeighMainMovie, backColorToRemoveWink, CLOSE_ICON } from '../../assets/css/general';
+import { Animated } from 'react-native'
+import { YTStyle, screenWidth, finalHeighMainMovie, CLOSE_ICON } from '../../assets/css/general';
 import YouTube from 'react-native-youtube';
 import BasicButton from '../general/BasicButton';
 import FetchData from './../../providers/FetchData';
@@ -17,7 +17,9 @@ class YouTubePlayer extends PureComponent {
             loop: this.props.loop,
             isReady: this.props.isReady,
             idvideo: this.props.idvideo,
-            movieData: this.props.movieData
+            movieData: this.props.movieData,
+            videoList: [],
+            query: this.props.query,
         };
         this.onPressClose = this.onPressClose.bind(this);
         this.FetchData = FetchData.getInstance();

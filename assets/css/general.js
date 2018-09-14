@@ -90,3 +90,14 @@ export const CategoriesStyle = StyleSheet.create({
         color: 'white'
     }
 });
+
+export const YTStyle = StyleSheet.create({
+    closeButton: {
+        backgroundColor: backColorToRemoveWink,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: 30,
+        height: 30,
+    }
+});

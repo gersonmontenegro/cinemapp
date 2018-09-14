@@ -397,3 +397,4 @@ Actually, I started to use the SQLite3 database to keep, first of all, all the g
 
 A diagram that can explain this idea is below:
 
+![](https://lh3.googleusercontent.com/Uc4V9ui_wO8iGxgdz_c-fJ4TlZcIU0sZ8ijgLACyqsKEkU25qK_dMr1MIQgARu04BjX1mI0cKe2j=s600)

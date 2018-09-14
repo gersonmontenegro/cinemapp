@@ -21,7 +21,7 @@ class BottomButton extends PureComponent {
 
     render() {
         return (
-            <TouchableHighlight onPress={() => this.onPressButton()} style={{ width: (screenWidth / 3), backgroundColor: '#00ff0000', justifyContent: "center", alignItems: this.props.alignItems }}>
+            <TouchableHighlight underlayColor={'#ffffff00'} onPress={() => this.onPressButton()} style={{ width: (screenWidth / 3), backgroundColor: '#ffffff00', justifyContent: "center", alignItems: this.props.alignItems }}>
                 <Animated.Image
                     style={{ width: this.props.width, height: this.props.height }}
                     source={this.state.source} />

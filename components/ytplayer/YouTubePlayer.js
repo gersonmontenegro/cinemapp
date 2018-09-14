@@ -34,7 +34,17 @@ class YouTubePlayer extends PureComponent {
                     onError={e => this.setState({ error: e.error })}
                     style={{ alignSelf: 'stretch', height: finalHeighMainMovie }}
                 />
-                <TouchableHighlight onPress={() => this.onPressClose()} style={{ position: 'absolute', top: 0, left: 0, width: 30, height: 30, borderRadius: 20, backgroundColor: 'white' }}>
+                <TouchableHighlight
+                    onPress={() => this.onPressClose()}
+                    underlayColor={'#ffffff00'}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: 30,
+                        height: 30,
+                        backgroundColor: '#ffffff00'
+                    }}>
                     <Animated.Image style={{ width: 30, height: 30 }} source={require('./../../assets/img/icon/close.png')} />
                 </TouchableHighlight>
             </Animated.View>

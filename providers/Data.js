@@ -8,6 +8,7 @@ export const Categories = [
 
 export const GENRES_URL = "https://api.themoviedb.org/3/genre/movie/list?"
 export const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+export const VIDEOS_URL = "https://api.themoviedb.org/3/movie/%ID_VIDEO%/videos?api_key=";
 
 
 export const MoviesQuery = {

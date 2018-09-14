@@ -389,3 +389,11 @@ Some hours ago, I thought is moment to start to load data from the TMDB API, so,
 
 And then, I made, ***in green***, the [mini movie component](https://github.com/gersonmontenegro/cinemapp/blob/master/components/categories/MiniMovie.js), who is in charge to keep the data from one unique movie.
 
+After struggling with some issues from the real life, right now I'm loading all the data from the TMDB API. It wasn't so hard, and the only plugin until that makes me nuts, was the react-native-youtube plugin. Actually, I broke the project and I had to start again from a new folder.
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/movie_list_details.gif" width="300px">
+
+Actually, I started to use the SQLite3 database to keep, first of all, all the genres, in order to request them at the moment of select a Movie.
+
+A diagram that can explain this idea is below:
+

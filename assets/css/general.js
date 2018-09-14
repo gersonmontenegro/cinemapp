@@ -14,6 +14,8 @@ export const CLOSE_ICON = require('./../../assets/img/icon/close.png');
 
 export const backColorToRemoveWink = '#ffffff00';
 
+export const defaultIconSize = 30;
+
 const _imageSize = 256;
 
 // this._imageSize = new Animated.Value(this.state.iconSize);

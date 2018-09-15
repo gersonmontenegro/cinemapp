@@ -36,7 +36,7 @@ class YouTubePlayer extends PureComponent {
     }
 
     updateVideoData() {
-        if (this.props.movieData.item != undefined) {
+        if (this.props.movieData.item.id != undefined) {
             let url_videos = VIDEOS_URL.replace('%ID_VIDEO%', this.props.movieData.item.id) + API_KEY;
             this.FetchData.getData(url_videos).then(
                 (data) => {

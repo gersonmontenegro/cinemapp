@@ -87,7 +87,7 @@ class YouTubePlayer extends PureComponent {
                     onError={e => this.setState({ error: e.error })}
                     style={{ alignSelf: 'stretch', height: finalHeighMainMovie }}
                 />
-                <BasicButton onPressClose={this.onPressClose} buttonStyle={YTStyle.closeButton} icon={CLOSE_ICON} />
+                <BasicButton onPressButton={this.onPressClose} buttonStyle={YTStyle.closeButton} icon={CLOSE_ICON} />
             </Animated.View>
         );
     }

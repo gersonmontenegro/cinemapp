@@ -10,7 +10,7 @@ class BasicButton extends PureComponent {
     render() {
         return (
             <TouchableHighlight
-                onPress={() => this.props.onPressClose()}
+                onPress={() => this.props.onPressButton()}
                 underlayColor={backColorToRemoveWink}
                 style={this.props.buttonStyle}>
                 <Animated.Image

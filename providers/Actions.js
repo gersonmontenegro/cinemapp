@@ -3,6 +3,8 @@ import { Animated } from 'react-native';
 import { defaultTimeAnimation } from './../assets/css/general';
 
 class Actions extends PureComponent {
+    playVideo = false;
+
     static instance = null;
 
     static createInstance() {

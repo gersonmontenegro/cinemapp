@@ -398,3 +398,20 @@ Actually, I started to use the SQLite3 database to keep, first of all, all the g
 A diagram that can explain this idea is below:
 
 ![](https://lh3.googleusercontent.com/Uc4V9ui_wO8iGxgdz_c-fJ4TlZcIU0sZ8ijgLACyqsKEkU25qK_dMr1MIQgARu04BjX1mI0cKe2j=s600)
+
+After a little while, now I have the YouTube plugin working this way:
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/view_video.gif" width="300px">
+
+At the same diced, I started to organize a little my code, not because it was a messy, but because I wanted it cleaner. 
+
+Now, in every constructor method, it is possible to see something like:
+
+    constructor(props) {
+	    super(props);
+	    this.settingState();
+	    this.bindingFunctions();
+	    this.creatingSingletonGroup();
+    }
+
+I like to code right that, so, I decided is time to make a better practice.

@@ -415,3 +415,7 @@ Now, in every constructor method, it is possible to see something like:
     }
 
 I like to code right that, so, I decided is time to make a better practice.
+
+Now, I just implemented the [Toast](https://github.com/crazycodeboy/react-native-easy-toast) plugin because I realized that some movies doesn't have videos to show, so, I got a warning in that cases. To avoid that, I used the plugin, and the result is such a nice message:
+
+![](https://lh3.googleusercontent.com/C6-wtb2WgKejUF_kFfcsmr5HIP-TGNhRJqyJKt0XEt7tsSWqCWeyivC31qSmMv_EPvuNFHTeaKxG=s600)

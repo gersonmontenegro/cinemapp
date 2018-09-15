@@ -15,6 +15,8 @@ class BottomButton extends PureComponent {
         if (this.props.type == 0) {
             this.setState({ source: HEART_FULL_ICON });
         } else if (this.props.type == 1) {
+            console.log("NOW LET MY BEET CONTROL YOUR BODY!!");
+
             this.props.changeMainMoviePosition(-screenWidth);
         }
     }

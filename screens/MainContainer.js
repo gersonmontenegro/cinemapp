@@ -6,6 +6,7 @@ import Actions from './../providers/Actions';
 import MainMovie from './../components/mainmovie/MainMovie';
 import CategoriesContainer from './../components/categories/CategoriesContainer';
 import YouTubePlayer from '../components/ytplayer/YouTubePlayer';
+import SearchContainer from '../components/maincontainer/search/SearchContainer';
 
 class MainContainer extends PureComponent {
     constructor(props) {
@@ -22,6 +23,7 @@ class MainContainer extends PureComponent {
     creatingAnimatedValues() {
         this.mainMovieHeight = new Animated.Value(0);
         this.mainMoviePosition = new Animated.Value(0);
+        this.SearchContainerHeight = new Animated.Value(30);
     }
 
     settingState() {
@@ -80,6 +82,7 @@ class MainContainer extends PureComponent {
                         <YouTubePlayer play={this.state.playVideo} movieData={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
                     </Animated.View>
                 </Animated.View>
+                <SearchContainer height={this.SearchContainerHeight} />
                 <CategoriesContainer height={this.mainMovieHeight} changeFunction={this.changeState} />
             </Animated.View>
         );

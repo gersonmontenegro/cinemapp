@@ -11,6 +11,10 @@ export const HEART_EMPTY_ICON = require('./../img/heart_empty.png');
 export const HEART_FULL_ICON = require('./../img/heart_full.png');
 export const PLAY_ICON = require('./../img/play.png');
 export const CLOSE_ICON = require('./../../assets/img/icon/close.png');
+export const SEARCH_ICON = require('./../../assets/img/icon/search.png');
+export const SEARCH_MORE_ICON = require('./../../assets/img/icon/more.png');
+
+export const TXT_NO_VIDEOS = "There is no videos for this movie yet.";
 
 export const backColorToRemoveWink = '#ffffff00';
 

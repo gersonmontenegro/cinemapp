@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Animated } from 'react-native'
-import { YTStyle, screenWidth, finalHeighMainMovie, CLOSE_ICON } from '../../assets/css/general';
+import { YTStyle, screenWidth, finalHeighMainMovie, CLOSE_ICON, defaultTimeAnimation, TXT_NO_VIDEOS } from '../../assets/css/general';
 import YouTube from 'react-native-youtube';
 import BasicButton from '../general/BasicButton';
 import FetchData from './../../providers/FetchData';
@@ -8,6 +8,7 @@ import Process from './../../providers/Process';
 import Actions from './../../providers/Actions';
 import { VIDEOS_URL } from '../../providers/Data';
 import { API_KEY } from '../../providers/ApiAuth';
+import Toast from 'react-native-easy-toast'
 
 class YouTubePlayer extends PureComponent {
     constructor(props) {
@@ -59,6 +60,8 @@ class YouTubePlayer extends PureComponent {
                         } else {
                             this.setState({ idvideo: '0' });
                         }
+                    } else {
+                        this.refs.toast.show(TXT_NO_VIDEOS, defaultTimeAnimation * 4);
                     }
                 }
             );
@@ -72,6 +75,7 @@ class YouTubePlayer extends PureComponent {
     render() {
         return (
             <Animated.View style={{ width: screenWidth, height: 30 }}>
+                <Toast ref="toast" position="top" style={{ backgroundColor: 'red' }} />
                 <YouTube
                     videoId={this.state.idvideo}
                     play={this.state.play}

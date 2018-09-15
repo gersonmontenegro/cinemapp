@@ -7,7 +7,15 @@ import { IMAGE_URL } from './../../providers/Data';
 class MiniMovie extends PureComponent {
     constructor(props) {
         super(props);
+        this.bindingFunctions();
+        this.creatingSingletonGroup();
+    }
+
+    bindingFunctions() {
         this.onPressMovie = this.onPressMovie.bind(this);
+    }
+
+    creatingSingletonGroup() {
         this.Actions = Actions.getInstance();
     }
 

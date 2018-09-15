@@ -10,15 +10,27 @@ import YouTubePlayer from '../components/ytplayer/YouTubePlayer';
 class MainContainer extends PureComponent {
     constructor(props) {
         super(props);
+        this.settingState();
+        this.creatingAnimatedValues();
+        this.creatingSingletonGroup();
+    }
+
+    creatingSingletonGroup() {
+        this.Actions = Actions.getInstance();
+    }
+
+    creatingAnimatedValues() {
+        this.mainMovieHeight = new Animated.Value(0);
+        this.mainMoviePosition = new Animated.Value(0);
+    }
+
+    settingState() {
         this.state = {
             animatedValue: new Animated.Value(0),
             currentMovie: { item: { backdrop_path: '' } },
             state: false,
             playVideo: false,
         };
-        this.mainMovieHeight = new Animated.Value(0);
-        this.mainMoviePosition = new Animated.Value(0);
-        this.Actions = Actions.getInstance();
     }
 
     render() {

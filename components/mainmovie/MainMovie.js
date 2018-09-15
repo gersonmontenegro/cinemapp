@@ -11,8 +11,12 @@ import YouTubePlayer from '../ytplayer/YouTubePlayer';
 class MainMovie extends PureComponent {
     constructor(props) {
         super(props);
-        this.Process = Process.getInstance();
+        this.creatingSingletonGroup();
         this.settingState();
+    }
+
+    creatingSingletonGroup() {
+        this.Process = Process.getInstance();
     }
 
     settingState() {

@@ -5,12 +5,11 @@ import { SplashStyle, screenHeight } from './../../assets/css/general';
 class HeaderComponent extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = {
-            iconSize: 256,
-            baseTop: 20,
-            barHeight: 75,
-            finalIconSize: 50,
-        };
+        this.settingState();
+        this.creatingAnimatedValues();
+    }
+
+    creatingAnimatedValues() {
         this._imageSize = new Animated.Value(this.state.finalIconSize);
         this._opacityColorIcon = new Animated.Value(1);
         this._barHeight = new Animated.Value(this.state.barHeight);
@@ -18,6 +17,15 @@ class HeaderComponent extends PureComponent {
         this._opacityTitle = new Animated.Value(1);
         this._initLeftMarginTitle = new Animated.Value(this.state.finalIconSize);
         this._initRightMarginTitle = new Animated.Value(this.state.finalIconSize);
+    }
+
+    settingState() {
+        this.state = {
+            iconSize: 256,
+            baseTop: 20,
+            barHeight: 75,
+            finalIconSize: 50,
+        };
     }
 
     render() {

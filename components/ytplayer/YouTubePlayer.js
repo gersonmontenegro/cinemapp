@@ -12,6 +12,22 @@ import { API_KEY } from '../../providers/ApiAuth';
 class YouTubePlayer extends PureComponent {
     constructor(props) {
         super(props);
+        this.settingState();
+        this.bindingFunctions();
+        this.creatingSingletonGroup();
+    }
+
+    bindingFunctions() {
+        this.onPressClose = this.onPressClose.bind(this);
+    }
+
+    creatingSingletonGroup() {
+        this.FetchData = FetchData.getInstance();
+        this.Process = Process.getInstance();
+        this.Actions = Actions.getInstance();
+    }
+
+    settingState() {
         this.state = {
             play: this.props.play,
             fullscreen: this.props.fullscreen,
@@ -21,10 +37,6 @@ class YouTubePlayer extends PureComponent {
             movieData: this.props.movieData,
             videoList: [],
         };
-        this.onPressClose = this.onPressClose.bind(this);
-        this.FetchData = FetchData.getInstance();
-        this.Process = Process.getInstance();
-        this.Actions = Actions.getInstance();
     }
 
     componentWillReceiveProps() {

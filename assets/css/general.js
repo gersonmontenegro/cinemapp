@@ -12,6 +12,8 @@ export const HEART_FULL_ICON = require('./../img/heart_full.png');
 export const PLAY_ICON = require('./../img/play.png');
 export const CLOSE_ICON = require('./../../assets/img/icon/close.png');
 
+export const TXT_NO_VIDEOS = "There is no videos for this movie yet.";
+
 export const backColorToRemoveWink = '#ffffff00';
 
 export const defaultIconSize = 30;

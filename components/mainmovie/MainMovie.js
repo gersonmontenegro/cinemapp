@@ -12,7 +12,7 @@ class MainMovie extends PureComponent {
     constructor(props) {
         super(props);
         this.Process = Process.getInstance();
-        this.state = { genres: '', average: 0, backdrop_path: '', title: '', overview: '' };
+        this.state = { genres: '', average: 0, backdrop_path: '', title: '', overview: '', poster_path: '' };
 
     }
 
@@ -28,7 +28,8 @@ class MainMovie extends PureComponent {
     }
 
     componentDidUpdate() {
-        this.setState({ backdrop_path: this.props.data.item.backdrop_path });
+        this.setState({ backdrop_path: this.Process.existsImageBackground(this.state.backdrop_path, this.state) });
+        this.setState({ poster_path: this.props.data.item.poster_path });
         this.setState({ title: this.props.data.item.title });
         this.setState({ overview: this.props.data.item.overview });
         this.loadGenres();
@@ -39,7 +40,7 @@ class MainMovie extends PureComponent {
             <Animated.View style={{ height: this.props.height }}>
                 <Animated.Image
                     style={{ width: screenWidth, height: this.props.height }}
-                    source={{ uri: IMAGE_URL + this.Process.exists(this.state.backdrop_path) }}
+                    source={{ uri: IMAGE_URL + this.Process.existsImageBackground(this.state.backdrop_path, this.state) }}
                 />
                 <View style={{ top: -280 }}>
                     <Pie

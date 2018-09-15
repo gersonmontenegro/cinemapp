@@ -14,7 +14,7 @@ class MainContainer extends PureComponent {
             animatedValue: new Animated.Value(0),
             currentMovie: {},
             state: false,
-            playVideo: false
+            playVideo: false,
         };
         this.mainMovieHeight = new Animated.Value(0);
         this.mainMoviePosition = new Animated.Value(0);
@@ -43,13 +43,14 @@ class MainContainer extends PureComponent {
     }
 
     changeMainMoviePosition = (value) => {
-        if (value < 0) {
-            this.setState({ playVideo: false });
-        } else {
-            this.setState({ playVideo: true });
-        }
-        this.setState({ query: true });
         this.Actions.changeVariable(this.mainMoviePosition, value, 0).start();
+        if (value < 0) {
+            this.Actions.playVideo = true;
+            this.setState({ playVideo: true });
+        } else {
+            this.Actions.playVideo = false;
+            this.setState({ playVideo: false });
+        }
     }
 
     renderItems = () => {

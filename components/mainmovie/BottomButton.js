@@ -6,9 +6,21 @@ import Process from './../../providers/Process';
 class BottomButton extends PureComponent {
     constructor(props) {
         super(props);
-        this.onPressButton = this.onPressButton.bind(this);
+        this.bindingFunctions();
+        this.creatingSingletonGroup();
+        this.settingState();
+    }
+
+    creatingSingletonGroup() {
         this.Process = Process.getInstance();
+    }
+
+    settingState() {
         this.state = { source: this.Process.getIconType(this.props.type) };
+    }
+
+    bindingFunctions() {
+        this.onPressButton = this.onPressButton.bind(this);
     }
 
     onPressButton = () => {

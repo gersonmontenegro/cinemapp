@@ -6,9 +6,17 @@ import FetchData from './../../providers/FetchData';
 class MovieList extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = { movies: [] };
-        this.FetchData = FetchData.getInstance();
+        this.settingState();
+        this.creatingSingletinGroup();
         this.loadMovies();
+    }
+
+    creatingSingletinGroup() {
+        this.FetchData = FetchData.getInstance();
+    }
+
+    settingState() {
+        this.state = { movies: [] };
     }
 
     _keyExtractor = (item) => item.id.toString();

@@ -11,12 +11,18 @@ import { GENRES_URL } from './../providers/Data';
 class Splash extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = {
-            iconSize: 256,
-            baseTop: 20,
-            barHeight: 75,
-            finalIconSize: 50,
-        };
+        this.settingState();
+        this.creatingAnimatedValues()
+        this.initializingFromProps();
+        this.creatingSingletonGroup();
+        this.loadingGenresOnInit();
+    }
+
+    initializingFromProps() {
+        this.callBack = this.props.changeSplashState;
+    }
+
+    creatingAnimatedValues() {
         this._opacityColorIcon = new Animated.Value(0);
         this._opacityBWIcon = new Animated.Value(1);
 
@@ -28,17 +34,28 @@ class Splash extends PureComponent {
         this._barHeight = new Animated.Value(0);
         this._imageSize = new Animated.Value(this.state.iconSize);
         this._iconMarginTop = new Animated.Value((screenHeight / 2) - (this.state.iconSize / 2));
+    }
 
-        this.callBack = this.props.changeSplashState;
+    loadingGenresOnInit() {
+        this.db.init().then((data) => {
+            this.loadGenres();
+        });
+    }
 
+    creatingSingletonGroup() {
         this.db = Database.getInstance();
         this.FetchData = FetchData.getInstance();
         this.Process = Process.getInstance();
         this.Actions = Actions.getInstance();
+    }
 
-        this.db.init().then((data) => {
-            this.loadGenres();
-        });
+    settingState() {
+        this.state = {
+            iconSize: 256,
+            baseTop: 20,
+            barHeight: 75,
+            finalIconSize: 50,
+        };
     }
 
     loadGenres() {

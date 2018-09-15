@@ -8,6 +8,10 @@ import MovieList from './MovieList';
 class CategoriesContainer extends PureComponent {
     constructor(props) {
         super(props);
+        this.creatingSingletonGroup();
+    }
+
+    creatingSingletonGroup() {
         this.FetchData = FetchData.getInstance();
     }
 

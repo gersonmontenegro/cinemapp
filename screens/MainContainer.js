@@ -65,7 +65,7 @@ class MainContainer extends PureComponent {
                             backgroundColor: 'black'
                         }}
                     >
-                        <YouTubePlayer play={this.state.playVideo} query={this.state.query} movieData={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
+                        <YouTubePlayer play={this.state.playVideo} movieData={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
                     </Animated.View>
                 </Animated.View>
                 <CategoriesContainer height={this.mainMovieHeight} changeFunction={this.changeState} />

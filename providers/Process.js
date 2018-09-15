@@ -29,6 +29,10 @@ class Process extends PureComponent {
         return text != null ? text : '';
     }
 
+    existsImageBackground(img, state) {
+        return img != null ? img : state.poster_path;
+    }
+
     getGenres(ids_str) {
         return new Promise((resolve, reject) => {
             if (ids_str != null) {

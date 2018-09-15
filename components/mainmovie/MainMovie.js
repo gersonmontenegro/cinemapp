@@ -12,8 +12,16 @@ class MainMovie extends PureComponent {
     constructor(props) {
         super(props);
         this.Process = Process.getInstance();
-        this.state = { genres: '', average: 0, backdrop_path: '', title: '', overview: '', poster_path: '' };
+        this.settingState();
+    }
 
+    settingState() {
+        this.state = { genres: '', average: 0, backdrop_path: '', title: '', overview: '', poster_path: '' };
+    }
+
+    settingBasicDetails = () => {
+        this.loadGenres();
+        this.settingAvergage();
     }
 
     loadGenres = () => {
@@ -22,6 +30,9 @@ class MainMovie extends PureComponent {
                 this.setState({ genres: data });
             });
         }
+    }
+
+    settingAvergage() {
         if (this.props.data.item.vote_average != undefined) {
             this.setState({ average: parseInt(parseFloat(this.props.data.item.vote_average) * 10) })
         }
@@ -32,7 +43,7 @@ class MainMovie extends PureComponent {
         this.setState({ poster_path: this.props.data.item.poster_path });
         this.setState({ title: this.props.data.item.title });
         this.setState({ overview: this.props.data.item.overview });
-        this.loadGenres();
+        this.settingBasicDetails();
     }
 
     render() {

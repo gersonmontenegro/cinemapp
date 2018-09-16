@@ -24,7 +24,7 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: 'gray' }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         {this.openCloseSplash()}
       </View>
     );

@@ -30,7 +30,7 @@ class Process extends PureComponent {
     }
 
     existsImageBackground(img, state) {
-        return img != '' && img != undefined && img != null ? img : state.poster_path;
+        return img != '' && img != undefined && img != null && img != 'null' ? img : state.poster_path;
     }
 
     getGenres(ids_str) {
@@ -67,6 +67,12 @@ class Process extends PureComponent {
             });
         });
     }
+
+    removingApostrophe(text) {
+        return text.replace(new RegExp("\'", 'g'), "");
+    }
+
+
 }
 
 export default Process;

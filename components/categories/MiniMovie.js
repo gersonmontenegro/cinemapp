@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Image, TouchableHighlight } from 'react-native';
-import { finalHeighMainMovie } from './../../assets/css/general';
+import { Animated, Image, TouchableHighlight } from 'react-native';
+import { MiniMovieStyle, finalHeighMainMovie } from './../../assets/css/general';
 import Actions from './../../providers/Actions';
 import { IMAGE_URL } from './../../providers/Data';
 
@@ -27,8 +27,20 @@ class MiniMovie extends PureComponent {
 
     render() {
         return (
-            <TouchableHighlight key={this.props.item.id} onPress={() => this.onPressMovie(this.props.changeFunction, this.props.item)} style={{ marginLeft: 5, height: 150 }}>
-                <Image style={{ width: 90, height: 130 }} source={{ uri: IMAGE_URL + this.props.item.poster_path }} />
+            <TouchableHighlight key={this.props.item.id} onPress={() => this.onPressMovie(this.props.changeFunction, this.props.item)}
+                style={MiniMovieStyle.touchStyle}>
+                <Animated.View style={{ flexDirection: 'column', alignItems: 'center' }}>
+                    <Animated.View style={MiniMovieStyle.imageContainer}>
+                        <Image style={MiniMovieStyle.imageStyle}
+                            source={{ uri: IMAGE_URL + this.props.item.poster_path }}
+                        />
+                    </Animated.View>
+                    <Animated.View >
+                        <Animated.Text style={MiniMovieStyle.titleStyle}>
+                            {this.props.item.title}
+                        </Animated.Text>
+                    </Animated.View>
+                </Animated.View>
             </TouchableHighlight>
         );
     }

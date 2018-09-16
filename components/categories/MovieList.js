@@ -9,8 +9,13 @@ class MovieList extends PureComponent {
     constructor(props) {
         super(props);
         this.settingState();
+        this.bindingFunction();
         this.creatingSingletinGroup();
         this.loadMovies();
+    }
+
+    bindingFunction() {
+        this.onReceiveMovieList = this.onReceiveMovieList.bind(this);
     }
 
     creatingSingletinGroup() {
@@ -20,7 +25,10 @@ class MovieList extends PureComponent {
     }
 
     settingState() {
-        this.state = { movies: [] };
+        this.state = {
+            movies: [],
+            searchResults: {},
+        };
     }
 
     _keyExtractor = (item) => item.id.toString();
@@ -37,13 +45,19 @@ class MovieList extends PureComponent {
 
     }
 
+    componentWillReceiveProps() {
+        if (this.props.searchResults.length != undefined && this.props.searchResults.length > 0) {
+            this.setState({ movies: this.props.searchResults });
+        }
+    }
+
     loadFromURL() {
-        this.FetchData.getData(this.props.url).then(
-            (data) => {
-                this.setState({ movies: data.results });
-                this.Database.saveMovies(data.results, this.props.idCategory);
-            }
-        );
+        this.FetchData.getData(this.props.url).then(this.onReceiveMovieList);
+    }
+
+    onReceiveMovieList = (data) => {
+        this.setState({ movies: data.results });
+        this.Database.saveMovies(data.results, this.props.idCategory);
     }
 
     getMovieList = () => {

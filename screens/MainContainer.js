@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { ScrollView, Animated, View, Text } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
-import { _barHeight, screenWidth, finalHeighMainMovie } from './../assets/css/general';
+import { _barHeight, screenWidth, finalHeighMainMovie, initHeighMainMovie } from './../assets/css/general';
 import Actions from './../providers/Actions';
 import MainMovie from './../components/mainmovie/MainMovie';
 import CategoriesContainer from './../components/categories/CategoriesContainer';
@@ -23,7 +23,7 @@ class MainContainer extends PureComponent {
     creatingAnimatedValues() {
         this.mainMovieHeight = new Animated.Value(0);
         this.mainMoviePosition = new Animated.Value(0);
-        this.SearchContainerHeight = new Animated.Value(30);
+        this.SearchContainerHeight = new Animated.Value(initHeighMainMovie);
     }
 
     settingState() {

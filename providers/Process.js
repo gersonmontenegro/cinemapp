@@ -39,7 +39,7 @@ class Process extends PureComponent {
                 let query = `select name from genre where id in (${ids_str})`;
                 this.db.executeQuery(query).then(
                     (data) => {
-                        let genres = this.db.query2JSON(data);
+                        let genres = this.query2JSON(data);
                         let genresList = [];
                         genres.forEach((item) => {
                             genresList.push(item.name);
@@ -72,6 +72,28 @@ class Process extends PureComponent {
         return text.replace(new RegExp("\'", 'g'), "");
     }
 
+    truncateTitle(text) {
+        return text.length != '' && text != undefined && text != 'null' ? (text.length > 30 ? text.substring(0, 30) + "..." : text) : '';
+    }
+
+    searchMovie(text) {
+        return new Promise((resolve, reject) => {
+            this.db = this.db == null ? Database.getInstance() : this.db;
+            let query = `select * from movie where title like '%${text}%'`;
+            this.db.executeQuery(query).then((data) => {
+                resolve(this.query2JSON(data));
+            });
+        });
+    }
+
+    query2JSON = (resQuery) => {
+        var quantity = resQuery.rows.length;
+        var data = [];
+        for (var r = 0; r < quantity; r++) {
+            data.push(resQuery.rows.item(r));
+        }
+        return data;
+    }
 
 }
 

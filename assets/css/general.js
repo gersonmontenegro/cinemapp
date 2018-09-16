@@ -5,6 +5,7 @@ export const screenHeight = Dimensions.get("window").height;
 export const defaultTimeAnimation = 400;
 export const _barHeight = 75;
 export const finalHeighMainMovie = 280;
+export const initHeighMainMovie = 30;
 
 export const miniMovieHeight = 210;
 
@@ -19,6 +20,8 @@ export const SEARCH_MORE_ICON = require('./../../assets/img/icon/more.png');
 export const TXT_NO_VIDEOS = "There is no videos for this movie yet.";
 
 export const backColorToRemoveWink = '#ffffff00';
+export const blueCheckBox = '#3399ff';
+export const greenCheckBox = '#7c9885';
 
 export const defaultIconSize = 30;
 

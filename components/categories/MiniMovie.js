@@ -3,6 +3,7 @@ import { Animated, Image, TouchableHighlight } from 'react-native';
 import { MiniMovieStyle, finalHeighMainMovie } from './../../assets/css/general';
 import Actions from './../../providers/Actions';
 import { IMAGE_URL } from './../../providers/Data';
+import Process from '../../providers/Process';
 
 class MiniMovie extends PureComponent {
     constructor(props) {
@@ -17,6 +18,7 @@ class MiniMovie extends PureComponent {
 
     creatingSingletonGroup() {
         this.Actions = Actions.getInstance();
+        this.Process = Process.createInstance();
     }
 
     onPressMovie = (changeMovieFunction, Movie) => {
@@ -37,7 +39,7 @@ class MiniMovie extends PureComponent {
                     </Animated.View>
                     <Animated.View >
                         <Animated.Text style={MiniMovieStyle.titleStyle}>
-                            {this.props.item.title}
+                            {this.Process.truncateTitle(this.props.item.title)}
                         </Animated.Text>
                     </Animated.View>
                 </Animated.View>

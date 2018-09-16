@@ -81,13 +81,13 @@ class MainMovie extends PureComponent {
                         }}>{this.state.average}%</Text>
                     </View>
                 </View>
-                <TextInfo top={-165} fontSize={15}
+                <TextInfo top={-165} fontSize={20}
                     text={this.Process.toUpper(this.Process.exists(this.state.title))}
                 />
-                <TextInfo center={true} top={-180} fontSize={12}
+                <TextInfo center={true} top={-178} fontSize={15}
                     text={this.state.genres}
                 />
-                <TextInfo top={-195} fontSize={12}
+                <TextInfo top={-195} fontSize={15}
                     text={this.Process.cutText(this.Process.exists(this.state.overview), 95)}
                 />
                 <BottomButtons top={-190} changeMainMoviePosition={this.props.changeMainMoviePosition} />

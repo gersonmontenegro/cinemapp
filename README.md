@@ -419,3 +419,14 @@ I like to code right that, so, I decided is time to make a better practice.
 Now, I just implemented the [Toast](https://github.com/crazycodeboy/react-native-easy-toast) plugin because I realized that some movies doesn't have videos to show, so, I got a warning in that cases. To avoid that, I used the plugin, and the result is such a nice message:
 
 ![](https://lh3.googleusercontent.com/C6-wtb2WgKejUF_kFfcsmr5HIP-TGNhRJqyJKt0XEt7tsSWqCWeyivC31qSmMv_EPvuNFHTeaKxG=s600)
+
+At this moment, I decided to change a little bit the design, mostly colors, and fonts, because I think right now those dark colors are not my favorite color palette, so, I turn it clear, using some white tones, and light gray.
+
+I changed the font as well, because the current one is not as beauty as a wish.
+
+The result was, at least for me, much better:
+
+![enter image description here](https://lh3.googleusercontent.com/Oupg516K8Q4JKskeP5PAHhr19TotsStvsV8ZA1NVkxTWP3Yj-x4RN0cz-Gr4PGfUnaEOFAGSDwUK=s600)
+
+As you can see, I added the title at the bottom of every mini movie, and I added round corners as well. Also, I added a little of shadow to every mini movie preview image. I really like it!
+

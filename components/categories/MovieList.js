@@ -20,7 +20,10 @@ class MovieList extends PureComponent {
     }
 
     settingState() {
-        this.state = { movies: [] };
+        this.state = {
+            movies: [],
+            searchResults: {},
+        };
     }
 
     _keyExtractor = (item) => item.id.toString();

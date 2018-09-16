@@ -5,6 +5,7 @@ export const screenHeight = Dimensions.get("window").height;
 export const defaultTimeAnimation = 400;
 export const _barHeight = 75;
 export const finalHeighMainMovie = 280;
+export const initHeighMainMovie = 30;
 
 export const miniMovieHeight = 210;
 

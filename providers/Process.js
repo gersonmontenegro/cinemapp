@@ -67,6 +67,12 @@ class Process extends PureComponent {
             });
         });
     }
+
+    removingApostrophe(text) {
+        return text.replace(new RegExp("\'", 'g'), "");
+    }
+
+
 }
 
 export default Process;

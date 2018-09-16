@@ -72,6 +72,9 @@ class Process extends PureComponent {
         return text.replace(new RegExp("\'", 'g'), "");
     }
 
+    truncateTitle(text) {
+        return text.length != '' && text != undefined && text != 'null' ? (text.length > 30 ? text.substring(0, 30) + "..." : text) : '';
+    }
 
 }
 

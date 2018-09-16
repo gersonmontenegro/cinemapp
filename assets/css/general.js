@@ -140,3 +140,23 @@ export const MiniMovieStyle = StyleSheet.create({
         width: 90,
     }
 });
+
+export const SearchStyle = StyleSheet.create({
+    containerStyle: {
+        width: screenWidth,
+    },
+    textInputStyle: {
+        fontFamily: 'JosefinSans',
+        width: screenWidth - 30,
+        marginLeft: 2,
+        height: 30,
+        backgroundColor: 'white',
+        borderColor: 'gray',
+        borderWidth: 1
+    },
+    listContainer: {
+        width: screenWidth,
+        flexDirection: 'column',
+        backgroundColor: veryLightGray
+    }
+});

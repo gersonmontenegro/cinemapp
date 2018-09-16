@@ -76,10 +76,13 @@ class Process extends PureComponent {
         return text.length != '' && text != undefined && text != 'null' ? (text.length > 30 ? text.substring(0, 30) + "..." : text) : '';
     }
 
-    searchMovie(text) {
+    searchMovie(text, filter) {
         return new Promise((resolve, reject) => {
             this.db = this.db == null ? Database.getInstance() : this.db;
             let query = `select * from movie where title like '%${text}%'`;
+            if (filter != '') {
+                query += ` and idcategory in (${filter})`;
+            }
             this.db.executeQuery(query).then((data) => {
                 resolve(this.query2JSON(data));
             });

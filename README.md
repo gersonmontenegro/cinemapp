@@ -430,3 +430,14 @@ The result was, at least for me, much better:
 
 As you can see, I added the title at the bottom of every mini movie, and I added round corners as well. Also, I added a little of shadow to every mini movie preview image. I really like it!
 
+Now is the turn of the local search, where I wanted implement a Text Input, and handle it as simple as I could: If the user write 3 or more letters, the local search can start. The result format is the same as the result format when I make a request from the TMDB API, so, I didn't make many things.
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/local_search_preview.gif" width="300px">
+
+After that, is time to implement the filter, where the user can search inside one o more categories (*Popular, Top rated, and Upcoming*). Actually, there is a last option, *On line*, and this is for search using the TMDB API.
+
+Right now, I've completed the visual functionality:
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/checkbox_search_preview.gif" width="300px">
+
+For this last option, I decided not to create a CheckBox component by my own, not because I couldn't, but because I haven't time enough, so, I installed [Native base](https://github.com/GeekyAnts/NativeBase) library in order to use component that I need from the available catalogue.

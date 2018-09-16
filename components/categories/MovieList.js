@@ -37,6 +37,12 @@ class MovieList extends PureComponent {
 
     }
 
+    componentWillReceiveProps() {
+        if (this.props.searchResults.length != undefined && this.props.searchResults.length > 0) {
+            this.setState({ movies: this.props.searchResults });
+        }
+    }
+
     loadFromURL() {
         this.FetchData.getData(this.props.url).then(this.onReveiveMovieList);
     }

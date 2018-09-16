@@ -95,6 +95,20 @@ class Process extends PureComponent {
         return data;
     }
 
+    createFilter(baseState) {
+        let filter = [];
+        if (baseState.optPopular) {
+            filter.push(1);
+        }
+        if (baseState.optTopRated) {
+            filter.push(2);
+        }
+        if (baseState.optUpcoming) {
+            filter.push(3);
+        }
+        return filter.join(',');
+    }
+
 }
 
 export default Process;

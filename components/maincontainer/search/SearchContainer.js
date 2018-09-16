@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
-import { TouchableOpacity, Animated, TextInput } from 'react-native'
-import { screenWidth, SEARCH_MORE_ICON, finalHeighMainMovie, initHeighMainMovie, blueCheckBox, greenCheckBox } from '../../../assets/css/general';
+import { Animated, TextInput } from 'react-native'
+import { screenWidth, SEARCH_MORE_ICON, finalHeighMainMovie, initHeighMainMovie, blueCheckBox, greenCheckBox, SearchStyle, TXT_TAB_TO_START_THE_SEARCH } from '../../../assets/css/general';
 import BasicButton from '../../general/BasicButton';
 import Actions from './../../../providers/Actions';
 import MovieList from '../../categories/MovieList';
 import Process from '../../../providers/Process';
-import { CheckBox, Text } from 'native-base';
 import CheckBoxSearch from './CheckBoxSearch';
+import FilterContainer from './FilterContainer';
 
 class SearchContainer extends PureComponent {
     constructor(props) {
@@ -85,43 +85,24 @@ class SearchContainer extends PureComponent {
 
     render() {
         return (
-            <Animated.View style={{ width: screenWidth, height: this.state.height, backgroundColor: 'lightgray' }}>
+            <Animated.View style={[SearchStyle.containerStyle, { height: this.state.height }]}>
                 <Animated.View style={{ flexDirection: 'row', height: 30, width: screenWidth }}>
                     <TextInput
                         autoCapitalize="characters"
                         maxLength={35}
-                        placeHolder="Tab to start the search"
-                        placeholderTextColor="red"
+                        placeHolder={TXT_TAB_TO_START_THE_SEARCH}
                         clearButtonMode="always"
                         value={this.state.searchText}
                         onChangeText={this.onChangeText}
-                        style={{
-                            fontFamily: 'JosefinSans',
-                            width: screenWidth - 30,
-                            marginLeft: 2,
-                            height: 30,
-                            backgroundColor: 'white',
-                            borderColor: 'gray',
-                            borderWidth: 1
-                        }} />
+                        style={SearchStyle.textInputStyle} />
                     <BasicButton onPressButton={this.onPressMore}
                         buttonStyle={{
                             justifyContent: 'center',
                             backgroundColor: 'lightgray'
                         }} width={25} height={20} icon={SEARCH_MORE_ICON} />
                 </Animated.View>
-                <Animated.View style={{
-                    height: this.props.height,
-                    width: screenWidth,
-                    flexDirection: 'column',
-                    backgroundColor: 'lightgray'
-                }}>
-                    <Animated.View style={{ top: 3, width: screenWidth, flexDirection: 'row' }}>
-                        <CheckBoxSearch color={blueCheckBox} name="Popular" opt={this.state.optPopular} value={1} onPress={this.setCheckBoxState} width={80} />
-                        <CheckBoxSearch color={blueCheckBox} name="Top rated" opt={this.state.optTopRated} value={2} onPress={this.setCheckBoxState} width={100} />
-                        <CheckBoxSearch color={blueCheckBox} name="Upcoming" opt={this.state.optUpcoming} value={3} onPress={this.setCheckBoxState} width={100} />
-                        <CheckBoxSearch color={greenCheckBox} name="Online" opt={this.state.optOnline} value={4} onPress={this.setCheckBoxState} width={100} />
-                    </Animated.View>
+                <Animated.View style={[SearchStyle.listContainer, { height: this.props.height }]}>
+                    <FilterContainer />
                     <MovieList height={this.props.height} search="xxx" searchResults={this.state.searchResults} />
                 </Animated.View>
             </Animated.View>

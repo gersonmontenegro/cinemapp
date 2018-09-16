@@ -30,7 +30,7 @@ class Process extends PureComponent {
     }
 
     existsImageBackground(img, state) {
-        return img != '' && img != undefined && img != null ? img : state.poster_path;
+        return img != '' && img != undefined && img != null && img != 'null' ? img : state.poster_path;
     }
 
     getGenres(ids_str) {

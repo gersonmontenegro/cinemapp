@@ -6,6 +6,8 @@ export const defaultTimeAnimation = 400;
 export const _barHeight = 75;
 export const finalHeighMainMovie = 280;
 
+export const miniMovieHeight = 210;
+
 export const MORE_EMPTY_ICON = require('./../img/more_empty.png');
 export const HEART_EMPTY_ICON = require('./../img/heart_empty.png');
 export const HEART_FULL_ICON = require('./../img/heart_full.png');
@@ -52,8 +54,8 @@ export const SplashStyle = StyleSheet.create({
         height: _barHeight,
     },
     textCinema: {
-        fontFamily: 'ObliviousFont',
-        fontSize: 20,
+        fontFamily: 'JosefinSans-Bold',
+        fontSize: 30,
         color: 'white',
         alignSelf: "flex-end",
     },
@@ -65,8 +67,8 @@ export const SplashStyle = StyleSheet.create({
         height: _barHeight,
     },
     textApp: {
-        fontFamily: 'ObliviousFont',
-        fontSize: 20,
+        fontFamily: 'JosefinSans-Bold',
+        fontSize: 30,
         color: 'white',
         alignSelf: "flex-start",
     },
@@ -81,7 +83,7 @@ export const SplashStyle = StyleSheet.create({
 export const MainMovieStyle = StyleSheet.create({
     textMainMovie: {
         left: 5,
-        fontFamily: 'ObliviousFont',
+        fontFamily: 'JosefinSans-Bold',
         color: 'white',
         backgroundColor: '#00000055',
     }
@@ -89,11 +91,11 @@ export const MainMovieStyle = StyleSheet.create({
 
 export const CategoriesStyle = StyleSheet.create({
     titleStyle: {
-        fontFamily: 'ObliviousFont',
-        fontSize: 15,
+        fontFamily: 'JosefinSans-Bold',
+        fontSize: 16,
         left: 5,
         top: 3,
-        color: 'white'
+        color: 'black'
     }
 });
 

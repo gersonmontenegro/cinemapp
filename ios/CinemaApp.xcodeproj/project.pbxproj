@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -34,16 +35,24 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* CinemaAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CinemaAppTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		31527A71164545CF95BA4993 /* Champagne & Limousines Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F1D05FFE714C97B69A65E8 /* Champagne & Limousines Italic.ttf */; };
 		447CAE0FDF0945FA990019D5 /* Semi-Coder-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A65C79845FB24307866D8B24 /* Semi-Coder-Regular.otf */; };
 		5D1615C7545AF5BDFD6E4B19 /* libPods-CinemaApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D4D41F2D5E4684CF4DE26A /* libPods-CinemaApp-tvOSTests.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		5EEDEBBDAAEC44198A3418FC /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEAD4D3D167D4F8CAA4E066A /* JosefinSans-Bold.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8F0493C76B2045D98C53A059 /* Champagne & Limousines.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D330AA47581499F82915B01 /* Champagne & Limousines.ttf */; };
 		A988C768955893520814E510 /* libPods-CinemaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B5126A47B7A38F6209FCF6B1 /* libPods-CinemaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2E221A46F25D5347D42745 /* libPods-CinemaAppTests.a */; };
+		BB7964775F384316A4260C45 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48174EA6B3EC40938697D947 /* Montserrat-Regular.ttf */; };
+		BF0B8C6CECB048C3961E5EBD /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2371529A7DFA48A3B3295FA5 /* JosefinSans.ttf */; };
 		C3052ECB21472C7E001F4DE7 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3052EC821472BF5001F4DE7 /* libART.a */; };
 		C3DF68452144985E000E2EEA /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF684421449835000E2EEA /* libSplashScreen.a */; };
 		CE8C825585C7450BB479F36D /* ObliviousFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741FCF9C45134ABBBE7FCE74 /* ObliviousFont.ttf */; };
+		D0F1B4EB01AB4679B6C9E2D4 /* Champagne & Limousines Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA7A8A9E5A5A419B9BEA361D /* Champagne & Limousines Bold.ttf */; };
+		D347D5F513024485B8BD8E09 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 472FA9DFFDB54AAD85B42958 /* Montserrat-Bold.ttf */; };
+		E5BC7ACB82094A6387CC1AE4 /* Champagne & Limousines Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37E82DED27584B2AA768C19A /* Champagne & Limousines Bold Italic.ttf */; };
 		EDBBD2FC4AC74DEAB03BCD34 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D6B15E2D8F437DB7A3107F /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
@@ -335,6 +344,13 @@
 			remoteGlobalIDString = 323A12871E5F266B004975B8;
 			remoteInfo = "ART-tvOS";
 		};
+		C3DDDA66214D504200A8E862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 324CF38AEF194B6EBC0F74CE /* RNImgToBase64.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNImgToBase64;
+		};
 		C3DF684321449835000E2EEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */;
@@ -365,28 +381,42 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CinemaApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CinemaApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		21D6B15E2D8F437DB7A3107F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		1FBB4308D56441DB82595486 /* ChampagneLimousines.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ChampagneLimousines.ttf; path = ../assets/fonts/ChampagneLimousines.ttf; sourceTree = "<group>"; };
+		21D6B15E2D8F437DB7A3107F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		2371529A7DFA48A3B3295FA5 /* JosefinSans.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = JosefinSans.ttf; path = ../assets/fonts/JosefinSans.ttf; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* CinemaApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CinemaApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* CinemaApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CinemaApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		324CF38AEF194B6EBC0F74CE /* RNImgToBase64.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImgToBase64.xcodeproj; path = "../node_modules/react-native-image-base64/ios/RNImgToBase64.xcodeproj"; sourceTree = "<group>"; };
+		37E82DED27584B2AA768C19A /* Champagne & Limousines Bold Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Champagne & Limousines Bold Italic.ttf"; path = "../assets/fonts/Champagne & Limousines Bold Italic.ttf"; sourceTree = "<group>"; };
+		472FA9DFFDB54AAD85B42958 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		48174EA6B3EC40938697D947 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		5D330AA47581499F82915B01 /* Champagne & Limousines.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Champagne & Limousines.ttf"; path = "../assets/fonts/Champagne & Limousines.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		741FCF9C45134ABBBE7FCE74 /* ObliviousFont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ObliviousFont.ttf; path = ../assets/fonts/ObliviousFont.ttf; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		80C6507AD41D4C92B8ABEBA7 /* libRNImgToBase64.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImgToBase64.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8540391B5080389B793078F8 /* Pods-CinemaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaAppTests/Pods-CinemaAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		927E6B59E6A146DCB014C821 /* ChampagneLimousinesBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ChampagneLimousinesBoldItalic.ttf; path = ../assets/fonts/ChampagneLimousinesBoldItalic.ttf; sourceTree = "<group>"; };
+		98BAAFE464124AA192FB8669 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "JosefinSans-Regular.ttf"; path = "../assets/fonts/JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 		9F0660457E06F670D0595C34 /* Pods-CinemaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp/Pods-CinemaApp.release.xcconfig"; sourceTree = "<group>"; };
 		A65C79845FB24307866D8B24 /* Semi-Coder-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Semi-Coder-Regular.otf"; path = "../assets/fonts/Semi-Coder-Regular.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		BD6E7773C36441D7B52E5AAF /* ChampagneLimousinesItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ChampagneLimousinesItalic.ttf; path = ../assets/fonts/ChampagneLimousinesItalic.ttf; sourceTree = "<group>"; };
+		BEAD4D3D167D4F8CAA4E066A /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "JosefinSans-Bold.ttf"; path = "../assets/fonts/JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
 		C3052EC221472BF5001F4DE7 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		C3DF683F21449835000E2EEA /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		C3DF684621449B0A000E2EEA /* RNSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNSplashScreen.h; path = "../node_modules/react-native-splash-screen/ios/RNSplashScreen.h"; sourceTree = "<group>"; };
 		D078E73DB1AEAB481AC1E95C /* Pods-CinemaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaAppTests/Pods-CinemaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D0F1D05FFE714C97B69A65E8 /* Champagne & Limousines Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Champagne & Limousines Italic.ttf"; path = "../assets/fonts/Champagne & Limousines Italic.ttf"; sourceTree = "<group>"; };
+		DA7A8A9E5A5A419B9BEA361D /* Champagne & Limousines Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Champagne & Limousines Bold.ttf"; path = "../assets/fonts/Champagne & Limousines Bold.ttf"; sourceTree = "<group>"; };
 		DC2E221A46F25D5347D42745 /* libPods-CinemaAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CinemaAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E7232D410759B0806E59EE /* Pods-CinemaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp/Pods-CinemaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E76286E8F50A4F7680D3AFB8 /* ChampagneLimousinesBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ChampagneLimousinesBold.ttf; path = ../assets/fonts/ChampagneLimousinesBold.ttf; sourceTree = "<group>"; };
 		E7B3D761D44C711A3F5ACEEF /* Pods-CinemaApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp-tvOSTests/Pods-CinemaApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E96AAC73AD12435633E85EEC /* libPods-CinemaApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CinemaApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465E93BC23AFDBFA3B29AF7 /* Pods-CinemaApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaApp-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CinemaApp-tvOSTests/Pods-CinemaApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A130056248034F75B39DD337 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "usr/lib/libsqlite3.0.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -614,6 +644,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				324CF38AEF194B6EBC0F74CE /* RNImgToBase64.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -637,6 +668,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				A88F77E032B940E08C46B877 /* Resources */,
 				876D595A222EC9BC028F87C2 /* Pods */,
+				C3DDDA3A214D504000A8E862 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -672,6 +704,19 @@
 			children = (
 				741FCF9C45134ABBBE7FCE74 /* ObliviousFont.ttf */,
 				A65C79845FB24307866D8B24 /* Semi-Coder-Regular.otf */,
+				1FBB4308D56441DB82595486 /* ChampagneLimousines.ttf */,
+				E76286E8F50A4F7680D3AFB8 /* ChampagneLimousinesBold.ttf */,
+				927E6B59E6A146DCB014C821 /* ChampagneLimousinesBoldItalic.ttf */,
+				BD6E7773C36441D7B52E5AAF /* ChampagneLimousinesItalic.ttf */,
+				37E82DED27584B2AA768C19A /* Champagne & Limousines Bold Italic.ttf */,
+				DA7A8A9E5A5A419B9BEA361D /* Champagne & Limousines Bold.ttf */,
+				D0F1D05FFE714C97B69A65E8 /* Champagne & Limousines Italic.ttf */,
+				5D330AA47581499F82915B01 /* Champagne & Limousines.ttf */,
+				472FA9DFFDB54AAD85B42958 /* Montserrat-Bold.ttf */,
+				48174EA6B3EC40938697D947 /* Montserrat-Regular.ttf */,
+				BEAD4D3D167D4F8CAA4E066A /* JosefinSans-Bold.ttf */,
+				98BAAFE464124AA192FB8669 /* JosefinSans-Regular.ttf */,
+				2371529A7DFA48A3B3295FA5 /* JosefinSans.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -690,6 +735,22 @@
 			children = (
 				C3052EC821472BF5001F4DE7 /* libART.a */,
 				C3052ECA21472BF5001F4DE7 /* libART-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3DDDA3A214D504000A8E862 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				80C6507AD41D4C92B8ABEBA7 /* libRNImgToBase64.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		C3DDDA63214D504100A8E862 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3DDDA67214D504200A8E862 /* libRNImgToBase64.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -871,6 +932,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = C3DDDA63214D504100A8E862 /* Products */;
+					ProjectRef = 324CF38AEF194B6EBC0F74CE /* RNImgToBase64.xcodeproj */;
 				},
 				{
 					ProductGroup = C3DF684021449835000E2EEA /* Products */;
@@ -1161,6 +1226,13 @@
 			remoteRef = C3052EC921472BF5001F4DE7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C3DDDA67214D504200A8E862 /* libRNImgToBase64.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImgToBase64.a;
+			remoteRef = C3DDDA66214D504200A8E862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C3DF684421449835000E2EEA /* libSplashScreen.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1186,6 +1258,14 @@
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				CE8C825585C7450BB479F36D /* ObliviousFont.ttf in Resources */,
 				447CAE0FDF0945FA990019D5 /* Semi-Coder-Regular.otf in Resources */,
+				E5BC7ACB82094A6387CC1AE4 /* Champagne & Limousines Bold Italic.ttf in Resources */,
+				D0F1B4EB01AB4679B6C9E2D4 /* Champagne & Limousines Bold.ttf in Resources */,
+				31527A71164545CF95BA4993 /* Champagne & Limousines Italic.ttf in Resources */,
+				8F0493C76B2045D98C53A059 /* Champagne & Limousines.ttf in Resources */,
+				D347D5F513024485B8BD8E09 /* Montserrat-Bold.ttf in Resources */,
+				BB7964775F384316A4260C45 /* Montserrat-Regular.ttf in Resources */,
+				5EEDEBBDAAEC44198A3418FC /* JosefinSans-Bold.ttf in Resources */,
+				BF0B8C6CECB048C3961E5EBD /* JosefinSans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1381,9 +1461,17 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
+				);
 				INFOPLIST_FILE = CinemaAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1399,9 +1487,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
+				);
 				INFOPLIST_FILE = CinemaAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1426,6 +1522,7 @@
 					"\"${PODS_ROOT}/Headers/Public/react-native-sqlite-storage\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
 				);
 				INFOPLIST_FILE = CinemaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1453,6 +1550,7 @@
 					"\"${PODS_ROOT}/Headers/Public/react-native-sqlite-storage\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
 				);
 				INFOPLIST_FILE = CinemaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1478,8 +1576,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
+				);
 				INFOPLIST_FILE = "CinemaApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1504,8 +1610,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
+				);
 				INFOPLIST_FILE = "CinemaApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1530,8 +1644,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
+				);
 				INFOPLIST_FILE = "CinemaApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1556,8 +1678,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
+				);
 				INFOPLIST_FILE = "CinemaApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",

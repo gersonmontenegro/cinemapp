@@ -36,6 +36,7 @@ class SearchContainer extends PureComponent {
             optTopRated: false,
             optUpcoming: false,
             optOnline: false,
+            text: ''
         }
     }
 
@@ -76,8 +77,11 @@ class SearchContainer extends PureComponent {
 
     onChangeText = (text) => {
         this.setState({ text: text });
-        if (text.length >= 2) {
-            this.Process.searchMovie(text).then((data) => {
+    }
+
+    initSearch() {
+        if (this.state.text.length >= 3) {
+            this.Process.searchMovie(this.state.text, this.Process.createFilter(this.state)).then((data) => {
                 this.setState({ searchResults: data });
             });
         }

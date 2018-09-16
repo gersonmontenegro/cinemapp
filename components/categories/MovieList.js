@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { FlatList } from 'react-native';
 import MiniMovie from './MiniMovie';
 import FetchData from './../../providers/FetchData';
+import Database from '../../providers/Database';
+import Process from '../../providers/Process';
 
 class MovieList extends PureComponent {
     constructor(props) {
@@ -13,6 +15,8 @@ class MovieList extends PureComponent {
 
     creatingSingletinGroup() {
         this.FetchData = FetchData.getInstance();
+        this.Database = Database.getInstance();
+        this.Process = Process.getInstance();
     }
 
     settingState() {
@@ -22,9 +26,22 @@ class MovieList extends PureComponent {
     _keyExtractor = (item) => item.id.toString();
 
     loadMovies = () => {
+        if (this.props.search != undefined) {
+            this.loadFromLocalSearch();
+        } else {
+            this.loadFromURL();
+        }
+    }
+
+    loadFromLocalSearch() {
+
+    }
+
+    loadFromURL() {
         this.FetchData.getData(this.props.url).then(
             (data) => {
                 this.setState({ movies: data.results });
+                this.Database.saveMovies(data.results, this.props.idCategory);
             }
         );
     }

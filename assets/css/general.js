@@ -108,4 +108,30 @@ export const YTStyle = StyleSheet.create({
         width: 30,
         height: 30,
     }
+}); }
+});
+
+export const MiniMovieStyle = StyleSheet.create({
+    touchStyle: {
+        marginLeft: 5,
+        height: 150,
+        borderRadius: 10,
+    },
+    imageContainer: {
+        shadowColor: "lightgrey",
+        shadowOffset: { width: 2, height: 4 },
+        shadowRadius: 2,
+        shadowOpacity: 1,
+    },
+    imageStyle: {
+        width: 90,
+        height: 130,
+        borderRadius: 10,
+    },
+    titleStyle: {
+        top: 5,
+        fontFamily: 'JosefinSans',
+        textAlign: 'center',
+        width: 90,
+    }
 });

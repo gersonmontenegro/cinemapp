@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, Animated } from 'react-native';
-import { CategoriesStyle, _barHeight, screenWidth } from './../../assets/css/general';
+import { CategoriesStyle, _barHeight, screenWidth, miniMovieHeight } from './../../assets/css/general';
 import { Categories } from './../../providers/Data';
 import FetchData from './../../providers/FetchData';
 import MovieList from './MovieList';
@@ -22,11 +22,11 @@ class CategoriesContainer extends PureComponent {
                     Categories.map((item) => (
                         <Animated.View
                             key={item.id}
-                            style={{ backgroundColor: '#555555', height: 155, marginTop: 2 }}>
+                            style={{ backgroundColor: '#fefefe', height: miniMovieHeight, marginTop: 2 }}>
                             <Text style={CategoriesStyle.titleStyle}>
                                 {item.name}
                             </Text>
-                            <MovieList url={item.url} height={this.props.height} changeFunction={this.props.changeFunction} />
+                            <MovieList idCategory={item.id} url={item.url} height={this.props.height} changeFunction={this.props.changeFunction} />
                         </Animated.View>
                     ))
                 }

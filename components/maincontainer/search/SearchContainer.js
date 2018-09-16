@@ -87,6 +87,10 @@ class SearchContainer extends PureComponent {
         }
     }
 
+    componentDidUpdate() {
+        this.initSearch();
+    }
+
     render() {
         return (
             <Animated.View style={[SearchStyle.containerStyle, { height: this.state.height }]}>

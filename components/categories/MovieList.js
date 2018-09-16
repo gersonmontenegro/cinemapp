@@ -9,8 +9,13 @@ class MovieList extends PureComponent {
     constructor(props) {
         super(props);
         this.settingState();
+        this.bindingFunction();
         this.creatingSingletinGroup();
         this.loadMovies();
+    }
+
+    bindingFunction() {
+        this.onReceiveMovieList = this.onReceiveMovieList.bind(this);
     }
 
     creatingSingletinGroup() {
@@ -47,13 +52,13 @@ class MovieList extends PureComponent {
     }
 
     loadFromURL() {
-        this.FetchData.getData(this.props.url).then(this.onReveiveMovieList);
+        this.FetchData.getData(this.props.url).then(this.onReceiveMovieList);
     }
 
-    onReveiveMovieList = (data) => {
-                this.setState({ movies: data.results });
-                this.Database.saveMovies(data.results, this.props.idCategory);
-            }
+    onReceiveMovieList = (data) => {
+        this.setState({ movies: data.results });
+        this.Database.saveMovies(data.results, this.props.idCategory);
+    }
 
     getMovieList = () => {
         return (

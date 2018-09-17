@@ -17,6 +17,8 @@ export const CLOSE_ICON = require('./../../assets/img/icon/close.png');
 export const SEARCH_ICON = require('./../../assets/img/icon/search.png');
 export const SEARCH_MORE_ICON = require('./../../assets/img/icon/more.png');
 
+export const SPINNER = require('./../../assets/gif/spinner.gif');
+
 export const TXT_NO_VIDEOS = "There is no videos for this movie yet.";
 export const TXT_TAB_TO_START_THE_SEARCH = "Tab to start the search";
 

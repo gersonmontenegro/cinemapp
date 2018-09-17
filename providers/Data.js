@@ -8,8 +8,10 @@ export const Categories = [
 
 export const GENRES_URL = "https://api.themoviedb.org/3/genre/movie/list?"
 export const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+export const CHARACTER_PROFILE_PHOTO_URL = "https://image.tmdb.org/t/p/w200";
 export const VIDEOS_URL = "https://api.themoviedb.org/3/movie/%ID_VIDEO%/videos?api_key=";
 export const SEARCH_ONLINE_URL = "https://api.themoviedb.org/3/search/movie?language=en-US&page=1&include_adult=false&api_key=" + API_KEY + "&query=";
+export const CREDITS_URL = "https://api.themoviedb.org/3/movie/%ID_MOVIE%/credits?api_key=" + API_KEY;
 
 export const MoviesQuery = {
     "page": 1,

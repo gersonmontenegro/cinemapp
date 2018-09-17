@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Animated, TextInput } from 'react-native'
-import { screenWidth, SEARCH_MORE_ICON, finalHeighMainMovie, initHeighMainMovie, blueCheckBox, greenCheckBox, SearchStyle, TXT_TAB_TO_START_THE_SEARCH } from '../../../assets/css/general';
+import { screenWidth, SEARCH_MORE_ICON, finalHeighMainMovie, initHeighMainMovie, blueCheckBox, greenCheckBox, SearchStyle, TXT_TAB_TO_START_THE_SEARCH, SPINNER } from '../../../assets/css/general';
 import BasicButton from '../../general/BasicButton';
 import Actions from './../../../providers/Actions';
 import MovieList from '../../categories/MovieList';
@@ -14,6 +14,7 @@ class SearchContainer extends PureComponent {
         this.bindingFunctions();
         this.settingState();
         this.creatingSingletonGroup();
+        this.tmp = {};
     }
 
     creatingSingletonGroup() {
@@ -36,7 +37,9 @@ class SearchContainer extends PureComponent {
             optTopRated: false,
             optUpcoming: false,
             optOnline: false,
-            text: ''
+            text: '',
+            flag: true,
+            spinnerOpacity: 0
         }
     }
 
@@ -101,20 +104,42 @@ class SearchContainer extends PureComponent {
         }
     }
 
+    initSearchOnline(text) {
+        this.setState({ spinnerOpacity: 1 });
+        this.Process.searchMovieOnline(text).then((data) => {
+            this.setState({ searchResults: data.results, spinnerOpacity: 0 });
+        });
+    }
+
     onChangeText = (text) => {
-        this.setState({ text: text });
+        this.setState({ text: text }, () => {
+            if (text.length > 0) {
+                if (this.state.optOnline) {
+                    this.initSearchOnline(text);
+                } else {
+                    this.initSearch(text);
+                }
+            } else {
+                console.log("closing???");
+                this.closeSearch();
+                this.setState({ flag: !this.state.flag }, () => {
+                    this.setState({ searchResults: [] });
+                });
+            }
+        });
     }
 
-    initSearch() {
-        if (this.state.text.length >= 3) {
-            this.Process.searchMovie(this.state.text, this.Process.createFilter(this.state)).then((data) => {
-                this.setState({ searchResults: data });
+    initSearch(text) {
+        let filter = this.Process.createFilter(this.state);
+        this.Process.searchMovie(text, filter).then((data) => {
+            this.setState({ searchResults: data }, () => {
+                if (this.state.searchResults.length > 0) {
+                    this.openSearch();
+                } else {
+                    this.closeSearch();
+                }
             });
-        }
-    }
-
-    componentDidUpdate() {
-        this.initSearch();
+        });
     }
 
     render() {
@@ -137,7 +162,8 @@ class SearchContainer extends PureComponent {
                 </Animated.View>
                 <Animated.View style={[SearchStyle.listContainer, { height: this.props.height }]}>
                     <FilterContainer setCheckBoxState={this.setCheckBoxState} optPopular={this.state.optPopular} optTopRated={this.state.optTopRated} optUpcoming={this.state.optUpcoming} optOnline={this.state.optOnline} />
-                    <MovieList height={this.props.height} search="xxx" searchResults={this.state.searchResults} />
+                    <MovieList flag={this.state.flag} height={this.props.height} search="xxx" searchResults={this.state.searchResults} />
+                    <Animated.Image style={[SearchStyle.spinnerStyle, { opacity: this.state.spinnerOpacity }]} source={SPINNER} />
                 </Animated.View>
             </Animated.View>
         );

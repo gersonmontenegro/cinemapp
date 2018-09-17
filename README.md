@@ -460,7 +460,8 @@ To do that implied change a little bit MovieList and MiniMovie components, becau
 
 Now, I'm gonna detail some parts of the app, and I'm gonna do that in Spanish, because I think is a *must*.
 
-**Estructura de la aplicación**
+### Estructura de la aplicación
+[Estructura de la aplicación](#estructura)
 
 ![App structure](https://lh3.googleusercontent.com/7Chiw3NaTI3I7cx95m6YOlwIyPn2ftEC2Xj_Z4bO_rhl35814UL_H0YjR1FitVfMh-PF7ZsQKyg-=s1000)
 

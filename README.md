@@ -447,3 +447,15 @@ After a lots of commits, at least I have a decent search engine, who is able to 
 <img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/search_offline_online.gif" width="300px">
 
 I think I'm gonna make a few details before decided finish this project.
+
+At this moment, I'm not gonna code more lines. The project is completed, at least in terms of codification.
+
+The last details that I implemented was view the movie details. I designed this interface a little different, but I haven't time enough, but, like a compensation, I add a really cool feature: Cast, with names, an photos.
+
+So, in the next gif it's possible to see the title, genres, overview (complete version) and cast:
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/view_details.gif" width="300px">
+
+To do that implied change a little bit MovieList and MiniMovie components, because I don't wanted make another component to do the same, basically.
+
+Now, I'm gonna detail some parts of the app.

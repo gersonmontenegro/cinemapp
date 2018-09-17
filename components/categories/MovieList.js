@@ -57,12 +57,18 @@ class MovieList extends PureComponent {
     }
 
     createMiniMovie = ({ item }) => {
-        if (this.state.movies.length > 0) {
+        if (!this.state.flag) {
             return (
                 <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
             );
         } else {
-            return null;
+            if (this.props.searchResults.length > 0) {
+                return (
+                    <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
+                );
+            } else {
+                return null;
+            }
         }
     }
 

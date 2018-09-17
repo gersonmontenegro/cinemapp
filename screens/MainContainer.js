@@ -82,7 +82,7 @@ class MainContainer extends PureComponent {
                         <YouTubePlayer play={this.state.playVideo} movieData={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
                     </Animated.View>
                 </Animated.View>
-                <SearchContainer height={this.SearchContainerHeight} />
+                <SearchContainer height={this.SearchContainerHeight} changeFunction={this.changeState} />
                 <CategoriesContainer height={this.mainMovieHeight} changeFunction={this.changeState} />
             </Animated.View>
         );

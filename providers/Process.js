@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { HEART_EMPTY_ICON, MORE_EMPTY_ICON, PLAY_ICON } from './../assets/css/general';
 import Database from './Database';
 import FetchData from './FetchData';
-import { SEARCH_ONLINE_URL } from './Data';
+import { SEARCH_ONLINE_URL, IMAGE_URL, CHARACTER_PROFILE_PHOTO_URL } from './Data';
 
 class Process extends PureComponent {
     static instance = null;
@@ -74,8 +74,22 @@ class Process extends PureComponent {
         return text.replace(new RegExp("\'", 'g'), "");
     }
 
-    truncateTitle(text) {
-        return text.length != '' && text != undefined && text != 'null' ? (text.length > 30 ? text.substring(0, 30) + "..." : text) : '';
+    truncateTitle(text, item) {
+        if (item.name != undefined) {
+            console.log(">NAME:", item.name);
+
+            return item.name;
+        } else {
+            return text.length != '' && text != undefined && text != 'null' && text != '' ? (text.length > 30 ? text.substring(0, 30) + "..." : text) : '';
+        }
+    }
+
+    getImgPath(poster_path, item) {
+        if (item.profile_path != '' && item.profile_path != undefined) {
+            return CHARACTER_PROFILE_PHOTO_URL + item.profile_path;
+        } else {
+            return IMAGE_URL + poster_path;
+        }
     }
 
     searchMovie(text, filter) {
@@ -124,6 +138,14 @@ class Process extends PureComponent {
             filter.push(3);
         }
         return filter.join(',');
+    }
+
+    getGenreStringList(item) {
+        if (typeof (item.genre_ids) == 'object') {
+            return item.genre_ids.join(",");
+        } else {
+            return item.genre_ids;
+        }
     }
 
 }

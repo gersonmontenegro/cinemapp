@@ -28,6 +28,8 @@ class BottomButton extends PureComponent {
             this.setState({ source: HEART_FULL_ICON });
         } else if (this.props.type == 1) {
             this.props.changeMainMoviePosition(-screenWidth);
+        } else if (this.props.type == 2) {
+            this.props.changeMainMoviePosition(screenWidth);
         }
     }
 

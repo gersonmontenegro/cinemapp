@@ -9,9 +9,14 @@ class MovieList extends PureComponent {
     constructor(props) {
         super(props);
         this.settingState();
+        this.creatingSimpleValues();
         this.bindingFunction();
         this.creatingSingletinGroup();
         this.loadMovies();
+    }
+
+    creatingSimpleValues() {
+        this.credits = false;
     }
 
     bindingFunction() {
@@ -36,15 +41,24 @@ class MovieList extends PureComponent {
     _keyExtractor = (item) => item.id.toString();
 
     loadMovies = () => {
-        if (this.props.url != undefined) {
+        if (this.props.url != undefined && this.props.url != 'undefined' && this.props.url != '') {
             this.loadFromURL();
         }
     }
 
     componentDidUpdate() {
+        this.setMoviesState();
+    }
+
+    setMoviesState() {
         if (this.props.searchResults.length != undefined && this.props.searchResults.length > 0) {
             this.setState({ movies: this.props.searchResults });
         }
+    }
+
+    loadCredits(url) {
+        this.credits = true;
+        this.FetchData.getData(url).then(this.onReceiveMovieList);
     }
 
     loadFromURL() {
@@ -52,19 +66,24 @@ class MovieList extends PureComponent {
     }
 
     onReceiveMovieList = (data) => {
-        this.setState({ movies: data.results });
-        this.Database.saveMovies(data.results, this.props.idCategory);
+        if (data.cast != undefined) {
+            this.credits = false;
+            this.setState({ movies: data.cast });
+        } else {
+            this.setState({ movies: data.results });
+            this.Database.saveMovies(data.results, this.props.idCategory);
+        }
     }
 
     createMiniMovie = ({ item }) => {
         if (!this.state.flag) {
             return (
-                <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
+                <MiniMovie textColor={this.props.textColor} item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
             );
         } else {
             if (this.props.searchResults.length > 0) {
                 return (
-                    <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
+                    <MiniMovie textColor={this.props.textColor} item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
                 );
             } else {
                 return null;
@@ -76,7 +95,7 @@ class MovieList extends PureComponent {
     getMovieList = () => {
         return (
             <FlatList
-                style={{ marginTop: 10 }}
+                style={{ marginTop: this.props.top != undefined ? this.props.top : 10 }}
                 horizontal={true}
                 data={this.state.movies}
                 keyExtractor={this._keyExtractor}

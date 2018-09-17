@@ -9,7 +9,7 @@ class TextInfo extends PureComponent {
 
     render() {
         return (
-            <Animated.View style={{ width: screenWidth, height: 30 }}>
+            <Animated.View style={{ justifyContent: 'flex-start', width: screenWidth, height: this.props.height ? this.props.height : 30 }}>
                 <Text style={[MainMovieStyle.textMainMovie, {
                     fontSize: this.props.fontSize,
                     alignSelf: this.props.center ? "center" : "flex-start",

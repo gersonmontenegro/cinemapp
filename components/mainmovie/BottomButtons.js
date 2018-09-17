@@ -14,7 +14,7 @@ class BottomButtons extends PureComponent {
                 <View style={{ width: screenWidth, flexDirection: "row", height: 30 }}>
                     <BottomButton width={30} height={30} type={0} alignItems="flex-end" />
                     <BottomButton changeMainMoviePosition={this.props.changeMainMoviePosition} width={100} height={80} type={1} alignItems="center" />
-                    <BottomButton width={30} height={30} type={2} alignItems="flex-start" />
+                    <BottomButton changeMainMoviePosition={this.props.changeMainMoviePosition} width={30} height={30} type={2} alignItems="flex-start" />
                 </View>
             </Animated.View>
         );

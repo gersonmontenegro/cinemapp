@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import { ScrollView, Animated, View, Text } from 'react-native';
 import HeaderComponent from './../components/general/HeaderComponent';
-import { _barHeight, screenWidth, finalHeighMainMovie, initHeighMainMovie } from './../assets/css/general';
+import { _barHeight, screenWidth, initHeighMainMovie } from './../assets/css/general';
 import Actions from './../providers/Actions';
 import MainMovie from './../components/mainmovie/MainMovie';
 import CategoriesContainer from './../components/categories/CategoriesContainer';
 import YouTubePlayer from '../components/ytplayer/YouTubePlayer';
 import SearchContainer from '../components/maincontainer/search/SearchContainer';
+import MovieDetails from '../components/mainmovie/MovieDetails';
 
 class MainContainer extends PureComponent {
     constructor(props) {
@@ -71,6 +72,7 @@ class MainContainer extends PureComponent {
         return (
             <Animated.View style={{ width: screenWidth }}>
                 <Animated.View style={{ flexDirection: "row", marginLeft: this.mainMoviePosition }}>
+                    <MovieDetails mainMovieHeight={this.mainMovieHeight} data={this.state.currentMovie} />
                     <MainMovie height={this.mainMovieHeight} data={this.state.currentMovie} changeMainMoviePosition={this.changeMainMoviePosition} />
                     <Animated.View
                         style={{

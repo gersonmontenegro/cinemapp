@@ -27,17 +27,9 @@ class MainMovie extends PureComponent {
         this.settingAvergage();
     }
 
-    getGenreStringList() {
-        if (typeof (this.props.data.item.genre_ids) == 'object') {
-            return this.props.data.item.genre_ids.join(",");
-        } else {
-            return this.props.data.item.genre_ids;
-        }
-    }
-
     loadGenres = () => {
         if (this.props.data.item.genre_ids != undefined) {
-            this.Process.getGenres(this.getGenreStringList()).then((data) => {
+            this.Process.getGenres(this.Process.getGenreStringList(this.props.data.item)).then((data) => {
                 this.setState({ genres: data });
             });
         }

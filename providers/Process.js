@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { HEART_EMPTY_ICON, MORE_EMPTY_ICON, PLAY_ICON } from './../assets/css/general';
 import Database from './Database';
+import FetchData from './FetchData';
+import { SEARCH_ONLINE_URL } from './Data';
 
 class Process extends PureComponent {
     static instance = null;
@@ -83,9 +85,21 @@ class Process extends PureComponent {
             if (filter != '') {
                 query += ` and idcategory in (${filter})`;
             }
+            query += ` order by vote_average desc`;
             this.db.executeQuery(query).then((data) => {
                 resolve(this.query2JSON(data));
             });
+        });
+    }
+
+    searchMovieOnline(text) {
+        return new Promise((resolve, reject) => {
+            let fetchData = FetchData.getInstance();
+            fetchData.getData(SEARCH_ONLINE_URL + text).then(
+                (data) => {
+                    resolve(data);
+                }
+            );
         });
     }
 

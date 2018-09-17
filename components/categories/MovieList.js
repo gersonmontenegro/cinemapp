@@ -16,6 +16,7 @@ class MovieList extends PureComponent {
 
     bindingFunction() {
         this.onReceiveMovieList = this.onReceiveMovieList.bind(this);
+        this.createMiniMovie = this.createMiniMovie.bind(this);
     }
 
     creatingSingletinGroup() {
@@ -28,6 +29,7 @@ class MovieList extends PureComponent {
         this.state = {
             movies: [],
             searchResults: {},
+            flag: this.props.flag
         };
     }
 
@@ -54,6 +56,17 @@ class MovieList extends PureComponent {
         this.Database.saveMovies(data.results, this.props.idCategory);
     }
 
+    createMiniMovie = ({ item }) => {
+        if (this.state.movies.length > 0) {
+            return (
+                <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
+            );
+        } else {
+            return null;
+        }
+    }
+
+
     getMovieList = () => {
         return (
             <FlatList
@@ -61,9 +74,7 @@ class MovieList extends PureComponent {
                 horizontal={true}
                 data={this.state.movies}
                 keyExtractor={this._keyExtractor}
-                renderItem={({ item }) => (
-                    <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
-                )}
+                renderItem={this.createMiniMovie}
             />)
     }
 

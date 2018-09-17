@@ -441,3 +441,9 @@ Right now, I've completed the visual functionality:
 <img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/checkbox_search_preview.gif" width="300px">
 
 For this last option, I decided not to create a CheckBox component by my own, not because I couldn't, but because I haven't time enough, so, I installed [Native base](https://github.com/GeekyAnts/NativeBase) library in order to use component that I need from the available catalogue.
+
+After a lots of commits, at least I have a decent search engine, who is able to do the job not only offline, but online. Besides, the search panel could be open manually using the ellipsis button, and also, this panel will be open automatically if the search has results, just like I show below:
+
+<img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/search_offline_online.gif" width="300px">
+
+I think I'm gonna make a few details before decided finish this project.

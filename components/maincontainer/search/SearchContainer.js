@@ -159,7 +159,7 @@ class SearchContainer extends PureComponent {
                 </Animated.View>
                 <Animated.View style={[SearchStyle.listContainer, { height: this.props.height }]}>
                     <FilterContainer setCheckBoxState={this.setCheckBoxState} optPopular={this.state.optPopular} optTopRated={this.state.optTopRated} optUpcoming={this.state.optUpcoming} optOnline={this.state.optOnline} />
-                    <MovieList flag={true} height={this.props.height} search="xxx" searchResults={this.state.searchResults} />
+                    <MovieList changeFunction={this.props.changeFunction} flag={true} height={this.props.height} search="xxx" searchResults={this.state.searchResults} />
                     <Animated.Image style={[SearchStyle.spinnerStyle, { opacity: this.state.spinnerOpacity }]} source={SPINNER} />
                 </Animated.View>
             </Animated.View>

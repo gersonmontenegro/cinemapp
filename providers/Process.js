@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { HEART_EMPTY_ICON, MORE_EMPTY_ICON, PLAY_ICON } from './../assets/css/general';
 import Database from './Database';
+import FetchData from './FetchData';
+import { SEARCH_ONLINE_URL } from './Data';
 
 class Process extends PureComponent {
     static instance = null;
@@ -76,13 +78,28 @@ class Process extends PureComponent {
         return text.length != '' && text != undefined && text != 'null' ? (text.length > 30 ? text.substring(0, 30) + "..." : text) : '';
     }
 
-    searchMovie(text) {
+    searchMovie(text, filter) {
         return new Promise((resolve, reject) => {
             this.db = this.db == null ? Database.getInstance() : this.db;
             let query = `select * from movie where title like '%${text}%'`;
+            if (filter != '') {
+                query += ` and idcategory in (${filter})`;
+            }
+            query += ` order by vote_average desc`;
             this.db.executeQuery(query).then((data) => {
                 resolve(this.query2JSON(data));
             });
+        });
+    }
+
+    searchMovieOnline(text) {
+        return new Promise((resolve, reject) => {
+            let fetchData = FetchData.getInstance();
+            fetchData.getData(SEARCH_ONLINE_URL + text).then(
+                (data) => {
+                    resolve(data);
+                }
+            );
         });
     }
 
@@ -93,6 +110,20 @@ class Process extends PureComponent {
             data.push(resQuery.rows.item(r));
         }
         return data;
+    }
+
+    createFilter(baseState) {
+        let filter = [];
+        if (baseState.optPopular) {
+            filter.push(1);
+        }
+        if (baseState.optTopRated) {
+            filter.push(2);
+        }
+        if (baseState.optUpcoming) {
+            filter.push(3);
+        }
+        return filter.join(',');
     }
 
 }

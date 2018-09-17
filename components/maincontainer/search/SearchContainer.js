@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Animated, TextInput } from 'react-native'
-import { screenWidth, SEARCH_MORE_ICON, finalHeighMainMovie, initHeighMainMovie, blueCheckBox, greenCheckBox, SearchStyle, TXT_TAB_TO_START_THE_SEARCH } from '../../../assets/css/general';
+import { screenWidth, SEARCH_MORE_ICON, finalHeighMainMovie, initHeighMainMovie, blueCheckBox, greenCheckBox, SearchStyle, TXT_TAB_TO_START_THE_SEARCH, SPINNER } from '../../../assets/css/general';
 import BasicButton from '../../general/BasicButton';
 import Actions from './../../../providers/Actions';
 import MovieList from '../../categories/MovieList';
@@ -14,6 +14,7 @@ class SearchContainer extends PureComponent {
         this.bindingFunctions();
         this.settingState();
         this.creatingSingletonGroup();
+        this.tmp = {};
     }
 
     creatingSingletonGroup() {
@@ -36,51 +37,106 @@ class SearchContainer extends PureComponent {
             optTopRated: false,
             optUpcoming: false,
             optOnline: false,
+            text: '',
+            spinnerOpacity: 0
         }
     }
 
     onPressMore = () => {
         if (this.props.height.__getValue() < finalHeighMainMovie) {
-            this.Actions.changeVariable(this.props.height, finalHeighMainMovie, 0).start();
+            this.openSearch();
         } else {
-            this.Actions.changeVariable(this.props.height, initHeighMainMovie, 0).start();
+            this.closeSearch();
         }
+    }
+
+    openSearch() {
+        this.Actions.changeVariable(this.props.height, finalHeighMainMovie, 0).start();
+    }
+
+    closeSearch() {
+        this.Actions.changeVariable(this.props.height, initHeighMainMovie, 0).start();
     }
 
     setCheckBoxState = (value) => {
         switch (value) {
             case 1: {
-                this.setState({ optPopular: !this.state.optPopular });
-                this.setState({ optOnline: false });
+                this.setState({
+                    optPopular: !this.state.optPopular,
+                    optOnline: false
+                }, () => {
+                    this.initSearch(this.state.text)
+                });
                 break;
             }
             case 2: {
-                this.setState({ optTopRated: !this.state.optTopRated });
-                this.setState({ optOnline: false });
+                this.setState({ optTopRated: !this.state.optTopRated, optOnline: false }, () => {
+                    this.initSearch(this.state.text)
+                });
                 break;
             }
             case 3: {
-                this.setState({ optUpcoming: !this.state.optUpcoming });
-                this.setState({ optOnline: false });
+                this.setState({ optUpcoming: !this.state.optUpcoming, optOnline: false }, () => {
+                    this.initSearch(this.state.text)
+                });
                 break;
             }
             case 4: {
-                this.setState({ optOnline: !this.state.optOnline });
-                this.setState({ optPopular: false });
-                this.setState({ optTopRated: false });
-                this.setState({ optUpcoming: false });
+                this.setState({
+                    optOnline: !this.state.optOnline,
+                    optPopular: false,
+                    optTopRated: false,
+                    optUpcoming: false
+                }, () => {
+                    console.log("Online?", this.state.optOnline);
+
+                    if (this.state.optOnline) {
+                        console.log("Online yes");
+                        this.initSearchOnline(this.state.text)
+                    } else {
+                        console.log("Online no");
+                        this.initSearch(this.state.text)
+                    }
+                });
                 break;
             }
         }
     }
 
+    initSearchOnline(text) {
+        this.setState({ spinnerOpacity: 1 });
+        this.Process.searchMovieOnline(text).then((data) => {
+            this.setState({ searchResults: data.results, spinnerOpacity: 0 });
+        });
+    }
+
     onChangeText = (text) => {
-        this.setState({ text: text });
-        if (text.length >= 2) {
-            this.Process.searchMovie(text).then((data) => {
-                this.setState({ searchResults: data });
+        this.setState({ text: text }, () => {
+            if (text.length > 0) {
+                if (this.state.optOnline) {
+                    this.initSearchOnline(text);
+                } else {
+                    this.initSearch(text);
+                }
+            } else {
+                console.log("closing???");
+                this.closeSearch();
+                this.setState({ searchResults: [] });
+            }
+        });
+    }
+
+    initSearch(text) {
+        let filter = this.Process.createFilter(this.state);
+        this.Process.searchMovie(text, filter).then((data) => {
+            this.setState({ searchResults: data }, () => {
+                if (this.state.searchResults.length > 0) {
+                    this.openSearch();
+                } else {
+                    this.closeSearch();
+                }
             });
-        }
+        });
     }
 
     render() {
@@ -102,8 +158,9 @@ class SearchContainer extends PureComponent {
                         }} width={25} height={20} icon={SEARCH_MORE_ICON} />
                 </Animated.View>
                 <Animated.View style={[SearchStyle.listContainer, { height: this.props.height }]}>
-                    <FilterContainer />
-                    <MovieList height={this.props.height} search="xxx" searchResults={this.state.searchResults} />
+                    <FilterContainer setCheckBoxState={this.setCheckBoxState} optPopular={this.state.optPopular} optTopRated={this.state.optTopRated} optUpcoming={this.state.optUpcoming} optOnline={this.state.optOnline} />
+                    <MovieList flag={true} height={this.props.height} search="xxx" searchResults={this.state.searchResults} />
+                    <Animated.Image style={[SearchStyle.spinnerStyle, { opacity: this.state.spinnerOpacity }]} source={SPINNER} />
                 </Animated.View>
             </Animated.View>
         );

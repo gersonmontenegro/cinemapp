@@ -17,11 +17,15 @@ export const CLOSE_ICON = require('./../../assets/img/icon/close.png');
 export const SEARCH_ICON = require('./../../assets/img/icon/search.png');
 export const SEARCH_MORE_ICON = require('./../../assets/img/icon/more.png');
 
+export const SPINNER = require('./../../assets/gif/spinner.gif');
+
 export const TXT_NO_VIDEOS = "There is no videos for this movie yet.";
+export const TXT_TAB_TO_START_THE_SEARCH = "Tab to start the search";
 
 export const backColorToRemoveWink = '#ffffff00';
 export const blueCheckBox = '#3399ff';
 export const greenCheckBox = '#7c9885';
+export const veryLightGray = '#f8f8f8';
 
 export const defaultIconSize = 30;
 
@@ -136,5 +140,25 @@ export const MiniMovieStyle = StyleSheet.create({
         fontFamily: 'JosefinSans',
         textAlign: 'center',
         width: 90,
+    }
+});
+
+export const SearchStyle = StyleSheet.create({
+    containerStyle: {
+        width: screenWidth,
+    },
+    textInputStyle: {
+        fontFamily: 'JosefinSans',
+        width: screenWidth - 30,
+        marginLeft: 2,
+        height: 30,
+        backgroundColor: 'white',
+        borderColor: 'gray',
+        borderWidth: 1
+    },
+    listContainer: {
+        width: screenWidth,
+        flexDirection: 'column',
+        backgroundColor: veryLightGray
     }
 });

@@ -26,7 +26,7 @@ class CategoriesContainer extends PureComponent {
                             <Text style={CategoriesStyle.titleStyle}>
                                 {item.name}
                             </Text>
-                            <MovieList idCategory={item.id} url={item.url} height={this.props.height} changeFunction={this.props.changeFunction} />
+                            <MovieList flag={false} searchResults="" idCategory={item.id} url={item.url} height={this.props.height} changeFunction={this.props.changeFunction} />
                         </Animated.View>
                     ))
                 }

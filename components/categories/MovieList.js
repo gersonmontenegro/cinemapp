@@ -16,6 +16,7 @@ class MovieList extends PureComponent {
 
     bindingFunction() {
         this.onReceiveMovieList = this.onReceiveMovieList.bind(this);
+        this.createMiniMovie = this.createMiniMovie.bind(this);
     }
 
     creatingSingletinGroup() {
@@ -28,24 +29,19 @@ class MovieList extends PureComponent {
         this.state = {
             movies: [],
             searchResults: {},
+            flag: this.props.flag
         };
     }
 
     _keyExtractor = (item) => item.id.toString();
 
     loadMovies = () => {
-        if (this.props.search != undefined) {
-            this.loadFromLocalSearch();
-        } else {
+        if (this.props.url != undefined) {
             this.loadFromURL();
         }
     }
 
-    loadFromLocalSearch() {
-
-    }
-
-    componentWillReceiveProps() {
+    componentDidUpdate() {
         if (this.props.searchResults.length != undefined && this.props.searchResults.length > 0) {
             this.setState({ movies: this.props.searchResults });
         }
@@ -60,6 +56,23 @@ class MovieList extends PureComponent {
         this.Database.saveMovies(data.results, this.props.idCategory);
     }
 
+    createMiniMovie = ({ item }) => {
+        if (!this.state.flag) {
+            return (
+                <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
+            );
+        } else {
+            if (this.props.searchResults.length > 0) {
+                return (
+                    <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
+                );
+            } else {
+                return null;
+            }
+        }
+    }
+
+
     getMovieList = () => {
         return (
             <FlatList
@@ -67,9 +80,7 @@ class MovieList extends PureComponent {
                 horizontal={true}
                 data={this.state.movies}
                 keyExtractor={this._keyExtractor}
-                renderItem={({ item }) => (
-                    <MiniMovie item={item} height={this.props.height} changeFunction={this.props.changeFunction} />
-                )}
+                renderItem={this.createMiniMovie}
             />)
     }
 

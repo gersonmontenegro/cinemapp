@@ -42,9 +42,9 @@ class SearchContainer extends PureComponent {
 
     onPressMore = () => {
         if (this.props.height.__getValue() < finalHeighMainMovie) {
-            this.Actions.changeVariable(this.props.height, finalHeighMainMovie, 0).start();
+            this.openSearch();
         } else {
-            this.Actions.changeVariable(this.props.height, initHeighMainMovie, 0).start();
+            this.closeSearch();
         }
     }
 

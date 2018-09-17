@@ -76,8 +76,6 @@ class Process extends PureComponent {
 
     truncateTitle(text, item) {
         if (item.name != undefined) {
-            console.log(">NAME:", item.name);
-
             return item.name;
         } else {
             return text.length != '' && text != undefined && text != 'null' && text != '' ? (text.length > 30 ? text.substring(0, 30) + "..." : text) : '';

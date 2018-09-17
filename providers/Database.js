@@ -82,7 +82,6 @@ class Database {
             tables.forEach((q, index) => {
                 this.executeQuery(q).then(
                     (res) => {
-                        console.log(index + ": RESULT: " + res);
                         if (index == tables.length - 1) {
                             resolve("at this time, it's supposed that is finished");
                         }
@@ -93,13 +92,11 @@ class Database {
     }
 
     updateMovie(item) {
-        // console.log("updating movie...", item.id);
         let query = `select * from movie where id = ${item.id}`;
         this.executeQuery(query).then(
             (data) => {
                 if (parseInt(data.rows.length) > 0) {
                     var item = data.rows.item(0);
-                    // console.log("UPDATING:", item.id, this._Process.existsImageBackground(item.backdrop_path, item));
                     this.getBase64Img(item.id, this._Process.existsImageBackground(item.backdrop_path, item));
                 }
             }
@@ -123,7 +120,6 @@ class Database {
             )`;
         this.executeQuery(query).then(
             (data) => {
-                console.log("INSERTED:", data);
                 this.getBase64Img(item.id, this._Process.existsImageBackground(item.backdrop_path, item));
             }
         );
@@ -136,7 +132,6 @@ class Database {
     }
 
     saveBase64Img(base64img) {
-        console.log("ResultBase64", base64img);
 
     }
 
@@ -161,7 +156,6 @@ class Database {
                 tx.executeSql(query, [], (tx, results) => {
                     resolve(results);
                 }, (err) => {
-                    // console.log("Error: ", err, "With QUERY:", query);
                 });
             });
         });

@@ -34,18 +34,12 @@ class MovieList extends PureComponent {
     _keyExtractor = (item) => item.id.toString();
 
     loadMovies = () => {
-        if (this.props.search != undefined) {
-            this.loadFromLocalSearch();
-        } else {
+        if (this.props.url != undefined) {
             this.loadFromURL();
         }
     }
 
-    loadFromLocalSearch() {
-
-    }
-
-    componentWillReceiveProps() {
+    componentDidUpdate() {
         if (this.props.searchResults.length != undefined && this.props.searchResults.length > 0) {
             this.setState({ movies: this.props.searchResults });
         }

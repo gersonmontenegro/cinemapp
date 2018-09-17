@@ -93,6 +93,8 @@ export const MainMovieStyle = StyleSheet.create({
         fontFamily: 'JosefinSans-Bold',
         color: 'white',
         backgroundColor: '#00000055',
+        textAlignVertical: 'top',
+        flexWrap: 'wrap'
     }
 });
 
@@ -115,7 +117,6 @@ export const YTStyle = StyleSheet.create({
         width: 30,
         height: 30,
     }
-}); }
 });
 
 export const MiniMovieStyle = StyleSheet.create({
@@ -160,5 +161,11 @@ export const SearchStyle = StyleSheet.create({
         width: screenWidth,
         flexDirection: 'column',
         backgroundColor: veryLightGray
+    },
+    spinnerStyle: {
+        alignSelf: 'center',
+        position: 'absolute',
+        zIndex: 10,
+        top: 80
     }
 });

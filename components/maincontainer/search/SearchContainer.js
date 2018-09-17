@@ -55,7 +55,7 @@ class SearchContainer extends PureComponent {
     }
 
     closeSearch() {
-        // this.Actions.changeVariable(this.props.height, initHeighMainMovie, 0).start();
+        this.Actions.changeVariable(this.props.height, initHeighMainMovie, 0).start();
     }
 
     setCheckBoxState = (value) => {

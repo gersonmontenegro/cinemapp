@@ -5,8 +5,7 @@ import Process from './../../providers/Process';
 import { IMAGE_URL } from './../../providers/Data';
 import TextInfo from './TextInfo';
 import BottomButtons from './BottomButtons';
-import Pie from 'react-native-pie';
-import YouTubePlayer from '../ytplayer/YouTubePlayer';
+import PieRank from './PieRank';
 
 class MainMovie extends PureComponent {
     constructor(props) {
@@ -65,30 +64,7 @@ class MainMovie extends PureComponent {
                     style={{ width: screenWidth, height: this.props.height }}
                     source={{ uri: IMAGE_URL + this.Process.existsImageBackground(this.props.data.item.backdrop_path, this.state) }}
                 />
-                <View style={{ top: -280 }}>
-                    <Pie
-                        radius={30}
-                        innerRadius={25}
-                        series={[this.state.average]}
-                        colors={['#f00']}
-                        backgroundColor='white'
-                    />
-                    <View style={{
-                        position: 'absolute',
-                        width: 60,
-                        height: 60,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}>
-                        <Text style={{
-                            backgroundColor: 'transparent',
-                            color: 'white',
-                            alignSelf: 'center',
-                            fontFamily: 'ObliviousFont',
-                            fontSize: 16,
-                        }}>{this.state.average}%</Text>
-                    </View>
-                </View>
+                <PieRank top={-240} average={this.state.average} />
                 <TextInfo top={-165} fontSize={20}
                     text={this.Process.toUpper(this.Process.exists(this.state.title))}
                 />

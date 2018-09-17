@@ -458,4 +458,184 @@ So, in the next gif it's possible to see the title, genres, overview (complete v
 
 To do that implied change a little bit MovieList and MiniMovie components, because I don't wanted make another component to do the same, basically.
 
-Now, I'm gonna detail some parts of the app.
+Now, I'm gonna detail some parts of the app, and I'm gonna do that in Spanish, because I think is a *must*.
+
+**Estructura de la aplicación**
+
+![App structure](https://lh3.googleusercontent.com/7Chiw3NaTI3I7cx95m6YOlwIyPn2ftEC2Xj_Z4bO_rhl35814UL_H0YjR1FitVfMh-PF7ZsQKyg-=s1000)
+
+El diagrama anterior muestra cómo está desplegada la aplicación a nivel físico. Puede parecer un poco confuso, pero en las siguientes líneas explicaré qué hace cada parte.
+
+En la raíz del proyecto se encuentra el archivo App.js, cuyo propósito es:
+
+ 1. Mantener cargado el Splash de Xcode mientras el bridge de React Native (RN) es cargado.
+ 2. Cargar el Splash de RN que empata de forma transparente para el usuario.
+ 3. Abrir el contenedor principal una vez el Splash ha terminado de mostrarse.
+
+## Vistas
+**< MainContainer />**
+
+Esta vista contiene el siguiente despliegue:
+
+![](https://lh3.googleusercontent.com/KwP4oT7eE2opzsARf_eo1o_SeNl3JZ6Jv1dxBXQVYEtugYXihlLFyirY8MMjbUlAb24ZhqUbse6-=s400)
+
+Desde esta vista inicial se cargan los elementos que visualizarán los contenidos a cargar. Ahora iré por cada una de las vistas principales para detallar el siguiente nivel de detalle:
+
+**< HeaderComponent />**
+
+Vista con el título, y el logo de la aplicación. Todos los componentes están basados en ***Animated*** con el fin de agregarle animación a cada elemento.
+
+**< MovieDetails />**
+
+![enter image description here](https://lh3.googleusercontent.com/8I091PIYRdXerSSMVvyqtrFlZM6y7lm02PSJxrQH-LIUk9BUZd9QNJUUp9GitYTi9Kg7Up7Ycr5g)
+
+A través de esta vista, se puede visualizar: Título, lista de géneros, descripción, texto "Cast", que viene a ser el título del sgte componente, que es la lista (componente MovieList) de actores de la película.
+
+**< MainMovie />**
+
+![enter image description here](https://lh3.googleusercontent.com/i5192vtkjwr_654vfWWSnGt32T2_FFnduFjxX8bZs-UtgeQIJOO_u0q_bRZDGWOTv5tYOBnz30rE)
+
+Similar a la anterior, esta es la primera vista con detalles sobre la película que el usuario observa.
+
+Muestra datos como: Fotografía principal, Calificación a través de un chart tipo Pie, textos con el Título, Géneros y descripción corta, y finalmente 3 botones (Agregar a favoritos, Reproducir video, Ver más detalles) que hacen parte del componente ButtonsContainer, que está desplegado de la sgte manera:
+
+![](https://lh3.googleusercontent.com/FSKu-YmTcUT6RQheP-ICraZuY04uBnQbo8tjMscignL9t3gsap-88CK4hNFGWe3hLeI87Mz3xuE-=s900)
+
+Llegado este punto, no sobra comentar que cada elemento en pantalla es un componente único reutilizable, razón por la cual se pueden ver durante toda la aplicación comportamientos como el anterior, en donde cada BottomButton es una instancia de un mismo objeto.
+
+**< YouTubePlayer />**
+
+Este componente es la implementación del plugin [react-native-youtube](https://github.com/inProgress-team/react-native-youtube), junto con un botón utilizado para volver a la vista principal de la película.
+
+**< SearchContainer />**
+
+![enter image description here](https://lh3.googleusercontent.com/L38hGzOOPOcsMtDcgbHpAuDLe6O9wMdO9azmnP-t0OgB9vob3f3VMuDdimsN7wyT0_ofCd6U068P)
+
+SearchContainer es el componente que encapsula el buscador de películas. Está compuesto por: 
+
+ - Caja de texto para escribir un parámetro de búsqueda. A medida que el usuario escribe, la búsqueda se va filtrando con el texto escrito.
+ - Componente BasicButton que muestra 3 puntos que permiten extender la vista. No sobra aclarar que así no se abra manualmente, si el texto escrito genera resultados, la vista se extiende automáticamente. De igual forma, si no hay resultados, se cierra.
+ - FilterContainer. Es el contenedor con los 4 checks que permiten buscar por las 3 categorías montadas (Popular, TopRated y Upcoming), y, Online, que, como su nombre lo indica, realiza una búsqueda directamente en la BD de TMDB.
+ - MovieList. Es el mismo componente descrito con anterioridad, pero que esta vez visualiza los resultados de la búsqueda.
+ - Animated.Image. Este componente muestra, u oculta, una animación que indica precarga. Se usa cuando se hacen búsquedas en línea.
+
+**< CategoriesContainer />**
+
+![enter image description here](https://lh3.googleusercontent.com/Tkfe_QKvhExJACUPY4-_XXSGSvWT3B-lf_0QOnv4fJrwzlCwL2xAnAghMtdZYyt-XPfnAyNajqJn)
+
+Este último gráfico no solo detalla al componente CategoriesContainer, encargado de mantener los listados de las tres categorías de películas, sino también, se extiende hasta mostrar el detalle del despliegue completo involucrado en MovieList, demostrando de esta manera que se fraccionaron muchos elementos dentro de la aplicación con el fin de hacerlos no solo reutilizables, sino legibles.
+
+## Providers
+**Persistencia**
+
+Debido a que la aplicación puede funcionar localmente (requiere al menos una primera conexión a Internet para descargar los datos básicos), y sin Internet (al menos para consulta de datos), se implementó una clase llamada [Database.js](https://github.com/gersonmontenegro/cinemapp/blob/master/providers/Database.js), con la cual se almacenan datos como géneros, y películas, y a la ves se hacen consultas a esta misma información posteriormente.
+
+El motor usado es SQLite3.
+
+**Red**
+
+Cuando se realizan peticiones a la API de TMDB, se utiliza la clase [FetchData.js](https://github.com/gersonmontenegro/cinemapp/blob/master/providers/FetchData.js), creada exclusivamente para realizar peticiones en el momento que lo requiera. Las peticiones actuales son:
+
+ 1. Consulta de géneros, que luego se almacenan internamente.
+ 2. Consulta de las películas pertenecientes a las categorías, que también son clasificadas, y almacenadas.
+ 3. Búsqueda online.
+
+**Negocio**
+
+Se crearon 2 clases para dar apoyo a la lógica de la aplicación:
+
+ 1. [Process.js](https://github.com/gersonmontenegro/cinemapp/blob/master/providers/Process.js)
+ 2. [Actions.js](https://github.com/gersonmontenegro/cinemapp/blob/master/providers/Actions.js)
+
+Mientras que Process se encarga de procesar arreglos, cadenas de texto, y solicitudes al servidor, Actions ejecuta acciones que se encargarán pos sí mismas de controlar un elemento hasta que la acción termine, como es el caso del control de las variables para las animaciones.
+
+**Datos de apoyo**
+
+El archivo [Datos.js](https://github.com/gersonmontenegro/cinemapp/blob/master/providers/Data.js) contiene las constantes que almacenan:
+
+ 1. Listado de categorías con URL de descarga para cada una
+ 2. URL base para descargar géneros, detalles de videos, créditos, y fotos.
+ 3. Es el único sitios donde se usa el archivo ApiAuth.js, que no está versionado porque su único objetivo es almacenar mi api_key, que debe ser única para cada desarrollador.
+
+## Conceptos aplicados
+**Principio de responsabilidad única**
+
+Para mi, el principio de responsabilidad única no es nada más que un patrón de diseño que me permite escribir funciones muy pequeñas que realicen una única tarea.
+
+El propósito de este patrón es facilitar no solo el mantenimiento del código, sino también si legibilidad a largo plazo, y por personas diferentes a quienes lo escribieron.
+
+Ejemplos dentro de esta aplicación sobre este concepto pueden ser vistos al detalle en cualquier de las clases Provider, como por ejemplo, Process, que es el archivo más denso en esta categoría.
+
+Como se comentó hace unas líneas, este archivo se encarga de procesar datos, cadenas de texto, y peticiones al servidor. Estos son algunos apartes de ese archivo:
+
+    cutText(text, characters) {
+        return text != '' ? text.substring(0, characters) + "..." : "";
+    }
+    
+    toUpper(text) {
+        return text != '' ? text.toUpperCase() : '';
+    }
+    
+    exists(text) {
+        return text != null ? text : '';
+    }
+    
+    existsImageBackground(img, state) {
+        return img != '' && img != undefined && img != null && img != 'null' ? img : state.poster_path;
+    }
+
+Pequeñas funciones que hacen una única tarea, y que pueden ser usadas durante toda la aplicación, permitiendo que el código dentro de las vistas sea el mínimo necesario para llamar a un Provider, y visualizar los resultados obtenidos.
+
+Cada función hace pequeñas transacciones, donde incluso se puede hacer uso de otros providers. Por ejemplo, el proceso de buscar en línea es el sgte:
+
+    searchMovieOnline(text) {
+        return new Promise((resolve, reject) => {
+            let fetchData = FetchData.getInstance();
+            fetchData.getData(SEARCH_ONLINE_URL + text).then(
+                (data) => {
+                    resolve(data);
+                }
+            );
+        });
+    }
+
+La función devuelve un objeto Promise, que internamente hace uso del provider FetchData (quien solo realiza peticiones POST a un servidor), para luego devolver como respuesta el resultado de la petición.
+
+El resultado de esta transacción es puesto en el *state* que espera los datos de ducha operación:
+
+    initSearchOnline(text) {
+        this.setState({
+            spinnerOpacity: 1
+        });
+        this.Process.searchMovieOnline(text).then((data) => {
+            this.setState({
+                searchResults: data.results,
+                spinnerOpacity: 0
+            });
+        });
+    }
+
+Esta función (quien hace uso de searchMovieOnline), realiza lo sgte:
+
+ 1. Muestra la animación de precarga.
+ 2. Hace el llamado a searchMovieOnline.
+ 3. Asigna el resultado al *state* respectivo.
+ 4. Oculta la animación de precarga.
+
+Los últimos 2 pasos ocurren en el mismo momento.
+
+**Características de un código limpio**
+
+Para mi, más allá de la implementación de diferentes patrones de diseño (necesarios por donde se les vea), siempre será importante tener un orden para cada cosa, de tal forma que quien sea mire el código de un proyecto por primera vez, al menos entienda cómo está organizado, y de acuerdo a los nombres de los archivos y carpetas, sepa en dónde buscar cada cosa.
+
+Básicamente es la implementación del sentido común al momento de programar.
+
+De igual forma, un código limpio incluye buenos algoritmos que aceleran el rendimiento de la aplicación. Por ejemplo, cuando se va a crear el filtro de búsqueda (dentro del archivo [Process.js](https://github.com/gersonmontenegro/cinemapp/blob/master/providers/Process.js)), se requiere una cadena de tipo *"1,2,3"* (no necesariamente esta cadena), así que para no estar concatenando cadenas de texto unidas por una coma, donde usualmente la última coma debe ser eliminada de forma manual, se crea un array con los códigos de las categorías seleccionadas, y al momento de devolver la cadena mencionada, se ejecuta:
+
+    return  filter.join(',');
+
+Como conclusión, el código limpio siempre va a ser la mezcla entre:
+
+ 1. Patrones de diseño.
+ 2. Buenos algorítmos.
+ 3. Sentido común.

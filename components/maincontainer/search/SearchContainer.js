@@ -51,25 +51,43 @@ class SearchContainer extends PureComponent {
     setCheckBoxState = (value) => {
         switch (value) {
             case 1: {
-                this.setState({ optPopular: !this.state.optPopular });
-                this.setState({ optOnline: false });
+                this.setState({
+                    optPopular: !this.state.optPopular,
+                    optOnline: false
+                }, () => {
+                    this.initSearch(this.state.text)
+                });
                 break;
             }
             case 2: {
-                this.setState({ optTopRated: !this.state.optTopRated });
-                this.setState({ optOnline: false });
+                this.setState({ optTopRated: !this.state.optTopRated, optOnline: false }, () => {
+                    this.initSearch(this.state.text)
+                });
                 break;
             }
             case 3: {
-                this.setState({ optUpcoming: !this.state.optUpcoming });
-                this.setState({ optOnline: false });
+                this.setState({ optUpcoming: !this.state.optUpcoming, optOnline: false }, () => {
+                    this.initSearch(this.state.text)
+                });
                 break;
             }
             case 4: {
-                this.setState({ optOnline: !this.state.optOnline });
-                this.setState({ optPopular: false });
-                this.setState({ optTopRated: false });
-                this.setState({ optUpcoming: false });
+                this.setState({
+                    optOnline: !this.state.optOnline,
+                    optPopular: false,
+                    optTopRated: false,
+                    optUpcoming: false
+                }, () => {
+                    console.log("Online?", this.state.optOnline);
+
+                    if (this.state.optOnline) {
+                        console.log("Online yes");
+                        this.initSearchOnline(this.state.text)
+                    } else {
+                        console.log("Online no");
+                        this.initSearch(this.state.text)
+                    }
+                });
                 break;
             }
         }

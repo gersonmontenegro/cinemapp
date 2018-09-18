@@ -88,13 +88,9 @@ class SearchContainer extends PureComponent {
                     optTopRated: false,
                     optUpcoming: false
                 }, () => {
-                    console.log("Online?", this.state.optOnline);
-
                     if (this.state.optOnline) {
-                        console.log("Online yes");
                         this.initSearchOnline(this.state.text)
                     } else {
-                        console.log("Online no");
                         this.initSearch(this.state.text)
                     }
                 });
@@ -119,7 +115,6 @@ class SearchContainer extends PureComponent {
                     this.initSearch(text);
                 }
             } else {
-                console.log("closing???");
                 this.closeSearch();
                 this.setState({ searchResults: [] });
             }

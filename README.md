@@ -391,6 +391,13 @@ And then, I made, ***in green***, the [mini movie component](https://github.com/
 
 After struggling with some issues from the real life, right now I'm loading all the data from the TMDB API. It wasn't so hard, and the only plugin until that makes me nuts, was the react-native-youtube plugin. Actually, I broke the project and I had to start again from a new folder.
 
+> Actually, to make it works is necessary to remove the plugin (in case that it is installed), and clone the project inside node_modules folder. The commands to do that are:
+> 1. npm uninstall --save react-native-youtube
+> 2. cd node_modules
+> 3. git clone https://github.com/inProgress-team/react-native-youtube.
+> 
+> Yes, is a pain, because if you need to reset the packages, you need to do this every time, but I think is the only way for now.
+
 <img src="https://github.com/gersonmontenegro/cinemapp/blob/master/assets/gif/movie_list_details.gif" width="300px">
 
 Actually, I started to use the SQLite3 database to keep, first of all, all the genres, in order to request them at the moment of select a Movie.
@@ -640,3 +647,5 @@ Como conclusión, el código limpio siempre va a ser la mezcla entre:
  1. Patrones de diseño.
  2. Buenos algorítmos.
  3. Sentido común.
+
+
